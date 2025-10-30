@@ -30,7 +30,7 @@ A theme may include NPM packages: Make sure to check a theme's `package.json` an
 ## Roadmap
 
 -   [ ] Repository
-    -   [ ] :electric_plug: Add plugins `hb-commons` and `hb-theme-*` as submodules
+    -   [x] :electric_plug: Add plugins `hb-commons` and `hb-theme-*` as submodules
     -   [ ] :clipboard: Update README
 -   [ ] Kirby
     -   [ ] :thinking: Eventually scrap alternative `index.php` setup
