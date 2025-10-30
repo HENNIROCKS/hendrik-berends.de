@@ -1,0 +1,6 @@
+[submodule "site/plugins/hb-commons"]
+	path = site/plugins/hb-commons
+	url = https://github.com/HENNIROCKS/hb-commons.git
+[submodule "site/plugins/hb-theme-v13"]
+	path = site/plugins/hb-theme-v13
+	url = https://github.com/HENNIROCKS/hb-theme-v13.git

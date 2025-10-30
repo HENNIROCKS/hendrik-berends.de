@@ -1,0 +1,75 @@
+__*
+
+# Content
+# ----------------------------------
+/content/*
+
+# Editors
+# (sensitive workspace files)
+# ----------------------------------
+*.sublime-workspace
+/.idea
+/.vscode
+
+# Kirby
+# ----------------------------------
+/kirby/*
+/site/plugins/*
+/vendor/*
+
+# Kirby config(s)
+# ----------------------------------
+/site/config/*
+!/site/config/config.php
+
+# Lock files
+# ----------------------------------
+.lock
+
+# Logs and databases
+# ----------------------------------
+/.sqlite
+/site/config/posse.yml
+/site/db/*
+/site/logs/*
+
+# Libraries
+# ----------------------------------
+node_modules
+
+# System files
+# ----------------------------------
+.DS_Store
+Icon
+
+# Temporary files
+# ----------------------------------
+/media/*
+!/media/index.html
+
+# ############ SECURITY ############
+# Never publish these files via Git!
+# ############ SECURITY ############
+
+# Accounts
+# ----------------------------------
+/site/accounts/*
+!/site/accounts/index.html
+
+# Cache files
+# ----------------------------------
+/site/cache/*
+!/site/cache/index.html
+
+# Environment variable
+# ----------------------------------
+.env
+
+# License
+# ----------------------------------
+/site/config/.license
+
+# Sessions
+# ----------------------------------
+/site/sessions/*
+!/site/sessions/index.html
