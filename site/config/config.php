@@ -12,6 +12,8 @@ return [
 
 	'locale' => 'de_DE.utf-8',
 
+	'slugs' => 'de',
+
 	/** 
 	 * Additional config files
 	 */
