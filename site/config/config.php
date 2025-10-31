@@ -19,6 +19,7 @@ return [
 	 */
 
 	'panel'   => require_once 'panel.php',
+	'plugins' => require_once 'plugins.php',
 	'private' => require_once 'private.php',
 	'routes'  => require_once 'routes.php',
 	'thumbs'  => require_once 'thumbs.php',
