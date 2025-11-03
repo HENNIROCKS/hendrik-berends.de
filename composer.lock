@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b7fb803e22a45eb87e24172337208aa",
+    "content-hash": "78bba47d2446b86bdd34542e7917e2a1",
     "packages": [
         {
             "name": "christian-riesen/base32",
@@ -194,6 +194,54 @@
                 }
             ],
             "time": "2025-08-20T19:15:30+00:00"
+        },
+        {
+            "name": "distantnative/retour-for-kirby",
+            "version": "5.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/distantnative/retour-for-kirby.git",
+                "reference": "42364a5271732f571dab93be788a9e5b99919448"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/distantnative/retour-for-kirby/zipball/42364a5271732f571dab93be788a9e5b99919448",
+                "reference": "42364a5271732f571dab93be788a9e5b99919448",
+                "shasum": ""
+            },
+            "require": {
+                "getkirby/cms": "^4.3.1 || ^5.0",
+                "getkirby/composer-installer": "^1.1",
+                "php": ">=8.1.0 <8.5.0"
+            },
+            "type": "kirby-plugin",
+            "extra": {
+                "installer-name": "retour",
+                "kirby-cms-path": false
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nico Hoffmann",
+                    "email": "nico@getkirby.com"
+                }
+            ],
+            "description": "Manage redirects and track 404s right from the Kirby CMS Panel",
+            "homepage": "https://distantnative.com/retour-for-kirby/",
+            "support": {
+                "issues": "https://github.com/distantnative/retour-for-kirby/issues",
+                "source": "https://github.com/distantnative/retour-for-kirby/tree/5.5.0"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/distantnative",
+                    "type": "custom"
+                }
+            ],
+            "time": "2025-04-03T19:59:37+00:00"
         },
         {
             "name": "filp/whoops",
@@ -1207,6 +1255,79 @@
                 }
             ],
             "time": "2025-08-27T11:34:33+00:00"
+        },
+        {
+            "name": "timnarr/kirby-imagex",
+            "version": "0.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/timnarr/kirby-imagex.git",
+                "reference": "cd0fbabd17fef6cbb540a94b4d4b489efb4d2090"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/timnarr/kirby-imagex/zipball/cd0fbabd17fef6cbb540a94b4d4b489efb4d2090",
+                "reference": "cd0fbabd17fef6cbb540a94b4d4b489efb4d2090",
+                "shasum": ""
+            },
+            "require": {
+                "getkirby/composer-installer": "^1.2",
+                "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3",
+                "getkirby/cms": "^4.0",
+                "phpunit/phpunit": "^10.5"
+            },
+            "type": "kirby-plugin",
+            "extra": {
+                "kirby-cms-path": false
+            },
+            "autoload": {
+                "files": [
+                    "helpers/aspectRatio.php",
+                    "helpers/attributes.php",
+                    "helpers/misc.php",
+                    "helpers/srcset.php"
+                ],
+                "psr-4": {
+                    "TimNarr\\": [
+                        "classes/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tim Narr",
+                    "email": "dev@tim-narr.com",
+                    "homepage": "https://tim-narr.com"
+                }
+            ],
+            "description": "Modern images for Kirby CMS – This plugin helps you orchestrate modern, responsive and performant images in Kirby",
+            "homepage": "https://github.com/timnarr/kirby-imagex",
+            "keywords": [
+                "images",
+                "kirby",
+                "kirby-cms",
+                "kirby-plugin",
+                "modern-images",
+                "responsive-images"
+            ],
+            "support": {
+                "issues": "https://github.com/timnarr/kirby-imagex/issues",
+                "source": "https://github.com/timnarr/kirby-imagex/tree/0.1.4"
+            },
+            "funding": [
+                {
+                    "url": "https://www.buymeacoffee.com/tim.n",
+                    "type": "custom"
+                }
+            ],
+            "time": "2025-05-28T07:11:17+00:00"
         }
     ],
     "packages-dev": [],
