@@ -4,3 +4,9 @@
 [submodule "site/plugins/hb-theme-v13"]
 	path = site/plugins/hb-theme-v13
 	url = https://github.com/HENNIROCKS/hb-theme-v13.git
+[submodule "site/plugins/hb-theme-v12"]
+	path = site/plugins/hb-theme-v12
+	url = https://github.com/HENNIROCKS/hb-theme-v12.git
+[submodule "site/plugins/hb-media-library"]
+	path = site/plugins/hb-media-library
+	url = https://github.com/HENNIROCKS/hb-media-library.git
