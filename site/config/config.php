@@ -2,7 +2,8 @@
 
 return [
 
-	'activeTheme' => 'hennirocks/hb-theme-v13',
+	// 'activeTheme' => 'hennirocks/hb-theme-v13',
+	'theme.path' => 'hennirocks/hb-theme-v13',
 
 	'date' => [
 		'handler' => 'intl',
