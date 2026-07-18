@@ -1,0 +1,11 @@
+%list {
+  ol,
+  ul {
+    margin: 0 var(--text-base) var(--spacing-base);
+
+    ol,
+    ul {
+      margin-bottom: 0;
+    }
+  }
+}

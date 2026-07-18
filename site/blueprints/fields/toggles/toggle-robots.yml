@@ -1,0 +1,7 @@
+label: Robots
+
+type: toggle
+
+text:
+  - "index, follow"
+  - "noindex, nofollow"

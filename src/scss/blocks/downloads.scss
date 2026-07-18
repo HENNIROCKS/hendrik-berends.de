@@ -1,0 +1,10 @@
+@use "../placeholders/block";
+@use "../placeholders/table";
+
+.downloads {
+  @extend %block;
+
+  .table {
+    @extend %table;
+  }
+}

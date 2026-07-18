@@ -1,0 +1,40 @@
+@use "../mixins/icon";
+@use "../placeholders/button";
+
+.button {
+  @extend %button;
+
+  &--download {
+    @include icon.icon("download");
+  }
+
+  &--hexagon {
+    aspect-ratio: 1 / cos(30deg);
+    background-color: var(--color-background-darkmode-contrast);
+    border: 0;
+    clip-path: polygon(50% -50%, 100% 50%, 50% 150%, 0 50%);
+    color: var(--color-text-darkmode-contrast);
+    height: 150px;
+    letter-spacing: 2px;
+    position: absolute;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: calc(
+      150px * 1 / cos(30deg)
+    ); // Required for Safari: absolute position breaks the aspect ratio
+
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-background-lightmode-contrast);
+      color: var(--color-text-lightmode-contrast);
+    }
+  }
+
+  &--more {
+    @include icon.icon("plus");
+    margin-top: var(--spacing-large);
+  }
+
+  &--wide {
+    width: 100%;
+  }
+}

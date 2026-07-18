@@ -1,0 +1,11 @@
+@use "../mixins/icon";
+
+%link {
+  a {
+    @include icon.icon("arrow-right");
+
+    &[target="_blank"] {
+      @include icon.icon("arrow-right-up");
+    }
+  }
+}

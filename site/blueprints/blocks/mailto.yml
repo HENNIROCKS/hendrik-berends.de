@@ -1,0 +1,30 @@
+name: Mailto-Button
+
+icon: email
+
+fields:
+  heading:
+    label: Überschrift
+    type: text
+
+  button_text:
+    label: Buttontext
+    type: text
+
+  name:
+    label: Local-part
+    type: text
+    placeholder: "mail"
+    width: 1/4
+
+  domain:
+    label: Domain SLD
+    type: text
+    placeholder: "hendrik-berends"
+    width: 1/2
+
+  tld:
+    label: Domain TLD
+    type: text
+    placeholder: "de"
+    width: 1/4

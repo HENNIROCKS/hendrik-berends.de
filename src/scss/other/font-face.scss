@@ -1,0 +1,45 @@
+$fonts-path: "../fonts";
+
+@font-face {
+  font-family: "remix";
+  src: url("#{$fonts-path}/remix.eot?nfiz12");
+  src: url("#{$fonts-path}/remix.eot?nfiz12#iefix") format("embedded-opentype"),
+    url("#{$fonts-path}/remix.ttf?nfiz12") format("truetype"),
+    url("#{$fonts-path}/remix.woff?nfiz12") format("woff"),
+    url("#{$fonts-path}/remix.svg?nfiz12#remix") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Signika";
+  font-style: normal;
+  font-weight: 300;
+  src: url("#{$fonts-path}/signika-light-webfont.woff2") format("woff2"),
+    url("#{$fonts-path}/signika-light-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Signika";
+  font-style: normal;
+  font-weight: 400;
+  src: url("#{$fonts-path}/signika-regular-webfont.woff2") format("woff2"),
+    url("#{$fonts-path}/signika-regular-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Signika";
+  font-style: normal;
+  font-weight: 600;
+  src: url("#{$fonts-path}/signika-semibold-webfont.woff2") format("woff2"),
+    url("#{$fonts-path}/signika-semibold-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Signika";
+  font-style: normal;
+  font-weight: 700;
+  src: url("#{$fonts-path}/signika-bold-webfont.woff2") format("woff2"),
+    url("#{$fonts-path}/signika-bold-webfont.woff") format("woff");
+}

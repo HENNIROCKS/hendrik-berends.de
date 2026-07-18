@@ -1,0 +1,6 @@
+:root {
+  --radius-base: 10px;
+
+  --radius-tiny: calc(var(--radius-base) / 3.333);
+  --radius-small: calc(var(--radius-base) / 2);
+}

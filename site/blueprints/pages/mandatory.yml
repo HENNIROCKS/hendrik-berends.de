@@ -1,0 +1,6 @@
+title: Seite
+
+icon: verified-badge
+image: icon
+
+extends: layouts/default

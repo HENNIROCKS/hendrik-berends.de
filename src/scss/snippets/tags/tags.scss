@@ -1,0 +1,36 @@
+@use "../../mixins/icon";
+@use "../../placeholders/button";
+
+.tags {
+  display: flex;
+  gap: var(--spacing-base);
+  justify-content: center;
+  margin-bottom: var(--spacing-large);
+  position: relative;
+
+  &__link {
+    @extend %button;
+    align-items: center;
+    display: flex;
+    padding: 0 3px;
+
+    &--disabled {
+      cursor: default;
+
+      &:focus,
+      &:hover {
+        background-color: var(--color-background-lightmode-contrast);
+        color: var(--color-text-lightmode-contrast);
+
+        @media (prefers-color-scheme: dark) {
+          background-color: var(--color-background-darkmode-contrast);
+          color: var(--color-text-darkmode-contrast);
+        }
+      }
+    }
+  }
+
+  &__icon--hashtag {
+    @include icon.icon("hashtag");
+  }
+}

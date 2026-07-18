@@ -1,0 +1,41 @@
+title: Website
+
+tabs:
+  pages:
+    label: Seiten
+    columns:
+      left:
+        width: 1/2
+        sections:
+          published: sections/pages-published-site
+      right:
+        width: 1/2
+        sections:
+          drafts: sections/pages-drafts
+
+  footer:
+    label: Footer
+    fields:
+      footer: fields/groups/group-footer
+      hiddenmessage: fields/textareas/textarea-hiddenmessage
+      stoerer: fields/writers/writer-stoerer
+
+  links:
+    label: Links
+    fields:
+      links: fields/structures/structure-links
+
+  files:
+    label: Dateien
+    sections:
+      files: sections/files-files
+
+  meta:
+    label: Meta
+    fields:
+      meta: fields/groups/group-meta-site
+
+  info:
+    label: Info
+    sections:
+      info: sections/stats-info-site

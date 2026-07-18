@@ -1,0 +1,6 @@
+title: Weiterleitung
+
+icon: share-forward
+
+fields:
+  redirect: fields/pages/pages-redirect

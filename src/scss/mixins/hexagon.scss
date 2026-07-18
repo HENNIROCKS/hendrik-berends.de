@@ -1,0 +1,15 @@
+// @mixin hexagon {
+//   aspect-ratio: 1 / cos(30deg);
+//   background-color: var(--color-background-lightmode-contrast);
+//   clip-path: polygon(50% -50%, 100% 50%, 50% 150%, 0 50%);
+//   color: var(--color-text-lightmode-contrast);
+//   height: 150px;
+//   letter-spacing: 1px;
+//   text-decoration: none;
+//   text-transform: uppercase;
+
+//   @media (prefers-color-scheme: dark) {
+//     background-color: var(--color-background-darkmode-contrast);
+//     color: var(--color-text-darkmode-contrast);
+//   }
+// }

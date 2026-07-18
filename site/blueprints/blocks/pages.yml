@@ -1,0 +1,6 @@
+name: Seiten
+
+icon: file-copy
+
+fields:
+  pages: fields/pages/pages-pages

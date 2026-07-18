@@ -1,0 +1,21 @@
+label: Meta
+
+type: group
+
+fields:
+  customtitle: fields/texts/text-customtitle
+
+  author:
+    extends: fields/texts/text-author
+    width: 1/2
+
+  robots:
+    extends: fields/toggles/toggle-robots
+    disabled: true
+    width: 1/2
+
+  keywords:
+    extends: fields/tags/tags-keywords
+    icon: false
+
+  description: fields/textareas/textarea-description

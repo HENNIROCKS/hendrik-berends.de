@@ -1,0 +1,20 @@
+@use "../placeholders/block";
+@use "../placeholders/pages";
+
+.pages {
+  @extend %block;
+  @extend %pages;
+
+  .pages__article--placeholder {
+    border-radius: var(--radius-base);
+    border: 1px dashed var(--color-text-lightmode);
+
+    @media (prefers-color-scheme: dark) {
+      border-color: var(--color-text-darkmode);
+    }
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+label: Versteckte Nachricht
+
+type: textarea
+
+buttons: false
+
+font: monospace
+
+disabled: true

@@ -1,0 +1,7 @@
+label: Dateien
+
+type: files
+
+layout: cardlets
+
+info: "{{ file.niceSize }}"

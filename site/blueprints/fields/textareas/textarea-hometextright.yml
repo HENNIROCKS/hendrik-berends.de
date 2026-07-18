@@ -1,0 +1,9 @@
+label: Rechter Bereich
+
+type: textarea
+
+buttons: false
+
+placeholder: "Links, falls leer"
+
+size: medium

@@ -1,0 +1,195 @@
+@mixin icon($icon) {
+  &:before {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: "remix" !important;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    speak: never;
+    text-transform: none;
+    vertical-align: middle;
+
+    @if $icon == "anchor" {
+      content: "\e901";
+    }
+
+    @if $icon == "arrow-down-wide" {
+      content: "\e900";
+    }
+
+    @if $icon == "arrow-left-right" {
+      content: "\e902";
+    }
+
+    @if $icon == "arrow-right" {
+      content: "\e903";
+    }
+
+    @if $icon == "arrow-right-box" {
+      content: "\e904";
+    }
+
+    @if $icon == "arrow-right-box-black" {
+      content: "\e905";
+    }
+
+    @if $icon == "arrow-right-up" {
+      content: "\e906";
+    }
+
+    @if $icon == "arrow-right-up-box" {
+      content: "\e907";
+    }
+
+    @if $icon == "arrow-right-up-box-black" {
+      content: "\e908";
+    }
+
+    @if $icon == "behance" {
+      content: "\e909";
+    }
+
+    @if $icon == "bluesky" {
+      content: "\e90a";
+    }
+
+    @if $icon == "check" {
+      content: "\e90b";
+    }
+
+    @if $icon == "chevron-left" {
+      content: "\e90c";
+    }
+
+    @if $icon == "chevron-left-double" {
+      content: "\e90d";
+    }
+
+    @if $icon == "chevron-right" {
+      content: "\e90e";
+    }
+
+    @if $icon == "chevron-right-double" {
+      content: "\e90f";
+    }
+
+    @if $icon == "close" {
+      content: "\e910";
+    }
+
+    @if $icon == "code" {
+      content: "\e911";
+    }
+
+    @if $icon == "discord" {
+      content: "\e912";
+    }
+
+    @if $icon == "download" {
+      content: "\e913";
+    }
+
+    @if $icon == "feed" {
+      content: "\e914";
+    }
+
+    @if $icon == "github" {
+      content: "\e915";
+    }
+
+    @if $icon == "gitlab" {
+      content: "\e916";
+    }
+
+    @if $icon == "hashtag" {
+      content: "\e917";
+    }
+
+    @if $icon == "heart" {
+      color: var(--color-salmon-500);
+      content: "\e918";
+    }
+
+    @if $icon == "linkedin" {
+      content: "\e919";
+    }
+
+    @if $icon == "lock-closed" {
+      content: "\e91a";
+    }
+
+    @if $icon == "lock-open" {
+      content: "\e91b";
+    }
+
+    @if $icon == "login" {
+      content: "\e91c";
+    }
+
+    @if $icon == "logout" {
+      content: "\e91d";
+    }
+
+    @if $icon == "mail" {
+      content: "\e91e";
+    }
+
+    @if $icon == "mastodon" {
+      content: "\e91f";
+    }
+
+    @if $icon == "menu" {
+      content: "\e920";
+    }
+
+    @if $icon == "minus" {
+      content: "\e921";
+    }
+
+    @if $icon == "paypal" {
+      content: "\e922";
+    }
+
+    @if $icon == "pinterest" {
+      content: "\e923";
+    }
+
+    @if $icon == "pixelfed" {
+      content: "\e924";
+    }
+
+    @if $icon == "plus" {
+      content: "\e925";
+    }
+
+    @if $icon == "pushpin" {
+      content: "\e926";
+    }
+
+    @if $icon == "reddit" {
+      content: "\e927";
+    }
+
+    @if $icon == "signal" {
+      content: "\e928";
+    }
+
+    @if $icon == "spotify" {
+      content: "\e929";
+    }
+
+    @if $icon == "steam" {
+      content: "\e92a";
+    }
+
+    @if $icon == "xing" {
+      content: "\e92b";
+    }
+
+    @if $icon == "youtube" {
+      content: "\e92c";
+    }
+  }
+}

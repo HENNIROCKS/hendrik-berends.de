@@ -1,0 +1,10 @@
+label: ""
+
+type: info
+
+theme: neutral
+
+icon: wand
+
+text: |
+  In diese Felder können z. B. Muster von (link: https://pattern.monster text: Pattern Monster target: _blank) eingetragen werden. Auf Pattern Monster den CSS-Code kopieren und darauf achten, die Farbwerte für `fill` und `stroke` ins (link: https://codepen.io/poorfish/pen/VmeZVM text: RRGGBBAA-Format target: _blank) anzupassen.

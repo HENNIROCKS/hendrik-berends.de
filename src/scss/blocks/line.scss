@@ -1,0 +1,7 @@
+@use "../placeholders/block";
+@use "../placeholders/line";
+
+.line {
+  @extend %block;
+  @extend %line;
+}

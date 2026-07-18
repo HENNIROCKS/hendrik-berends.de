@@ -1,0 +1,12 @@
+title: Datei
+
+fields:
+  title: fields/texts/text-title
+
+  alt:
+    extends: fields/texts/text-alt
+    width: 1/3
+
+  caption:
+    extends: fields/writers/writer-caption
+    width: 2/3

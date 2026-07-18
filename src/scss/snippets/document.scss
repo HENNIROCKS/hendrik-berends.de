@@ -1,0 +1,24 @@
+@use "../placeholders/text";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  @media screen and (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+}
+
+.body {
+  @extend %text;
+  background-color: var(--color-background-lightmode);
+  color: var(--color-text-lightmode);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-background-darkmode);
+    color: var(--color-text-darkmode);
+  }
+}

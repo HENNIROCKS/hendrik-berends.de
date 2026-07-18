@@ -1,0 +1,16 @@
+// // @use "../placeholders/link";
+
+a {
+  color: currentColor;
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    color: var(--color-link);
+  }
+}
+
+// // .block__list,
+// // .block__text {
+// //   @extend %link;
+// // }

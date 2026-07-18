@@ -1,0 +1,5 @@
+@use "../mixins/articles";
+
+.main--blog {
+  @include articles.articles("hasButton");
+}

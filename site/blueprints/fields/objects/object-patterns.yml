@@ -1,0 +1,15 @@
+label: Muster
+
+type: object
+
+default:
+  pattern_light: ""
+  pattern_dark: ""
+
+fields:
+  pattern_light: fields/textareas/textarea-pattern-light
+  pattern_dark: fields/textareas/textarea-pattern-dark
+  info_patterns: fields/infos/info-patterns
+  textarea_patterns: fields/textareas/textarea-patterns
+
+help: Das Muster wird auch für die Startseite verwendet.

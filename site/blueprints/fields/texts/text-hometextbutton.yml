@@ -1,0 +1,7 @@
+label: Buttontext
+
+type: text
+
+help: Das Ziel des Buttons ist immer die erste sichtbare Seite.
+
+placeholder: "Eingang o. ä."

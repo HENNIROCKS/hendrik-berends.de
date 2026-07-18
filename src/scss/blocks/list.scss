@@ -1,0 +1,9 @@
+@use "../placeholders/block";
+@use "../placeholders/link";
+@use "../placeholders/list";
+
+.list {
+  @extend %block;
+  @extend %link;
+  @extend %list;
+}

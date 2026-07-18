@@ -1,0 +1,16 @@
+label: Links
+
+type: structure
+
+sortBy: name asc
+
+fields:
+  name:
+    extends: fields/texts/text-name
+    help: Keine Interpunktion verwenden, z. B. nicht "PayPal.me“, ansonsten funktionieren die in den Stylesheets definierten Icons nicht richtig.
+
+  url: fields/urls/url-url
+
+  rel: fields/texts/text-rel
+
+  display: fields/toggles/toggle-display

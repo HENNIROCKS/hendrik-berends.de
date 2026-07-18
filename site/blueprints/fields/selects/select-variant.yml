@@ -1,0 +1,15 @@
+label: Variante
+
+type: select
+
+empty: false
+
+default: "2col-masonry"
+
+options:
+  - value: "2col-masonry"
+    text: Masonry mit 2 Spalten
+  - value: "3col-masonry"
+    text: Masonry mit 3 Spalten
+  - value: "scroll-horizontal"
+    text: Horizontales Scrollen

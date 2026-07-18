@@ -1,0 +1,12 @@
+label: Footer
+
+type: group
+
+fields:
+  footertext: fields/writers/writer-footertext
+  footermenu:
+    extends: fields/pages/pages-pages
+    label: Footermenü
+    query: site.children.published.not("home", "error")
+
+  # patterns: fields/objects/object-patterns

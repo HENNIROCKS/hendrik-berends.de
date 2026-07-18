@@ -1,0 +1,12 @@
+name: field.blocks.heading.name
+
+icon: title
+
+wysiwyg: true
+
+preview: heading
+
+fields:
+  level: fields/toggles/toggle-level
+
+  text: fields/writers/writer-text

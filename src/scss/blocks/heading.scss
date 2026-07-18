@@ -1,0 +1,29 @@
+.heading {
+  font-weight: var(--text-bold);
+  margin-bottom: var(--spacing-base);
+
+  &--h1 {
+    font-size: var(--text-h1);
+    text-align: center;
+  }
+
+  &--h2 {
+    font-size: var(--text-h2);
+  }
+
+  &--h3 {
+    font-size: var(--text-h3);
+  }
+
+  &--h4 {
+    font-size: var(--text-h6);
+  }
+
+  &--h5 {
+    font-size: var(--text-h6);
+  }
+
+  &--h6 {
+    font-size: var(--text-h6);
+  }
+}

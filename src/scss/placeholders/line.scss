@@ -1,0 +1,10 @@
+%line {
+  background-color: var(--color-background-lightmode-muted);
+  height: 2px;
+  margin: 0 auto var(--spacing-large);
+  width: 75px;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-background-darkmode-muted);
+  }
+}

@@ -1,0 +1,17 @@
+@use "../other/button";
+
+.scrolltop {
+  margin: var(--spacing-large) 0;
+  text-align: center;
+
+  &__button {
+    @extend .button;
+    @extend .button--hexagon;
+    background-color: var(--color-stone-200);
+    position: relative;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-stone-700);
+    }
+  }
+}

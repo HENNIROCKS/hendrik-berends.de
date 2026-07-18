@@ -1,0 +1,15 @@
+label: Seiteninformationen
+
+type: stats
+
+reports:
+  - label: Vorlage
+    value: "{{ page.template }}"
+  - label: Veröffentlichte Unterseiten
+    value: "{{ page.children.count }}"
+  - label: Unterseiten gesamt
+    value: "{{ page.childrenAndDrafts.count }}"
+    info: "Inkl. Entwürfe"
+  - label: Dateien
+    value: "{{ page.files.count }}"
+    info: "Gesamtgröße {{ page.files.niceSize }}"

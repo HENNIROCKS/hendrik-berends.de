@@ -1,0 +1,16 @@
+@use "articles";
+@use "block";
+@use "button";
+@use "font-face";
+@use "hidden";
+@use "links";
+@use "section";
+@use "sr-only";
+
+// @use "icons";
+
+@use "../mixins/icon";
+
+.icon--heart {
+  @include icon.icon("heart");
+}

@@ -1,0 +1,13 @@
+// @mixin spacing($value) {
+//   @if $value == "default" {
+//     margin-bottom: var(--spacing-large);
+//   }
+
+//   @if $value == "small" {
+//     margin-bottom: var(--spacing-base);
+//   }
+// }
+
+// // Usage:
+// // @use "../mixins/block-spacings";
+// // @include block-spacings.spacing("small");

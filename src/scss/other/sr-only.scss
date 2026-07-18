@@ -1,0 +1,10 @@
+@use "../placeholders/sr-only";
+
+.sr-only {
+  @extend %sr-only;
+}
+
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  @extend %sr-only-focusable;
+}

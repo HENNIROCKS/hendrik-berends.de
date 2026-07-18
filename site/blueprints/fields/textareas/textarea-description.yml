@@ -1,0 +1,7 @@
+label: Beschreibung
+
+type: textarea
+
+buttons: false
+
+placeholder: "{{ site.description.value }}"

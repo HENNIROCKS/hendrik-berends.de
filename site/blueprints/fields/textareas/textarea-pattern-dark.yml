@@ -1,0 +1,9 @@
+label: Muster für dunkles Schema
+
+type: textarea
+
+buttons: false
+
+placeholder: "background-image: url('data:image/svg+xml,<svg …"
+
+font: monospace

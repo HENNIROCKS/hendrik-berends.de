@@ -47,6 +47,10 @@ Icon
 /media/*
 !/media/index.html
 
+# Work / scratch files
+# ----------------------------------
+/_work/
+
 # ############ SECURITY ############
 # Never publish these files via Git!
 # ############ SECURITY ############

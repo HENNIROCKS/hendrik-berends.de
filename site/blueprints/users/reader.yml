@@ -1,0 +1,13 @@
+title: Leser
+
+description: Leser haben keinen Zugang zum Backend
+
+permissions:
+  access:
+    panel: false
+
+fields:
+  allowed_pages:
+    label: Erlaubte geschützte Seiten
+    type: pages
+    query: site.children.filterBy("protected", true)

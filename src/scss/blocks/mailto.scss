@@ -1,0 +1,20 @@
+@use "../mixins/icon";
+@use "../placeholders/block";
+@use "../placeholders/button";
+
+.mailto {
+  @extend %block;
+
+  &__heading {
+    display: block;
+    margin-bottom: var(--spacing-base);
+  }
+
+  &__link {
+    @extend %button;
+  }
+
+  &__icon--mail {
+    @include icon.icon("mail");
+  }
+}

@@ -1,0 +1,26 @@
+@use "../placeholders/text";
+
+%button {
+  @extend %text;
+  background-color: var(--color-background-lightmode-contrast);
+  border: 1px solid var(--color-background-lightmode-contrast);
+  color: var(--color-text-lightmode-contrast);
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-background-darkmode-contrast);
+    border-color: var(--color-background-darkmode-contrast);
+    color: var(--color-text-darkmode-contrast);
+  }
+
+  &:focus,
+  &:hover {
+    background-color: var(--color-link);
+    border-color: var(--color-link);
+    color: initial;
+  }
+}

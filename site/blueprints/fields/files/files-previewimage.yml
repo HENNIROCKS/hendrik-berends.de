@@ -1,0 +1,9 @@
+label: Vorschaubild
+
+type: files
+
+multiple: false
+
+query: page.images.add(site.find('media').images)
+
+uploads: false

@@ -1,0 +1,15 @@
+label: Seiteninformationen
+
+type: stats
+
+reports:
+  - label: Vorlage
+    value: "N/A"
+  - label: Veröffentlichte Seiten
+    value: "{{ site.children.count }}"
+  - label: Seiten gesamt
+    value: "{{ site.childrenAndDrafts.count }}"
+    info: "Inkl. Entwürfe"
+  - label: Dateien
+    value: "{{ site.files.count }}"
+    info: "Gesamtgröße {{ site.files.niceSize }}"

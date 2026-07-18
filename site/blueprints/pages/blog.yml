@@ -1,0 +1,51 @@
+title: Blog
+
+icon: megaphone
+
+image: icon
+
+tabs:
+  content:
+    label: Inhalt & Artikel
+    columns:
+      top:
+        fields:
+          # TODO: Properly add fields
+          text:
+            type: writer
+            width: 1/2
+          pinned:
+            label: Angepinnt
+            type: pages
+            query: page.children.flip
+            max: 2
+            width: 1/2
+      left:
+        width: 2/3
+        sections:
+          published:
+            extends: sections/pages-published
+            sortBy: date desc
+            info: "{{ page.date.toDate('d. MMMM YYYY') }}"
+      right:
+        width: 1/3
+        sections:
+          drafts:
+            extends: sections/pages-drafts
+            create: blog-article
+            sortBy: date desc
+
+  files:
+    label: Dateien
+    sections:
+      files: sections/files-files
+
+  meta:
+    label: Meta
+    fields:
+      meta: fields/groups/group-meta
+
+  info:
+    label: Info
+    sections:
+      info: sections/stats-info

@@ -1,0 +1,12 @@
+@use "../placeholders/block";
+@use "../placeholders/list";
+
+.jumpmarks {
+  @extend %block;
+  @extend %list;
+
+  &__heading {
+    display: block;
+    margin-bottom: var(--spacing-base);
+  }
+}

@@ -1,0 +1,129 @@
+@use "../mixins/icon";
+@use "../placeholders/container";
+@use "../placeholders/link";
+
+.footer {
+  &__top {
+    @extend %container;
+    align-items: center;
+    border-top: 1px dashed var(--color-text-lightmode);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (prefers-color-scheme: dark) {
+      border-top: 1px dashed var(--color-text-darkmode-muted);
+    }
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+
+  &__text {
+    @extend %link;
+    padding: var(--spacing-base) 0;
+
+    @media (min-width: 768px) {
+      padding: var(--spacing-large) 0;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: var(--spacing-base);
+    list-style: none;
+
+    &--icons {
+      font-size: 1.5em;
+      margin: 0 0 var(--spacing-base) 0;
+
+      @media (min-width: 768px) {
+        margin: 0;
+      }
+    }
+  }
+
+  &__icon {
+    &--bluesky {
+      @include icon.icon("bluesky");
+    }
+
+    &--cara {
+      @include icon.icon("cara");
+    }
+
+    &--github {
+      @include icon.icon("github");
+    }
+
+    &--gitlab {
+      @include icon.icon("gitlab");
+    }
+
+    &--instagram {
+      @include icon.icon("instagram");
+    }
+
+    &--linkedin {
+      @include icon.icon("linkedin");
+    }
+
+    &--mastodon {
+      @include icon.icon("mastodon");
+    }
+
+    &--paypal {
+      @include icon.icon("paypal");
+    }
+
+    &--pinterest {
+      @include icon.icon("pinterest");
+    }
+
+    &--pixelfed {
+      @include icon.icon("pixelfed");
+    }
+
+    &--signal {
+      @include icon.icon("signal");
+    }
+
+    &--spotify {
+      @include icon.icon("spotify");
+    }
+
+    &--steam {
+      @include icon.icon("steam");
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+
+    &--active {
+      // color: var(--color-link);
+      font-weight: var(--text-bold);
+    }
+  }
+
+  &__bottom {
+    background-attachment: fixed;
+    background-image: var(--pattern-light-japanese2);
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-medium) 0;
+
+    @media (prefers-color-scheme: dark) {
+      background-image: var(--pattern-dark-japanese2);
+    }
+
+    @media (min-width: 768px) {
+      padding: var(--spacing-larger) 0;
+    }
+  }
+}

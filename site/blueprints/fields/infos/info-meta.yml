@@ -1,0 +1,10 @@
+label: ""
+
+type: info
+
+theme: positive
+
+icon: info
+
+text: |
+  Auf dieser Seite finden automatisch die globalen Meta-Informationen Anwendung, {{ site.panel.url }}?tab=meta

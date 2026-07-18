@@ -1,0 +1,47 @@
+@use "../../mixins/icon";
+@use "../../placeholders/button";
+
+.tagcloud {
+  font-size: 0;
+  margin-bottom: calc(var(--spacing-large) - var(--spacing-base));
+
+  &__link {
+    @extend %button;
+    margin: 0 var(--spacing-small) var(--spacing-small) 0;
+    padding: 0 3px;
+
+    &--active {
+      background-color: var(--color-link);
+      border-color: var(--color-link);
+      color: initial;
+    }
+
+    &--disabled {
+      cursor: default;
+
+      &:focus,
+      &:hover {
+        background-color: var(--color-background-lightmode-contrast);
+        color: var(--color-text-lightmode-contrast);
+
+        @media (prefers-color-scheme: dark) {
+          background-color: var(--color-background-darkmode-contrast);
+          color: var(--color-text-darkmode-contrast);
+        }
+      }
+    }
+
+    &--reset {
+      background-color: transparent;
+      color: inherit;
+    }
+  }
+
+  &__icon--close {
+    @include icon.icon("close");
+  }
+
+  &__icon--hashtag {
+    @include icon.icon("hashtag");
+  }
+}

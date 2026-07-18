@@ -1,0 +1,5 @@
+label: Individueller Seitentitel
+
+type: text
+
+placeholder: "{{ page.title }} - {{ site.title}}"

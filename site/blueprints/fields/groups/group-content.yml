@@ -1,0 +1,6 @@
+label: Inhalt
+
+type: group
+
+fields:
+  layouts: fields/layouts/layout-layouts

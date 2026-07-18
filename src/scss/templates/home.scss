@@ -1,0 +1,81 @@
+@use "../other/button";
+@use "../variables/patterns";
+
+.home {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--text-large);
+  justify-content: center;
+
+  @media (min-width: 1280px) {
+    flex-direction: row;
+    height: 100vh;
+  }
+
+  &__left,
+  &__right,
+  &__button {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__left,
+  &__right {
+    height: 50vh;
+    width: 100%;
+
+    @media (min-width: 1280px) {
+      height: 100%;
+      width: 50vw;
+    }
+  }
+
+  &__left {
+    background-image: var(--pattern-light-japanese2);
+
+    @media (prefers-color-scheme: dark) {
+      background-image: var(--pattern-dark-japanese2);
+    }
+
+    p {
+      background-color: var(--color-background-lightmode);
+      display: inline;
+
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-background-darkmode);
+      }
+    }
+  }
+
+  &__right {
+    font-size: var(--text-extralarge);
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: var(--spacing-base);
+
+    &-item {
+      flex: 1 0 25%;
+      text-align: center;
+    }
+  }
+
+  &__button {
+    @extend .button;
+    @extend .button--hexagon;
+  }
+
+  &__text {
+    font-size: var(--text-base);
+    width: calc(100% - calc(var(--spacing-base) * 4));
+
+    @media (min-width: 768px) {
+      width: 50%;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@use "../mixins/icon";
+
+.prev-next {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-base);
+
+  &__icon {
+    font-size: 2em;
+
+    &--chevron-left {
+      @include icon.icon("chevron-left");
+    }
+
+    &--chevron-right {
+      @include icon.icon("chevron-right");
+    }
+  }
+
+  &__placeholder {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}

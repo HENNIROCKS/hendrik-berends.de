@@ -1,0 +1,9 @@
+label: Linker Bereich
+
+type: textarea
+
+buttons: false
+
+placeholder: "{{ site.title }}"
+
+size: medium

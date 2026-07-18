@@ -1,0 +1,9 @@
+label: Seiten
+
+type: pages
+
+# info: "{{ page.children.count }}"
+
+status: published
+
+limit: 10

@@ -1,0 +1,31 @@
+title: Startseite
+
+icon: home
+image: icon
+
+tabs:
+  content:
+    label: Inhalt
+    fields:
+      homeTextLeft:
+        extends: fields/textareas/textarea-hometextleft
+        width: 1/2
+      homeTextRight:
+        extends: fields/textareas/textarea-hometextright
+        width: 1/2
+      homeTextButton: fields/texts/text-hometextbutton
+
+  files:
+    label: Dateien
+    sections:
+      files: sections/files-files
+
+  meta:
+    label: Meta
+    fields:
+      info: fields/infos/info-meta
+
+  info:
+    label: Info
+    sections:
+      info: sections/stats-info

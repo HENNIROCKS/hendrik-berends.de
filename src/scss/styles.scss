@@ -1,0 +1,14 @@
+@use "variables/index" as *;
+
+@use "blocks/index" as *;
+@use "other/index" as *;
+@use "snippets/index" as *;
+@use "templates/index" as *;
+
+/**
+ * TODO:
+ * - Update the handling of stylesheets so that only one style.css and several individual template.css are generated and put into assets
+ *   - Goal is using <?php echo css(['assets/css/styles.css', '@auto']) ?>
+ *   - Consider favorising Vite over Gulp for this
+ *   - Consider scrapping SCSS in favor of native CSS with help of PostCSS
+ */

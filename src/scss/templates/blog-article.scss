@@ -1,0 +1,9 @@
+.main--blog-article {
+  .page__infos {
+    text-align: center;
+
+    &.container {
+      margin-bottom: var(--spacing-large);
+    }
+  }
+}

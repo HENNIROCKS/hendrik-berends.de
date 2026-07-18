@@ -1,0 +1,6 @@
+name: Downloads
+
+icon: table
+
+fields:
+  files: fields/files/files-files

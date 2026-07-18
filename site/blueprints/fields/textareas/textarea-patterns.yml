@@ -1,0 +1,8 @@
+label: Notizfeld
+
+type: textarea
+
+buttons: false
+
+help: |
+  Dieses Feld dient lediglich als eine Art Notizfeld um z.B. Muster zwischenzuspeichern. Die Werte in diesem Feld werden nicht ausgegeben.

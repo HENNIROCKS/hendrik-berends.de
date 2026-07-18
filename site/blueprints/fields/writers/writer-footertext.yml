@@ -1,0 +1,6 @@
+label: Text
+
+type: writer
+
+placeholder: |
+  Made with Kirby and <i class="icon icon__heart"></i> &copy; (date: year)
