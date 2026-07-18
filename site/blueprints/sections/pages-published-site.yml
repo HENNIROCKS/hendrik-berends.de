@@ -6,7 +6,7 @@ type: pages
 
 status: published
 
-query: site.children.not(site.find('media'))
+query: site.children.filterBy('slug', '!=', 'media')
 
 help: |
   Die Hauptnavigation wird automatisch aus den öffentlichen Seiten <span class='info-icon info-icon--status-listed' style="background-color: rgb(168, 212, 82); border-radius: 50%; border: 1px solid var(--theme-color-text); display: inline-block; height: var(--text-font-size); line-height: var(--text-line-height); vertical-align: text-bottom; width: var(--text-font-size);"></span> gebildet.
