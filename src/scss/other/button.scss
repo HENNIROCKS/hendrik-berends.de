@@ -16,6 +16,7 @@
     color: var(--color-text-darkmode-contrast);
     height: 150px;
     letter-spacing: 2px;
+    overflow: hidden;
     position: absolute;
     text-decoration: none;
     text-transform: uppercase;
@@ -27,6 +28,37 @@
       background-color: var(--color-background-lightmode-contrast);
       color: var(--color-text-lightmode-contrast);
     }
+
+    &::before {
+      background-color: var(--color-tomato-base);
+      border-radius: 38%;
+      content: "";
+      height: 200%;
+      left: -50%;
+      position: absolute;
+      top: 110%;
+      width: 200%;
+
+      @media screen and (prefers-reduced-motion: no-preference) {
+        animation: hexagon-wave 30s linear infinite;
+        transition: top 0.6s ease;
+      }
+    }
+
+    &:focus,
+    &:hover {
+      background-color: var(--color-background-darkmode-contrast);
+      color: var(--color-text-darkmode-contrast);
+
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-background-lightmode-contrast);
+        color: var(--color-text-lightmode-contrast);
+      }
+
+      &::before {
+        top: 0%;
+      }
+    }
   }
 
   &--more {
@@ -36,5 +68,15 @@
 
   &--wide {
     width: 100%;
+  }
+}
+
+@keyframes hexagon-wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(3600deg);
   }
 }

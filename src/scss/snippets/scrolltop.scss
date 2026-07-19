@@ -13,5 +13,18 @@
     @media (prefers-color-scheme: dark) {
       background-color: var(--color-stone-700);
     }
+
+    &:focus,
+    &:hover {
+      background-color: var(--color-stone-200);
+
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-stone-700);
+      }
+    }
+  }
+
+  &__text {
+    position: relative;
   }
 }
