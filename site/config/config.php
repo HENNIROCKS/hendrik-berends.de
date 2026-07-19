@@ -1,6 +1,6 @@
 <?php
 
-return [
+return array_merge_recursive([
 
 	'activeTheme' => 'hennirocks/hb-theme-v13',
 
@@ -20,13 +20,12 @@ return [
 
 	'slugs' => 'de',
 
-	/** 
+	/**
 	 * Additional config files
 	 */
 
 	'panel'   => require_once 'panel.php',
 	'plugins' => require_once 'plugins.php',
-	'private' => require_once 'private.php',
 	'routes'  => require_once 'routes.php',
 	'thumbs'  => require_once 'thumbs.php',
-];
+], require_once 'private.php');

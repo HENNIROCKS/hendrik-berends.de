@@ -12,9 +12,9 @@ use Kirby\Toolkit\Str;
     <?php foreach (collection('links') as $link): ?>
         <?php if ($link->display()->toBool() === true) : ?>
             <li class="<?= $class ?>__list-item">
-                <a class="<?= $class ?>__link" href="<?= $link->url() ?>" rel="<?= $link->rel() ?>" target="_blank" title="Weiter zu <?= $link->name() ?>">
+                <a class="<?= $class ?>__link" href="<?= $link->url() ?>" rel="<?= esc($link->rel()) ?>" target="_blank" title="Weiter zu <?= esc($link->name()) ?>">
                     <i class="<?= $class ?>__icon <?= $class ?>__icon--<?= Str::lower($link->name()) ?>"></i>
-                    <span class="sr-only"><?= $link->name() ?></span>
+                    <span class="sr-only"><?= esc($link->name()) ?></span>
                 </a>
             </li>
         <?php endif ?>

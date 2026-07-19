@@ -25,10 +25,10 @@ use Kirby\Toolkit\Str;
             <?php snippet('tags/tagcloud') ?>
 
             <?php if ($page->pinned()->isNotEmpty() && !$tag = param('tag')): ?>
-                <?php snippet('blog/articles', ['articles' => $page->pinned()->toPages(), 'ajax' => false, 'class' => 'pinned']) ?>
+                <?php snippet('blog/articles', ['articles' => $page->pinned()->toPages(), 'class' => 'pinned']) ?>
             <?php endif ?>
 
-            <?php snippet('blog/articles', ['articles' => $articles, 'ajax' => false, 'class' => 'default']) ?>
+            <?php snippet('blog/articles', ['articles' => $articles, 'class' => 'default']) ?>
 
             <?php /* TODO: Add pagination later when changing limit in blog controller */ ?>
         </div>

@@ -14,7 +14,7 @@ use Kirby\Toolkit\Str;
 <main class="main main--<?= $page->template() ?> __container">
     <section class="section">
         <h1 class="heading heading--h1" id="<?= Str::slug($page->title()) ?>">
-            <?= $page->title() ?>
+            <?= esc($page->title()) ?>
         </h1>
 
         <?php snippet('prev-next', ['showDate' => false, 'showTags' => true]) ?>

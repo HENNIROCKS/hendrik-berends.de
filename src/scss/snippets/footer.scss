@@ -53,6 +53,7 @@
       @include icon.icon("bluesky");
     }
 
+    // "cara" glyph does not exist in the remix icon font yet - needs a new codepoint added to assets/fonts/remix.* before this link can be enabled
     &--cara {
       @include icon.icon("cara");
     }
@@ -65,6 +66,7 @@
       @include icon.icon("gitlab");
     }
 
+    // "instagram" glyph does not exist in the remix icon font yet - needs a new codepoint added to assets/fonts/remix.* before this link can be enabled
     &--instagram {
       @include icon.icon("instagram");
     }

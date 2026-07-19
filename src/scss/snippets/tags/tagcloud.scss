@@ -1,5 +1,6 @@
 @use "../../mixins/icon";
 @use "../../placeholders/button";
+@use "../../placeholders/button-disabled";
 
 .tagcloud {
   font-size: 0;
@@ -17,18 +18,7 @@
     }
 
     &--disabled {
-      cursor: default;
-
-      &:focus,
-      &:hover {
-        background-color: var(--color-background-lightmode-contrast);
-        color: var(--color-text-lightmode-contrast);
-
-        @media (prefers-color-scheme: dark) {
-          background-color: var(--color-background-darkmode-contrast);
-          color: var(--color-text-darkmode-contrast);
-        }
-      }
+      @extend %button-disabled;
     }
 
     &--reset {

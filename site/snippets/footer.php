@@ -1,13 +1,10 @@
 <?php
 
-// use Kirby\Toolkit\I18n;
-// use Kirby\Toolkit\Str;
-
 /**
  * @var \Kirby\Cms\Site $site
  */
 
-$text = $site->footertext()->or('Made with Kirby and <i class="icon icon__heart"></i> &copy; (date: year)');
+$text = $site->footertext()->or('Made with Kirby and <i class="icon icon__heart"></i> &copy; ' . date('Y'));
 
 ?>
 

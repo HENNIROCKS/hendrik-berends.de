@@ -38,10 +38,6 @@
     display: block;
     padding: var(--spacing-base);
 
-    @media (prefers-color-scheme: dark) {
-      border-bottom-color: var(--color-text-darkmode);
-    }
-
     @media (min-width: 1280px) {
       border-bottom: 1px dashed var(--color-text-lightmode);
       display: table-cell;

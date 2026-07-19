@@ -9,9 +9,7 @@
 <blockquote class="quote">
 
     <span class="quote__text">
-        <!-- <i class="quote__icon quote__icon--chevron-right-double"></i> -->
         <?= $block->text() ?>
-        <!-- <i class="quote__icon quote__icon--chevron-left-double"></i> -->
     </span>
 
     <?php if ($block->citation()->isNotEmpty()): ?>

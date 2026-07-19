@@ -17,7 +17,7 @@ $robots      = $page->robots();
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title><?php e($title->isNotEmpty(), $title, $page->title() . ' – ' . $site->title()) ?></title>
+<title><?php e($title->isNotEmpty(), esc($title), esc($page->title() . ' – ' . $site->title())) ?></title>
 
 <meta name="author" content="<?= esc($author) ?>">
 

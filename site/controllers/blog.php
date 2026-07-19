@@ -2,17 +2,6 @@
 
 return function ($page) {
 
-    // https://getkirby.com/docs/cookbook/content-representations/ajax-load-more
-
-    // $limit    = 9;
-    // $articles = collection('blog-articles')->paginate($limit);
-
-    // return [
-    //     'limit'      => $limit,
-    //     'articles'   => $articles,
-    //     'pagination' => $articles->pagination(),
-    // ];
-
     $articles = collection('blog-articles');
     $tags     = $articles->pluck('tags', ',', true);
 

@@ -8,5 +8,3 @@ fields:
     extends: fields/pages/pages-pages
     label: Footermenü
     query: site.children.published.not("home", "error")
-
-  # patterns: fields/objects/object-patterns

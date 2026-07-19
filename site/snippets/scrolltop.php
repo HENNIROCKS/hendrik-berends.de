@@ -7,7 +7,7 @@
 ?>
 
 <div class="scrolltop">
-    <button aria-label="Nach oben scrollen" class="scrolltop__button" onclick="location.href='#top'" type="button">
+    <button aria-label="Nach oben scrollen" class="scrolltop__button js-scrolltop-button" type="button">
 
         <span class="scrolltop__text">
             <?= $page->scrolltopText()->or("Nach oben scrollen") ?>

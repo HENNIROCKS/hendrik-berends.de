@@ -1,7 +1,5 @@
 <?php
 
-// use Kirby\Toolkit\I18n;
-
 /**
  * @var \Kirby\Cms\Site $site
  */
@@ -19,8 +17,8 @@
     <ul class="navigation__list">
         <?php foreach (collection('pages-listed') as $page): ?>
             <li class="navigation__list-item<?php e($page->isOpen(), ' navigation__list-item--active') ?>">
-                <a class="navigation__link<?php e($page->isOpen(), ' navigation__link--active') ?>" href="<?= $page->url() ?>" title="<?php /* echo I18n::template('link.title.topage', null, ['page' => $page->title()]) */ ?>">
-                    <?= $page->title() ?>
+                <a class="navigation__link<?php e($page->isOpen(), ' navigation__link--active') ?>" href="<?= $page->url() ?>">
+                    <?= esc($page->title()) ?>
                 </a>
             </li>
         <?php endforeach ?>

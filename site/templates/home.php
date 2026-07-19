@@ -16,13 +16,13 @@ $textButton = $page->homeTextButton();
 
 <main class="home">
     <a class="home__button" href="<?= $site->children()->listed()->first() ?>" title="Homepage betreten">
-        <span><?= $textButton->or("Eingang") ?></span>
+        <span><?= esc($textButton->or("Eingang")) ?></span>
     </a>
     <div class="home__left">
         <?php if ($textLeft->isNotEmpty()): ?>
             <div><?= $textLeft->kt() ?></div>
         <?php else: ?>
-            <?= $site->title() ?>
+            <?= esc($site->title()) ?>
         <?php endif ?>
     </div>
     <div class="home__right">

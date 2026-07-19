@@ -14,7 +14,7 @@ use Kirby\Toolkit\Str;
 <main class="main main--<?= $page->template() ?>">
     <section class="section">
         <h1 class="heading heading--h1" id="<?= Str::slug($page->title()) ?>">
-            <?= $page->title() ?>
+            <?= esc($page->title()) ?>
         </h1>
         <hr class="line" />
         <?php snippet('portfolio/articles', ['articles' => collection('portfolio-pages')]) ?>
