@@ -28,7 +28,7 @@ $variant = $block->variant();
 			<div class="gallery__column">
 				<?php foreach ($column as $image): ?>
 					<a data-fslightbox href="<?= $image->url() ?>">
-						<?= $image ?>
+						<?= $image->html(['loading' => 'lazy']) ?>
 					</a>
 				<?php endforeach ?>
 			</div>
@@ -49,7 +49,7 @@ $variant = $block->variant();
 			<div class="gallery__column">
 				<?php foreach ($column as $image): ?>
 					<a data-fslightbox href="<?= $image->url() ?>">
-						<?= $image ?>
+						<?= $image->html(['loading' => 'lazy']) ?>
 					</a>
 				<?php endforeach ?>
 			</div>
@@ -63,7 +63,7 @@ $variant = $block->variant();
 			<div class="gallery__container--inner">
 				<?php foreach ($block->images()->toFiles() as $image): ?>
 					<a data-fslightbox href="<?= $image->url() ?>">
-						<?= $image ?>
+						<?= $image->html(['loading' => 'lazy']) ?>
 					</a>
 				<?php endforeach ?>
 			</div>
@@ -79,7 +79,7 @@ $variant = $block->variant();
 	<div class="gallery gallery--none">
 		<?php foreach ($block->images()->toFiles() as $image): ?>
 			<a data-fslightbox href="<?= $image->url() ?>">
-				<?= $image ?>
+				<?= $image->html(['loading' => 'lazy']) ?>
 			</a>
 		<?php endforeach ?>
 		<?php if ($caption->isNotEmpty()): ?>

@@ -28,11 +28,11 @@ if ($block->location() == 'web') {
 
         <?php if ($link->isNotEmpty()): ?>
             <a class="image__link" href="<?= Str::esc($link->toUrl()) ?>">
-                <img alt="<?= $alt->esc() ?>" src="<?= $src ?>">
+                <img alt="<?= $alt->esc() ?>" loading="lazy" src="<?= $src ?>">
             </a>
         <?php else: ?>
             <a data-fslightbox href="<?= $image->url() ?>">
-                <img alt="<?= $alt->esc() ?>" src="<?= $src ?>">
+                <img alt="<?= $alt->esc() ?>" loading="lazy" src="<?= $src ?>">
             </a>
         <?php endif ?>
 

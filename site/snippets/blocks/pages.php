@@ -14,7 +14,7 @@
                 <a class="pages__link" href="<?= $article->url() ?>" title="<?= esc($article->title()) ?>"></a>
 
                 <?php if ($image = $article->previewimage()->toFile() ?? $article->images()->first()): ?>
-                    <img alt="<?= esc($article->title()) ?>" class="pages__image" src="<?= $image->crop(640, 250, 80)->url() ?>" />
+                    <img alt="<?= esc($article->title()) ?>" class="pages__image" loading="lazy" src="<?= $image->crop(640, 250, 80)->url() ?>" />
                 <?php endif ?>
 
                 <span class="pages__title">
