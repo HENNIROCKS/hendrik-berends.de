@@ -28,3 +28,7 @@ The site's CSS currently comes from `src/scss/` (compiled via `npm run build:css
 ## Deployment
 
 Push to `main` triggers `.github/workflows/deploy.yml`: installs dependencies, builds assets, and deploys via FTP — gated behind the `DEPLOY_ENABLED` repository variable.
+
+## Content sync
+
+`content-sync.command` (double-click to run) pulls the live `content/` folder down from the ALL-INKL server via `lftp` — there's no SSH access on that host, so this is the fastest alternative to dragging files in an FTP client. It prompts for host, remote path (defaults to `live/homepage/content`) and credentials interactively; nothing is hardcoded in the script. Before syncing, it renames the existing local `content/` to `_content-YYMMDD` as a backup rather than overwriting it in place. Both the live `content/` folder and the dated backups are git-ignored and excluded from deployment, same as before.

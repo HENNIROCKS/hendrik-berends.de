@@ -3,6 +3,7 @@ __*
 # Content
 # ----------------------------------
 /content/*
+/_content-*/
 
 # Editors
 # (sensitive workspace files)
@@ -50,6 +51,7 @@ Icon
 # Work / scratch files
 # ----------------------------------
 /_work/
+/content-sync.log
 
 # ############ SECURITY ############
 # Never publish these files via Git!
