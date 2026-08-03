@@ -1,0 +1,38 @@
+<?php
+
+return [
+
+    /**
+     * https://getkirby.com/docs/cookbook/navigation/sitemap
+     */
+
+    [
+        'pattern' => 'sitemap.xml',
+        'action'  => function () {
+            $pages = site()->pages()->index();
+
+            // Fetch the pages to ignore from the config settings;
+            // If nothing is set, we ignore the error page
+            $ignore = kirby()->option('sitemap.ignore', ['error']);
+
+            $content = snippet('sitemap', compact('pages', 'ignore'), true);
+
+            // Return response with correct header type
+            return new Kirby\Cms\Response($content, 'application/xml');
+        }
+    ],
+    [
+        'pattern' => 'sitemap',
+        'action'  => function () {
+            return go('sitemap.xml', 301);
+        }
+    ],
+    [
+        'pattern' => 'llms.txt',
+        'action'  => function () {
+            $content = snippet('llms-txt', [], true);
+
+            return new Kirby\Cms\Response($content, 'text/markdown');
+        }
+    ],
+];

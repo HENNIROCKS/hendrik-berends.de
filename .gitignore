@@ -22,6 +22,7 @@ __*
 # ----------------------------------
 /site/config/*
 !/site/config/config.php
+!/site/config/routes.php
 
 # Lock files
 # ----------------------------------
