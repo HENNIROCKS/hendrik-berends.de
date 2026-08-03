@@ -4,7 +4,7 @@
  * @var \Kirby\Cms\Site $site
  */
 
-$text = $site->footertext()->or('Made with Kirby and <i class="icon icon__heart"></i> &copy; ' . date('Y'));
+$text = $site->footertext()->or('Made with Kirby and <i class="icon icon--heart"></i> &copy; ' . date('Y'));
 
 ?>
 
