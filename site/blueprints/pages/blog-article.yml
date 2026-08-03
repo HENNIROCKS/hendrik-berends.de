@@ -8,8 +8,13 @@ tabs:
   content:
     columns:
       right:
-        fields:
-          previewimage: fields/files/files-previewimage
-          date: fields/dates/date-date
-          short: fields/toggles/toggle-short
-          tags: fields/tags/tags-tags
+        sections:
+          fields:
+            type: fields
+            fields:
+              previewimage: fields/files/files-previewimage
+              date: fields/dates/date-date
+              short: fields/toggles/toggle-short
+              tags: fields/tags/tags-tags
+          mastodon:
+            type: mastodon

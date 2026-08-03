@@ -26,6 +26,8 @@ use Kirby\Toolkit\Str;
         <?php snippet('tags/tags') ?>
 
         <?php snippet('layouts', ['layout_src' => $page->layouts()]) ?>
+
+        <?php snippet('mastodon-replies') ?>
     </section>
 </main>
 

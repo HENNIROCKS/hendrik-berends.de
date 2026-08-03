@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eaba25faeb53f7e6af6f2f34448fc2fa",
+    "content-hash": "61d6f28aaf98f67d3a99773bf4c68e0b",
     "packages": [
         {
             "name": "christian-riesen/base32",
@@ -701,6 +701,41 @@
                 "source": "https://github.com/thephpleague/color-extractor/tree/0.4.0"
             },
             "time": "2022-09-24T15:57:16+00:00"
+        },
+        {
+            "name": "medienbaecker/kirby-mastodon",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/medienbaecker/kirby-mastodon.git",
+                "reference": "c4e7a132e2d094f3495a6f9306bb8ee81d992315"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/medienbaecker/kirby-mastodon/zipball/c4e7a132e2d094f3495a6f9306bb8ee81d992315",
+                "reference": "c4e7a132e2d094f3495a6f9306bb8ee81d992315",
+                "shasum": ""
+            },
+            "require": {
+                "getkirby/composer-installer": "^1.1"
+            },
+            "type": "kirby-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Günther",
+                    "email": "mail@medienbaecker.com"
+                }
+            ],
+            "description": "Two-way Mastodon integration for Kirby: post pages from the Panel or CLI, fetch and display replies",
+            "support": {
+                "issues": "https://github.com/medienbaecker/kirby-mastodon/issues",
+                "source": "https://github.com/medienbaecker/kirby-mastodon/tree/2.0.2"
+            },
+            "time": "2026-06-10T19:54:26+00:00"
         },
         {
             "name": "michelf/php-smartypants",
