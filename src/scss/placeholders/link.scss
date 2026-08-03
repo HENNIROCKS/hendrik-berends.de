@@ -16,5 +16,9 @@
         border-bottom-color: var(--color-link);
       }
     }
+
+    &[target="_blank"] {
+      @include icon.icon("arrow-right-up");
+    }
   }
 }
