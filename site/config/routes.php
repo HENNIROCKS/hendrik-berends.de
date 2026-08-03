@@ -30,7 +30,7 @@ return [
     [
         'pattern' => 'llms.txt',
         'action'  => function () {
-            $content = snippet('llms-txt', [], true);
+            $content = snippet('llms-txt', ['site' => site()], true);
 
             return new Kirby\Cms\Response($content, 'text/markdown');
         }
