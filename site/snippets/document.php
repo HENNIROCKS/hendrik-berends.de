@@ -13,6 +13,9 @@
 
 <head>
     <?php snippet('head') ?>
+    <?php snippet('schema-website') ?>
+    <?php snippet('schema-person') ?>
+    <?php snippet('schema-organization') ?>
 </head>
 
 <body class="body">
@@ -25,6 +28,8 @@
 
         <?php snippet('banner') ?>
         <?php snippet('navigation-main') ?>
+
+        <?php snippet('schema-breadcrumbs') ?>
 
         <?= $slot ?>
 

@@ -22,8 +22,7 @@ $data = [
 
 if ($author) {
     $data['author'] = [
-        '@type' => 'Person',
-        'name'  => $author,
+        '@id' => $site->url() . '#person',
     ];
 }
 

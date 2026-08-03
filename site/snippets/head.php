@@ -29,6 +29,7 @@ $canonicalUrl = url($page->url(), [
 
 $isArticle = $page->intendedTemplate()->name() === 'blog-article';
 $ogImage   = $page->previewimage()->toFile() ?? $site->ogimage()->toFile();
+$aboutPage = page('page://xfzvptqdbmnlbcil');
 
 ?>
 
@@ -52,8 +53,17 @@ $ogImage   = $page->previewimage()->toFile() ?? $site->ogimage()->toFile();
 <meta property="og:description" content="<?= esc($description) ?>">
 <meta property="og:type" content="<?= $isArticle ? 'article' : 'website' ?>">
 <meta property="og:url" content="<?= esc($canonicalUrl) ?>">
+<meta property="og:locale" content="de_DE">
 <?php if ($ogImage): ?>
     <meta property="og:image" content="<?= esc($ogImage->url()) ?>">
+<?php endif ?>
+
+<?php if ($isArticle): ?>
+    <meta property="article:published_time" content="<?= esc(date('c', $page->date()->toTimestamp())) ?>">
+    <meta property="article:modified_time" content="<?= esc(date('c', $page->modified())) ?>">
+    <?php if ($aboutPage): ?>
+        <meta property="article:author" content="<?= esc($aboutPage->url()) ?>">
+    <?php endif ?>
 <?php endif ?>
 
 <meta name="twitter:card" content="<?= $ogImage ? 'summary_large_image' : 'summary' ?>">
