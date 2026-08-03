@@ -4,6 +4,6 @@ type: files
 
 multiple: false
 
-query: page.images.add(site.find('media').images)
+query: page.images
 
 uploads: false
