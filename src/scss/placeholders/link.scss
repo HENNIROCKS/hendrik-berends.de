@@ -4,8 +4,46 @@
   a {
     @include icon.icon("arrow-right");
 
+    @at-root .layouts & {
+      background-color: var(--color-salmon-300);
+
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-salmon-700);
+      }
+
+      &:focus,
+      &:hover {
+        background-color: var(--color-salmon-400);
+        color: var(--color-text-lightmode);
+
+        @media (prefers-color-scheme: dark) {
+          background-color: var(--color-salmon-900);
+          color: var(--color-text-darkmode);
+        }
+      }
+    }
+
     &[target="_blank"] {
       @include icon.icon("arrow-right-up");
+
+      @at-root .layouts & {
+        background-color: var(--color-salmon-100);
+
+        @media (prefers-color-scheme: dark) {
+          background-color: var(--color-salmon-600);
+        }
+
+        &:focus,
+        &:hover {
+          background-color: var(--color-salmon-300);
+          color: var(--color-text-lightmode);
+
+          @media (prefers-color-scheme: dark) {
+            background-color: var(--color-salmon-800);
+            color: var(--color-text-darkmode);
+          }
+        }
+      }
     }
   }
 }
