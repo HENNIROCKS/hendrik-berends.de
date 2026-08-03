@@ -1,0 +1,5 @@
+extends: fields/files/files-previewimage
+
+label: Standard-Social-Media-Bild
+
+query: site.images

@@ -11,6 +11,8 @@ use Kirby\Toolkit\Str;
 <?php snippet('document', slots: true) ?>
 <?php slot() ?>
 
+<?php snippet('schema-blogposting') ?>
+
 <main class="main main--<?= $page->template() ?> __container">
     <section class="section">
         <h1 class="heading heading--h1" id="<?= Str::slug($page->title()) ?>">

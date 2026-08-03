@@ -3,3 +3,5 @@ extends: fields/groups/group-meta
 fields:
   robots:
     disabled: true
+
+  ogimage: fields/files/files-ogimage
