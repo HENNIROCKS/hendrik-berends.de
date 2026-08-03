@@ -6,7 +6,7 @@
  */
 
 $title       = $page->customtitle()->or($site->customtitle());
-$author      = $site->author()->or('');
+$author      = $page->author()->or($site->author());
 $description = $page->description()->or($site->description());
 $keywords    = $page->keywords()->or($site->keywords());
 $robots      = $page->robots();
