@@ -12,39 +12,39 @@
 <html class="scroll-smooth" lang="de">
 
 <head>
-    <?php snippet('head') ?>
-    <?php snippet('schema-website') ?>
-    <?php snippet('schema-person') ?>
-    <?php snippet('schema-organization') ?>
+  <?php snippet('head') ?>
+  <?php snippet('schema-website') ?>
+  <?php snippet('schema-person') ?>
+  <?php snippet('schema-organization') ?>
 </head>
 
 <body class="body">
 
-    <?php if ($page->isHomePage()): ?>
+  <?php if ($page->isHomePage()): ?>
 
-        <?= $slot ?>
+    <?= $slot ?>
 
-    <?php else: ?>
+  <?php else: ?>
 
-        <?php snippet('banner') ?>
-        <?php snippet('navigation-main') ?>
+    <?php snippet('banner') ?>
+    <?php snippet('navigation-main') ?>
 
-        <?php snippet('schema-breadcrumbs') ?>
+    <?php snippet('schema-breadcrumbs') ?>
 
-        <?= $slot ?>
+    <?= $slot ?>
 
-        <?php if ($page->intendedTemplate()->name() !== 'blog'): ?>
-            <?php snippet('scrolltop') ?>
-        <?php endif ?>
-        <?php snippet('footer') ?>
-
+    <?php if ($page->intendedTemplate()->name() !== 'blog'): ?>
+      <?php snippet('scrolltop') ?>
     <?php endif ?>
+    <?php snippet('footer') ?>
 
-    <?php snippet('stoerer') ?>
+  <?php endif ?>
 
-    <a style="display: none" href="https://mastodon.social/@hennirocks_designer" rel="me">Mastodon</a>
+  <?php snippet('stoerer') ?>
 
-    <?= js('assets/js/script.min.js') ?>
+  <a style="display:none" rel="me" href="https://mastodon.social/@hendrik_berends">Mastodon</a>
+
+  <?= js('assets/js/script.min.js') ?>
 
 </body>
 
