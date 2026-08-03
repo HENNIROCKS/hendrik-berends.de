@@ -28,9 +28,9 @@ use Kirby\Toolkit\Str;
                 <?php snippet('blog/articles', ['articles' => $page->pinned()->toPages(), 'class' => 'pinned']) ?>
             <?php endif ?>
 
-            <?php snippet('blog/articles', ['articles' => $articles, 'class' => 'default']) ?>
+            <?php snippet('blog/articles', ['articles' => $articles, 'class' => 'default', 'id' => 'artikel-liste']) ?>
 
-            <?php /* TODO: Add pagination later when changing limit in blog controller */ ?>
+            <?php snippet('blog/pagination', ['pagination' => $pagination, 'tag' => $tag]) ?>
         </div>
     </section>
 </main>

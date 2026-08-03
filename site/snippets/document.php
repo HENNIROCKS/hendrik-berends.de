@@ -28,7 +28,9 @@
 
         <?= $slot ?>
 
-        <?php snippet('scrolltop') ?>
+        <?php if ($page->intendedTemplate()->name() !== 'blog'): ?>
+            <?php snippet('scrolltop') ?>
+        <?php endif ?>
         <?php snippet('footer') ?>
 
     <?php endif ?>

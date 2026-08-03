@@ -1,8 +1,7 @@
-@use "../placeholders/button";
 @use "../placeholders/image";
 @use "icon";
 
-@mixin articles($option) {
+@mixin articles {
   .articles {
     text-align: center;
 
@@ -36,14 +35,6 @@
           top: 1em;
           width: calc(32px + 10px);
         }
-      }
-    }
-
-    @if $option == "hasButton" {
-      &__button {
-        @extend %button;
-        @include icon.icon("plus");
-        margin: var(--spacing-large) 0;
       }
     }
   }

@@ -1,5 +1,5 @@
 @use "../mixins/articles";
 
 .main--blog {
-  @include articles.articles("hasButton");
+  @include articles.articles;
 }

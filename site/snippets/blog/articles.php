@@ -1,4 +1,4 @@
-<div class="articles articles--blog">
+<div class="articles articles--blog"<?php e(isset($id) && $id, ' id="' . $id . '"') ?>>
 
     <div class="articles__list articles__list--<?= $class ?>">
         <?php foreach ($articles as $article): ?>

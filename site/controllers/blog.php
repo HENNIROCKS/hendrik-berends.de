@@ -12,7 +12,7 @@ return function ($page) {
 
     sort($tags);
 
-    $articles   = $articles->paginate(30); // TODO: Reduce limit and add pagination later
+    $articles   = $articles->paginate(12, ['page' => param('page')]);
     $pagination = $articles->pagination();
 
     return compact('articles', 'tags', 'tag', 'pagination');
