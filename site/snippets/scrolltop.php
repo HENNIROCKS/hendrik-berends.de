@@ -10,7 +10,7 @@
     <button aria-label="Nach oben scrollen" class="scrolltop__button js-scrolltop-button" type="button">
 
         <span class="scrolltop__text">
-            <?= $page->scrolltopText()->or("Nach oben scrollen") ?>
+            <?= esc($page->scrolltopText()->or("Nach oben scrollen")) ?>
         </span>
 
     </button>

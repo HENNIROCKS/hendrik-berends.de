@@ -43,7 +43,7 @@
 
   <?php snippet('stoerer') ?>
 
-  <a style="display:none" rel="me" href="https://mastodon.social/@hendrik_berends">Mastodon</a>
+  <a class="hidden" rel="me" href="https://mastodon.social/@hendrik_berends">Mastodon</a>
 
   <?= js('assets/js/script.min.js') ?>
 
