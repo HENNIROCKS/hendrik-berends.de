@@ -12,6 +12,7 @@ $caption = $block->caption();
 $crop    = $block->crop()->isTrue();
 $link    = $block->link();
 $ratio   = $block->ratio()->or('auto');
+$image   = null;
 $src     = null;
 
 if ($block->location() == 'web') {
@@ -21,6 +22,24 @@ if ($block->location() == 'web') {
     $src = $image->url();
 }
 
+$lightboxHref = $image ? $image->url() : $src;
+
+if ($src) {
+    ob_start();
+
+    if ($image) {
+        snippet('partials/content-image', [
+            'image' => $image,
+            'alt' => $alt->value(),
+            'sizes' => '100vw',
+        ]);
+    } else {
+        ?><img alt="<?= $alt->esc() ?>" loading="lazy" src="<?= $src ?>"><?php
+    }
+
+    $imageMarkup = ob_get_clean();
+}
+
 ?>
 
 <?php if ($src): ?>
@@ -28,11 +47,11 @@ if ($block->location() == 'web') {
 
         <?php if ($link->isNotEmpty()): ?>
             <a class="image__link" href="<?= Str::esc($link->toUrl()) ?>">
-                <img alt="<?= $alt->esc() ?>" loading="lazy" src="<?= $src ?>">
+                <?= $imageMarkup ?>
             </a>
         <?php else: ?>
-            <a data-fslightbox href="<?= $image->url() ?>">
-                <img alt="<?= $alt->esc() ?>" loading="lazy" src="<?= $src ?>">
+            <a data-fslightbox href="<?= $lightboxHref ?>">
+                <?= $imageMarkup ?>
             </a>
         <?php endif ?>
 

@@ -2,7 +2,7 @@
 
 use Kirby\Toolkit\Html;
 
-/** 
+/**
  * @var \Kirby\Cms\Block $block
  */
 
@@ -28,7 +28,7 @@ $variant = $block->variant();
 			<div class="gallery__column">
 				<?php foreach ($column as $image): ?>
 					<a data-fslightbox href="<?= $image->url() ?>">
-						<?= $image->html(['loading' => 'lazy']) ?>
+						<?php snippet('partials/content-image', ['image' => $image, 'sizes' => '(min-width: 1280px) 640px, (min-width: 448px) 50vw, 100vw']) ?>
 					</a>
 				<?php endforeach ?>
 			</div>
@@ -49,7 +49,7 @@ $variant = $block->variant();
 			<div class="gallery__column">
 				<?php foreach ($column as $image): ?>
 					<a data-fslightbox href="<?= $image->url() ?>">
-						<?= $image->html(['loading' => 'lazy']) ?>
+						<?php snippet('partials/content-image', ['image' => $image, 'sizes' => '(min-width: 1280px) 426px, (min-width: 448px) 33vw, 100vw']) ?>
 					</a>
 				<?php endforeach ?>
 			</div>
@@ -63,7 +63,7 @@ $variant = $block->variant();
 			<div class="gallery__container--inner">
 				<?php foreach ($block->images()->toFiles() as $image): ?>
 					<a data-fslightbox href="<?= $image->url() ?>">
-						<?= $image->html(['loading' => 'lazy']) ?>
+						<?php snippet('partials/content-image', ['image' => $image, 'sizes' => '(min-width: 1280px) 55vw, 100vw']) ?>
 					</a>
 				<?php endforeach ?>
 			</div>
@@ -79,7 +79,7 @@ $variant = $block->variant();
 	<div class="gallery gallery--none">
 		<?php foreach ($block->images()->toFiles() as $image): ?>
 			<a data-fslightbox href="<?= $image->url() ?>">
-				<?= $image->html(['loading' => 'lazy']) ?>
+				<?php snippet('partials/content-image', ['image' => $image, 'sizes' => '100vw']) ?>
 			</a>
 		<?php endforeach ?>
 		<?php if ($caption->isNotEmpty()): ?>
