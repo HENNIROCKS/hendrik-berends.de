@@ -10,6 +10,7 @@ This is the repository for my own personal website, [hendrik-berends.de](https:/
 composer install
 npm install
 npm run build
+cp .env.example .env  # add real values for MASTODON_INSTANCE/MASTODON_TOKEN/CONTENT_SALT/COOKIE_KEY
 composer start
 ```
 
