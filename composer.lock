@@ -499,12 +499,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/HENNIROCKS/kirby-website-carbon.git",
-                "reference": "764129113533773aaad33cd9ebd45f7a87b52b2a"
+                "reference": "fb923f5b219394a56cccac2accdf5171013356fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/HENNIROCKS/kirby-website-carbon/zipball/764129113533773aaad33cd9ebd45f7a87b52b2a",
-                "reference": "764129113533773aaad33cd9ebd45f7a87b52b2a",
+                "url": "https://api.github.com/repos/HENNIROCKS/kirby-website-carbon/zipball/fb923f5b219394a56cccac2accdf5171013356fc",
+                "reference": "fb923f5b219394a56cccac2accdf5171013356fc",
                 "shasum": ""
             },
             "require": {
@@ -532,7 +532,7 @@
                 "source": "https://github.com/HENNIROCKS/kirby-website-carbon/tree/main",
                 "issues": "https://github.com/HENNIROCKS/kirby-website-carbon/issues"
             },
-            "time": "2026-08-04T12:25:08+00:00"
+            "time": "2026-08-04T17:43:50+00:00"
         },
         {
             "name": "getkirby/cms",
