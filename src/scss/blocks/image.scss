@@ -13,4 +13,8 @@
   img {
     @extend %image;
   }
+
+  picture {
+    @extend %image-wrap;
+  }
 }

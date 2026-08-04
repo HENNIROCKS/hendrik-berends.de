@@ -32,10 +32,34 @@
     .gallery__column {
       font-size: var(--text-base);
 
-      img {
+      img,
+      picture {
         display: block;
         height: auto;
         width: 100%;
+      }
+
+      // ".js" is set on <html> by an inline script in document.php, so
+      // without JS images stay at their default opacity (visible, no
+      // fade) instead of being stuck invisible. Only "picture" (or a
+      // bare "img" not inside one, e.g. the GIF fallback) fades — never
+      // both, since a <picture> and its child <img> would otherwise
+      // fade independently and their opacities compound (multiply).
+      .js & {
+        img,
+        picture {
+          opacity: 0;
+          transition: opacity 0.3s ease;
+
+          &.is-loaded {
+            opacity: 1;
+          }
+        }
+
+        picture img {
+          opacity: 1;
+          transition: none;
+        }
       }
     }
   }
@@ -43,6 +67,10 @@
   &.gallery--none {
     img {
       @extend %image;
+    }
+
+    picture {
+      @extend %image-wrap;
     }
   }
 
@@ -92,7 +120,8 @@
       }
     }
 
-    img {
+    picture {
+      display: inline-block;
       height: auto;
       padding: var(--spacing-base);
       width: 100%;
@@ -100,6 +129,31 @@
       @media (min-width: 1280px) {
         height: 50vh;
         width: auto;
+      }
+    }
+
+    img {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+
+    // See the ".js" note in the masonry variant above — same reasoning
+    // and the same picture/img compounding-opacity fix apply here.
+    .js & {
+      img,
+      picture {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+
+        &.is-loaded {
+          opacity: 1;
+        }
+      }
+
+      picture img {
+        opacity: 1;
+        transition: none;
       }
     }
   }

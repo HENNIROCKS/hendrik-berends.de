@@ -12,6 +12,7 @@
 <html class="scroll-smooth" lang="de">
 
 <head>
+  <script>document.documentElement.classList.add('js')</script>
   <?php snippet('head') ?>
   <?php snippet('schema-website') ?>
   <?php snippet('schema-person') ?>

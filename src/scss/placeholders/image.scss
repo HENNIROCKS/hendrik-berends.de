@@ -1,13 +1,39 @@
+// The ".js &" scoping (".js" is set on <html> by an inline script in
+// document.php, as early as possible) means the fade/skeleton only
+// applies when JS actually ran and can flip ".is-loaded" back on.
+// Without JS (disabled, blocked, blocked by an unrelated script error)
+// images stay at their default opacity — visible immediately, no fade,
+// but never stuck invisible.
 %image {
   display: block;
   height: auto;
   width: 100%;
+
+  .js & {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    &.is-loaded {
+      opacity: 1;
+    }
+  }
 }
 
 // Sizes a <picture> wrapper the same way %image sizes a plain <img>,
 // without the img-only styling (e.g. border-radius) that would be
-// redundant on the non-visible wrapper element.
+// redundant on the wrapper element. Also doubles as a skeleton
+// placeholder (muted background) until js/scripts.js marks it
+// ".is-loaded" — removed afterwards so transparent PNGs don't get a
+// permanent tint. See ".js" note on %image above.
 %image-wrap {
   display: block;
   width: 100%;
+
+  .js &:not(.is-loaded) {
+    background-color: var(--color-background-lightmode-muted);
+
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-background-darkmode-muted);
+    }
+  }
 }
