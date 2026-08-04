@@ -1,8 +1,17 @@
 <?php
 
-return array_merge_recursive([
+\Beebmx\KirbyEnv::load(dirname(__DIR__, 2));
+
+return [
 
 	'activeTheme' => 'hennirocks/hb-theme-v13',
+
+	'auth' => [
+		'debug' => true,
+		'methods' => [
+			'password' => ['2fa' => false]
+		]
+	],
 
 	'cache' => [
 		'pages' => [
@@ -18,18 +27,22 @@ return array_merge_recursive([
 
 	'locale' => 'de_DE.utf-8',
 
+	'panel' => [
+		'language' => 'de',
+		'vue.compiler' => false,
+	],
+
+	'plugins' => require_once 'plugins.php',
+
 	'preview-image' => [
 		'criticalCount' => 6,
 	],
 
+	'routes' => require_once 'routes.php',
+
+	'sitemap.ignore' => ['error'],
+
 	'slugs' => 'de',
 
-	/**
-	 * Additional config files
-	 */
-
-	'panel'   => require_once 'panel.php',
-	'plugins' => require_once 'plugins.php',
-	'routes'  => require_once 'routes.php',
-	'thumbs'  => require_once 'thumbs.php',
-], require_once 'private.php');
+	'thumbs' => require_once 'thumbs.php',
+];

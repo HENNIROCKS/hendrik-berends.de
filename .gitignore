@@ -20,9 +20,7 @@ __*
 
 # Kirby config(s)
 # ----------------------------------
-/site/config/*
-!/site/config/config.php
-!/site/config/routes.php
+/site/config/retour.yml
 
 # Lock files
 # ----------------------------------
@@ -31,7 +29,6 @@ __*
 # Logs and databases
 # ----------------------------------
 /.sqlite
-/site/config/posse.yml
 /site/db/*
 /site/logs/*
 

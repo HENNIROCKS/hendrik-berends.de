@@ -17,7 +17,6 @@ return [
 
             $content = snippet('sitemap', compact('pages', 'ignore'), true);
 
-            // Return response with correct header type
             return new Kirby\Cms\Response($content, 'application/xml');
         }
     ],

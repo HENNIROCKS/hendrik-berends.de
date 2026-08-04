@@ -26,7 +26,8 @@
     "timnarr/kirby-imagex": "^0.1.4",
     "distantnative/retour-for-kirby": "^5.5",
     "medienbaecker/kirby-mastodon": "^2.0",
-    "foerdeliebe-sh/kirby-website-carbon": "dev-main"
+    "foerdeliebe-sh/kirby-website-carbon": "dev-main",
+    "beebmx/kirby-env": "^5.2"
   },
   "repositories": [
     {
