@@ -51,6 +51,10 @@
     @extend %image;
     border-top-left-radius: var(--radius-base);
     border-top-right-radius: var(--radius-base);
+
+    &-wrap {
+      @extend %image-wrap;
+    }
   }
 
   .pages__title {
