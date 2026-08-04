@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-bottom: var(--spacing-base);
 
     @media (prefers-color-scheme: dark) {
       border-top: 1px dashed var(--color-text-darkmode-muted);
@@ -17,19 +18,37 @@
 
     @media (min-width: 768px) {
       flex-direction: row;
+      margin-bottom: 0;
     }
   }
 
   &__text {
     @extend %link;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
     padding: var(--spacing-base) 0;
 
     @media (min-width: 768px) {
+      flex-direction: row;
+      gap: var(--spacing-base);
       padding: var(--spacing-large) 0;
     }
 
     p {
       margin: 0;
+    }
+  }
+
+  &__meta {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-base);
+
+    @media (min-width: 768px) {
+      flex-direction: row;
     }
   }
 
@@ -40,11 +59,6 @@
 
     &--icons {
       font-size: 1.5em;
-      margin: 0 0 var(--spacing-base) 0;
-
-      @media (min-width: 768px) {
-        margin: 0;
-      }
     }
   }
 
