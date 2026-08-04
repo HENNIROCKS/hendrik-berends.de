@@ -12,3 +12,13 @@
  *   - Consider favorising Vite over Gulp for this
  *   - Consider scrapping SCSS in favor of native CSS with help of PostCSS
  */
+
+.website-carbon {
+  &:before {
+    content: none !important;
+  }
+
+  &__icon {
+    line-height: 1;
+  }
+}
