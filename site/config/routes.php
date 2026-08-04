@@ -35,4 +35,14 @@ return [
             return new Kirby\Cms\Response($content, 'text/markdown');
         }
     ],
+    [
+        'pattern' => 'blog/feed.xml',
+        'action'  => function () {
+            $articles = collection('blog-articles')->limit(20);
+
+            $content = snippet('feed', ['site' => site(), 'articles' => $articles], true);
+
+            return new Kirby\Cms\Response($content, 'application/rss+xml');
+        }
+    ],
 ];

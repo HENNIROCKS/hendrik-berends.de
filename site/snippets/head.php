@@ -49,6 +49,8 @@ $aboutPage = page('page://xfzvptqdbmnlbcil');
 
 <link rel="canonical" href="<?= esc($canonicalUrl) ?>">
 
+<link rel="alternate" type="application/rss+xml" title="<?= esc($site->title()) ?> – Blog" href="<?= esc(url('blog/feed.xml')) ?>">
+
 <meta property="og:title" content="<?= esc($titleText) ?>">
 <meta property="og:description" content="<?= esc($description) ?>">
 <meta property="og:type" content="<?= $isArticle ? 'article' : 'website' ?>">
