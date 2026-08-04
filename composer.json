@@ -25,8 +25,15 @@
     "getkirby/cms": "^5.2",
     "timnarr/kirby-imagex": "^0.1.4",
     "distantnative/retour-for-kirby": "^5.5",
-    "medienbaecker/kirby-mastodon": "^2.0"
+    "medienbaecker/kirby-mastodon": "^2.0",
+    "hennirocks/hb-website-carbon": "dev-main"
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/HENNIROCKS/hb-website-carbon.git"
+    }
+  ],
   "config": {
     "allow-plugins": {
       "getkirby/composer-installer": true

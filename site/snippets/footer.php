@@ -11,13 +11,16 @@ $text = $site->footertext()->or('Made with Kirby and <i class="icon icon--heart"
 <footer class="footer">
 
     <div class="footer__top">
-        <?php if ($text->isNotEmpty()) : ?>
-            <div class="footer__text">
+        <div class="footer__text">
+            <?php if ($text->isNotEmpty()) : ?>
                 <?= $text->kt() ?>
-            </div>
-        <?php endif ?>
+            <?php endif ?>
+            <?php snippet('website-carbon') ?>
+        </div>
 
-        <?php snippet('list-icons', ['class' => 'footer']) ?>
+        <div class="footer__meta">
+            <?php snippet('list-icons', ['class' => 'footer']) ?>
+        </div>
     </div>
 
     <div class="footer__bottom">
