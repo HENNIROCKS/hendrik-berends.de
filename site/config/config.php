@@ -18,6 +18,10 @@ return array_merge_recursive([
 
 	'locale' => 'de_DE.utf-8',
 
+	'preview-image' => [
+		'criticalCount' => 6,
+	],
+
 	'slugs' => 'de',
 
 	/**

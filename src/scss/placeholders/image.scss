@@ -3,3 +3,11 @@
   height: auto;
   width: 100%;
 }
+
+// Sizes a <picture> wrapper the same way %image sizes a plain <img>,
+// without the img-only styling (e.g. border-radius) that would be
+// redundant on the non-visible wrapper element.
+%image-wrap {
+  display: block;
+  width: 100%;
+}
