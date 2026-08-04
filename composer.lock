@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "81c29d604004d98c0cac7f8e8fffdeb6",
+    "content-hash": "0a9b70d7e4fb4bc6c073332ce900fb31",
     "packages": [
         {
             "name": "christian-riesen/base32",
@@ -432,6 +432,47 @@
             "time": "2025-08-08T12:00:00+00:00"
         },
         {
+            "name": "foerdeliebe-sh/kirby-website-carbon",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/HENNIROCKS/kirby-website-carbon.git",
+                "reference": "764129113533773aaad33cd9ebd45f7a87b52b2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/HENNIROCKS/kirby-website-carbon/zipball/764129113533773aaad33cd9ebd45f7a87b52b2a",
+                "reference": "764129113533773aaad33cd9ebd45f7a87b52b2a",
+                "shasum": ""
+            },
+            "require": {
+                "getkirby/cms": "^5.0",
+                "getkirby/composer-installer": "^1.2",
+                "php": "~8.2 || ~8.3 || ~8.4 || ~8.5"
+            },
+            "default-branch": true,
+            "type": "kirby-plugin",
+            "autoload": {
+                "psr-4": {
+                    "FoerdeliebeSh\\WebsiteCarbon\\": "classes/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Hendrik Berends"
+                }
+            ],
+            "description": "Website Carbon rating badge, rated lazily server-side from monthly-measured page weight",
+            "support": {
+                "source": "https://github.com/HENNIROCKS/kirby-website-carbon/tree/main",
+                "issues": "https://github.com/HENNIROCKS/kirby-website-carbon/issues"
+            },
+            "time": "2026-08-04T12:25:08+00:00"
+        },
+        {
             "name": "getkirby/cms",
             "version": "5.5.3",
             "source": {
@@ -579,47 +620,6 @@
                 }
             ],
             "time": "2020-12-28T12:54:39+00:00"
-        },
-        {
-            "name": "hennirocks/hb-website-carbon",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/HENNIROCKS/hb-website-carbon.git",
-                "reference": "2f2dfa7cb747503fa980a01b796810013de6cbe7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/HENNIROCKS/hb-website-carbon/zipball/2f2dfa7cb747503fa980a01b796810013de6cbe7",
-                "reference": "2f2dfa7cb747503fa980a01b796810013de6cbe7",
-                "shasum": ""
-            },
-            "require": {
-                "getkirby/cms": "^5.0",
-                "getkirby/composer-installer": "^1.2",
-                "php": "~8.2 || ~8.3 || ~8.4 || ~8.5"
-            },
-            "default-branch": true,
-            "type": "kirby-plugin",
-            "autoload": {
-                "psr-4": {
-                    "Hennirocks\\WebsiteCarbon\\": "classes/"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Hendrik Berends"
-                }
-            ],
-            "description": "Website Carbon rating badge, rated lazily server-side from monthly-measured page weight",
-            "support": {
-                "source": "https://github.com/HENNIROCKS/hb-website-carbon/tree/main",
-                "issues": "https://github.com/HENNIROCKS/hb-website-carbon/issues"
-            },
-            "time": "2026-08-04T12:00:04+00:00"
         },
         {
             "name": "laminas/laminas-escaper",
@@ -1529,7 +1529,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "hennirocks/hb-website-carbon": 20
+        "foerdeliebe-sh/kirby-website-carbon": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

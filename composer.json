@@ -26,12 +26,12 @@
     "timnarr/kirby-imagex": "^0.1.4",
     "distantnative/retour-for-kirby": "^5.5",
     "medienbaecker/kirby-mastodon": "^2.0",
-    "hennirocks/hb-website-carbon": "dev-main"
+    "foerdeliebe-sh/kirby-website-carbon": "dev-main"
   },
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/HENNIROCKS/hb-website-carbon.git"
+      "url": "https://github.com/HENNIROCKS/kirby-website-carbon.git"
     }
   ],
   "config": {

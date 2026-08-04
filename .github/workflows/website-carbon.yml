@@ -33,7 +33,7 @@ jobs:
           npx playwright install --with-deps chromium
 
       - name: Measure page weight
-        run: node site/plugins/hb-website-carbon/scripts/measure.mjs https://hendrik-berends.de content/website-carbon.json
+        run: node site/plugins/kirby-website-carbon/scripts/measure.mjs https://hendrik-berends.de content/website-carbon.json
 
       - name: Upload result via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
