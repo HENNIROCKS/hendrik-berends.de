@@ -1,7 +1,3 @@
 <?php
 
-return [
-
-    'deleteAfter' => 1,
-
-];
+return [];

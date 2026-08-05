@@ -2,7 +2,7 @@
 
 \Beebmx\KirbyEnv::load(dirname(__DIR__, 2));
 
-return [
+$config = [
 
 	'activeTheme' => 'hennirocks/hb-theme-v13',
 
@@ -40,8 +40,6 @@ return [
 		'vue.compiler' => false,
 	],
 
-	'plugins' => require_once 'plugins.php',
-
 	'preview-image' => [
 		'criticalCount' => 6,
 	],
@@ -54,3 +52,5 @@ return [
 
 	'thumbs' => require_once 'thumbs.php',
 ];
+
+return array_merge($config, require_once 'plugins.php');

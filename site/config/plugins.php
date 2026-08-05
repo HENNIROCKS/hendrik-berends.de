@@ -1,9 +1,13 @@
 <?php
 
-$plugins = [];
+$options = [];
 
 foreach (glob(__DIR__ . '/plugins/*.php') as $file) {
-    $plugins[basename($file, '.php')] = require $file;
+    $prefix = basename($file, '.php');
+
+    foreach (require $file as $key => $value) {
+        $options[$prefix . '.' . $key] = $value;
+    }
 }
 
-return $plugins;
+return $options;
