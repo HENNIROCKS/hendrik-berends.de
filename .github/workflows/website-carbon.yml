@@ -35,12 +35,19 @@ jobs:
       - name: Measure page weight
         run: node site/plugins/kirby-website-carbon/scripts/measure.mjs https://hendrik-berends.de content/website-carbon.json
 
-      - name: Upload result via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}/content/
-          local-dir: ./content/
-          protocol: ftp
+      # A single-file upload, deliberately not a folder sync: FTP-Deploy-Action
+      # compares ./content/ against a remote state file and deletes whatever is
+      # missing locally, which would wipe content edited in the Panel.
+      - name: Upload result via FTPS
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
+        run: |
+          dir="${FTP_SERVER_DIR#/}"
+          dir="${dir%/}"
+          curl --fail --show-error --silent --ssl-reqd \
+            --user "$FTP_USERNAME:$FTP_PASSWORD" \
+            --upload-file content/website-carbon.json \
+            "ftp://$FTP_SERVER/$dir/content/website-carbon.json"
