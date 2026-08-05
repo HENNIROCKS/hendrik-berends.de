@@ -29,6 +29,10 @@ return [
 
 	'debug' => true,
 
+	// Kirby hardcodes the translation locale to `en` on single-language sites,
+	// so the plugin's German translation never applies here.
+	'foerdeliebe-sh.kirby-website-carbon.link.title' => 'Mehr über Website Carbon erfahren',
+
 	'locale' => 'de_DE.utf-8',
 
 	'panel' => [

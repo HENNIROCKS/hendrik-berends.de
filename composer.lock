@@ -495,16 +495,16 @@
         },
         {
             "name": "foerdeliebe-sh/kirby-website-carbon",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/HENNIROCKS/kirby-website-carbon.git",
-                "reference": "1588f514d442470c7fabce1545d4aac023a129d8"
+                "reference": "2d3e73e14043cb0f3ac117ebfa895a64f0c6022d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/HENNIROCKS/kirby-website-carbon/zipball/1588f514d442470c7fabce1545d4aac023a129d8",
-                "reference": "1588f514d442470c7fabce1545d4aac023a129d8",
+                "url": "https://api.github.com/repos/HENNIROCKS/kirby-website-carbon/zipball/2d3e73e14043cb0f3ac117ebfa895a64f0c6022d",
+                "reference": "2d3e73e14043cb0f3ac117ebfa895a64f0c6022d",
                 "shasum": ""
             },
             "require": {
@@ -547,7 +547,7 @@
                 "issues": "https://github.com/HENNIROCKS/kirby-website-carbon/issues",
                 "source": "https://github.com/HENNIROCKS/kirby-website-carbon"
             },
-            "time": "2026-08-05T14:05:57+00:00"
+            "time": "2026-08-05T14:19:20+00:00"
         },
         {
             "name": "getkirby/cms",
