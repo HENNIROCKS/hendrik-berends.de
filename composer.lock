@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83a85966c9389833b62ffa98770cd6a5",
+    "content-hash": "ba1123c922615deb361747253e0cc4b9",
     "packages": [
         {
             "name": "beebmx/kirby-env",
@@ -495,44 +495,59 @@
         },
         {
             "name": "foerdeliebe-sh/kirby-website-carbon",
-            "version": "dev-main",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/HENNIROCKS/kirby-website-carbon.git",
-                "reference": "fb923f5b219394a56cccac2accdf5171013356fc"
+                "reference": "1588f514d442470c7fabce1545d4aac023a129d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/HENNIROCKS/kirby-website-carbon/zipball/fb923f5b219394a56cccac2accdf5171013356fc",
-                "reference": "fb923f5b219394a56cccac2accdf5171013356fc",
+                "url": "https://api.github.com/repos/HENNIROCKS/kirby-website-carbon/zipball/1588f514d442470c7fabce1545d4aac023a129d8",
+                "reference": "1588f514d442470c7fabce1545d4aac023a129d8",
                 "shasum": ""
             },
             "require": {
-                "getkirby/cms": "^5.0",
                 "getkirby/composer-installer": "^1.2",
-                "php": "~8.2 || ~8.3 || ~8.4 || ~8.5"
+                "php": "^8.2"
             },
-            "default-branch": true,
+            "require-dev": {
+                "getkirby/cms": "^5.0"
+            },
             "type": "kirby-plugin",
+            "extra": {
+                "kirby-cms-path": false
+            },
             "autoload": {
                 "psr-4": {
                     "FoerdeliebeSh\\WebsiteCarbon\\": "classes/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Hendrik Berends"
+                    "name": "Hendrik Berends",
+                    "homepage": "https://hendrik-berends.de"
                 }
             ],
-            "description": "Website Carbon rating badge, rated lazily server-side from monthly-measured page weight",
+            "description": "Kirby plugin that renders a Website Carbon rating badge, rated lazily server-side from measured page weight",
+            "homepage": "https://github.com/HENNIROCKS/kirby-website-carbon",
+            "keywords": [
+                "CO2",
+                "kirby",
+                "kirby-cms",
+                "kirby-plugin",
+                "sustainability",
+                "website-carbon"
+            ],
             "support": {
-                "source": "https://github.com/HENNIROCKS/kirby-website-carbon/tree/main",
-                "issues": "https://github.com/HENNIROCKS/kirby-website-carbon/issues"
+                "issues": "https://github.com/HENNIROCKS/kirby-website-carbon/issues",
+                "source": "https://github.com/HENNIROCKS/kirby-website-carbon"
             },
-            "time": "2026-08-04T17:43:50+00:00"
+            "time": "2026-08-05T14:05:57+00:00"
         },
         {
             "name": "getkirby/cms",
@@ -1895,9 +1910,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "foerdeliebe-sh/kirby-website-carbon": 20
-    },
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

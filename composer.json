@@ -26,15 +26,9 @@
     "timnarr/kirby-imagex": "^0.1.4",
     "distantnative/retour-for-kirby": "^5.5",
     "medienbaecker/kirby-mastodon": "^2.0",
-    "foerdeliebe-sh/kirby-website-carbon": "dev-main",
+    "foerdeliebe-sh/kirby-website-carbon": "^1.0",
     "beebmx/kirby-env": "^5.2"
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/HENNIROCKS/kirby-website-carbon.git"
-    }
-  ],
   "config": {
     "allow-plugins": {
       "getkirby/composer-installer": true
