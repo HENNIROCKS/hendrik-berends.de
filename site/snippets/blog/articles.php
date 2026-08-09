@@ -1,4 +1,4 @@
-<div class="articles articles--blog"<?php e(isset($id) && $id, ' id="' . $id . '"') ?>>
+<div class="articles articles--blog"<?php if (isset($id) && $id): ?> id="<?= $id ?>"<?php endif ?>>
 
     <div class="articles__list articles__list--<?= $class ?>">
         <?php $criticalCount = kirby()->option('preview-image.criticalCount', 6) ?>
