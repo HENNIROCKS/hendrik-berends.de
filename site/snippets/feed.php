@@ -26,7 +26,11 @@ use Kirby\Toolkit\Escape;
                 <link><?= Escape::xml($article->url()) ?></link>
                 <guid><?= Escape::xml($article->url()) ?></guid>
                 <pubDate><?= date('r', $article->date()->toTimestamp()) ?></pubDate>
-                <description><?= Escape::xml($article->description()->or($site->description())->value()) ?></description>
+                <?php if ($article->private()->toBool()): ?>
+                    <description><?= Escape::xml('Dieser Beitrag ist privat und nur mit Passwort einsehbar.') ?></description>
+                <?php else: ?>
+                    <description><?= Escape::xml($article->description()->or($site->description())->value()) ?></description>
+                <?php endif ?>
             </item>
         <?php endforeach ?>
     </channel>

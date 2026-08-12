@@ -5,6 +5,7 @@
  */
 
 $short        = $article->short()->toBool();
+$private      = $article->private()->toBool();
 $url          = $article->url();
 $title        = $article->title();
 $previewImage = $article->previewimage()->toFile();
@@ -13,12 +14,22 @@ $date         = $article->date();
 
 ?>
 
-<article class="article__preview<?php e($short === true, ' article__preview--short') ?>">
+<article class="article__preview<?php e($short === true, ' article__preview--short') ?><?php e($private === true, ' article__preview--private') ?>">
 
     <a class="article__link" href="<?= $url ?>" aria-label="<?= esc($title) ?>"></a>
 
+    <?php if ($private): ?>
+        <span class="article__private-badge">🔒 Privat</span>
+    <?php endif ?>
+
     <?php if ($image = $previewImage ?? $firstImage): ?>
-        <?php snippet('partials/preview-image', ['image' => $image, 'alt' => $image->alt(), 'class' => 'article__image', 'critical' => $critical ?? false]) ?>
+        <?php snippet('partials/preview-image', [
+            'image' => $image,
+            'alt' => $image->alt(),
+            'class' => 'article__image',
+            'critical' => $critical ?? false,
+            'srcsetName' => $private ? 'preview-private' : 'preview',
+        ]) ?>
     <?php endif ?>
 
     <h3 class="article__title">

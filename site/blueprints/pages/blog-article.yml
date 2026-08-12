@@ -15,6 +15,7 @@ tabs:
               previewimage: fields/files/files-previewimage
               date: fields/dates/date-date
               short: fields/toggles/toggle-short
+              private: fields/toggles/toggle-private
               tags: fields/tags/tags-tags
           mastodon:
             type: mastodon

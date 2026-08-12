@@ -1,0 +1,9 @@
+label: Privat
+
+type: toggle
+
+text:
+  - "Nein"
+  - "Ja"
+
+help: Beitrag erscheint im Feed, ist aber nur mit Passwort einsehbar, verpixeltes Vorschaubild, nicht indexiert.

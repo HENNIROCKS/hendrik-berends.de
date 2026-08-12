@@ -5,13 +5,16 @@
  * @var \Kirby\Cms\Site $site
  */
 
-$title       = $page->isHomePage() ? $page->customtitle()->or($site->customtitle()) : $page->customtitle();
+$isPrivate = $page->private()->toBool();
+$isLocked  = isArticleLocked($page);
+
+$title       = $isLocked ? $site->customtitle() : ($page->isHomePage() ? $page->customtitle()->or($site->customtitle()) : $page->customtitle());
 $author      = $page->author()->or($site->author());
-$description = $page->description()->or($site->description());
-$keywords    = $page->keywords()->or($site->keywords());
+$description = $isLocked ? $site->description() : $page->description()->or($site->description());
+$keywords    = $isLocked ? $site->keywords() : $page->keywords()->or($site->keywords());
 $robots      = $page->robots();
 
-$titleText = $title->isNotEmpty() ? $title->value() : $page->title() . ' – ' . $site->title();
+$titleText = $title->isNotEmpty() ? $title->value() : ($isLocked ? $site->title() : $page->title() . ' – ' . $site->title());
 
 $paginationPage = (int)param('page');
 $tagParam       = param('tag');
@@ -27,8 +30,8 @@ $canonicalUrl = url($page->url(), [
     ]),
 ]);
 
-$isArticle = $page->intendedTemplate()->name() === 'blog-article';
-$ogImage   = $page->previewimage()->toFile() ?? $site->ogimage()->toFile();
+$isArticle = $page->intendedTemplate()->name() === 'blog-article' && $isLocked === false;
+$ogImage   = $isLocked ? $site->ogimage()->toFile() : ($page->previewimage()->toFile() ?? $site->ogimage()->toFile());
 $aboutPage = page('page://xfzvptqdbmnlbcil');
 
 ?>
@@ -45,7 +48,7 @@ $aboutPage = page('page://xfzvptqdbmnlbcil');
 
 <meta name="keywords" content="<?= esc($keywords) ?>">
 
-<meta name="robots" content="<?php e($robots->toBool() === true, 'noindex, nofollow', 'index, follow') ?>">
+<meta name="robots" content="<?php e($robots->toBool() === true || $isPrivate, 'noindex, nofollow', 'index, follow') ?>">
 
 <link rel="canonical" href="<?= esc($canonicalUrl) ?>">
 

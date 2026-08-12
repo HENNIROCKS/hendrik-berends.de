@@ -4,6 +4,8 @@ use Kirby\Toolkit\Str;
 
 /**
  * @var Kirby\Cms\Page $page
+ * @var bool $locked
+ * @var bool $error
  */
 
 ?>
@@ -11,7 +13,9 @@ use Kirby\Toolkit\Str;
 <?php snippet('document', slots: true) ?>
 <?php slot() ?>
 
-<?php snippet('schema-blogposting') ?>
+<?php if ($locked === false): ?>
+    <?php snippet('schema-blogposting') ?>
+<?php endif ?>
 
 <main class="main main--<?= $page->template() ?> __container">
     <section class="section">
@@ -19,13 +23,17 @@ use Kirby\Toolkit\Str;
             <?= esc($page->title()) ?>
         </h1>
 
-        <?php snippet('prev-next', ['showDate' => true, 'showTags' => false]) ?>
+        <?php if ($locked): ?>
+            <?php snippet('blog/password-prompt', ['error' => $error]) ?>
+        <?php else: ?>
+            <?php snippet('prev-next', ['showDate' => true, 'showTags' => false]) ?>
 
-        <hr class=" line" />
+            <hr class=" line" />
 
-        <?php snippet('tags/tags') ?>
+            <?php snippet('tags/tags') ?>
 
-        <?php snippet('layouts', ['layout_src' => $page->layouts()]) ?>
+            <?php snippet('layouts', ['layout_src' => $page->layouts()]) ?>
+        <?php endif ?>
     </section>
 </main>
 

@@ -94,5 +94,18 @@
       font-size: var(--text-small);
       font-weight: var(--text-normal);
     }
+
+    &__private-badge {
+      background-color: var(--color-white-base);
+      border-radius: var(--radius-base);
+      color: var(--color-text-lightmode);
+      font-size: var(--text-small);
+      font-weight: var(--text-bold);
+      right: 1em;
+      padding: 0.25em 0.75em;
+      position: absolute;
+      top: 1em;
+      z-index: 1;
+    }
   }
 }

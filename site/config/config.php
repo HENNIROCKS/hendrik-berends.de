@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/helpers.php';
+
 \Beebmx\KirbyEnv::load(dirname(__DIR__, 2));
 
 $config = [

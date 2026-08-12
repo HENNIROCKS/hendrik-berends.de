@@ -30,6 +30,7 @@ $blogArticles = collection('blog-articles')->limit(20);
 ## Blog
 
 <?php foreach ($blogArticles as $article): ?>
+    <?php if ($article->private()->toBool()) continue ?>
 - [<?= $article->title() ?>](<?= $article->url() ?>)<?php if ($article->description()->isNotEmpty()): ?>: <?= $article->description() ?><?php endif ?>
 
 <?php endforeach ?>

@@ -17,6 +17,18 @@ return [
             '640w'  => ['width' => 640,  'crop' => true, 'quality' => 75, 'format' => 'webp'],
             '1280w' => ['width' => 1280, 'crop' => true, 'quality' => 75, 'format' => 'webp'],
         ],
+        'preview-private' => [
+            '640w'  => ['width' => 640,  'crop' => true, 'quality' => 80, 'blur' => 40],
+            '1280w' => ['width' => 1280, 'crop' => true, 'quality' => 80, 'blur' => 40],
+        ],
+        'preview-private-avif' => [
+            '640w'  => ['width' => 640,  'crop' => true, 'quality' => 65, 'format' => 'avif', 'blur' => 40],
+            '1280w' => ['width' => 1280, 'crop' => true, 'quality' => 65, 'format' => 'avif', 'blur' => 40],
+        ],
+        'preview-private-webp' => [
+            '640w'  => ['width' => 640,  'crop' => true, 'quality' => 75, 'format' => 'webp', 'blur' => 40],
+            '1280w' => ['width' => 1280, 'crop' => true, 'quality' => 75, 'format' => 'webp', 'blur' => 40],
+        ],
         'content' => [
             '640w'  => ['width' => 640,  'quality' => 80],
             '768w'  => ['width' => 768,  'quality' => 80],

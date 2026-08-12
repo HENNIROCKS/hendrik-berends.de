@@ -12,7 +12,9 @@
 <html class="scroll-smooth" lang="de">
 
 <head>
-  <script>document.documentElement.classList.add('js')</script>
+  <script>
+    document.documentElement.classList.add('js')
+  </script>
   <?php snippet('head') ?>
   <?php snippet('schema-website') ?>
   <?php snippet('schema-person') ?>
@@ -34,9 +36,10 @@
 
     <?= $slot ?>
 
-    <?php if ($page->intendedTemplate()->name() !== 'blog'): ?>
+    <?php if ($page->intendedTemplate()->name() !== 'blog' && !isArticleLocked($page)): ?>
       <?php snippet('scrolltop') ?>
     <?php endif ?>
+
     <?php snippet('footer') ?>
 
   <?php endif ?>

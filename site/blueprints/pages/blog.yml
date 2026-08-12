@@ -26,7 +26,8 @@ tabs:
           published:
             extends: sections/pages-published
             sortBy: date desc
-            info: "{{ page.date.toDate('d. MMMM YYYY') }}"
+            text: "{{ page.title.short(30) }}"
+            info: "{{ page.date.toDate('dd.MM.yy') }} | {{ page.private.toBool ? 'Privat' : 'Öffentlich' }}"
       right:
         width: 1/3
         sections:
