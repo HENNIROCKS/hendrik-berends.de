@@ -12,6 +12,10 @@ function setUpSlider(slider) {
     return;
   }
 
+  // Full-bleed measurement is pointless (and its CSS variables unused) once
+  // the block opts out of the breakout via the "fullWidth" block option.
+  const fullBleed = !slider.classList.contains("slider--contained");
+
   // With a single image there is nothing to loop or step through.
   const looping = originals.length > 1;
   const slides = looping ? addClones(track, originals) : originals;
@@ -31,6 +35,10 @@ function setUpSlider(slider) {
   // that are not centered, and documentElement.clientWidth excludes the
   // scrollbar, which a plain 100vw would not.
   const updateBleed = () => {
+    if (!fullBleed) {
+      return;
+    }
+
     const column = slider.parentElement;
 
     slider.style.setProperty(

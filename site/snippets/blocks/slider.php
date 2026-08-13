@@ -22,6 +22,10 @@ if (!is_string($ratio) || !preg_match('/^\d{1,2}\/\d{1,2}$/', $ratio)) {
 // and the slide itself is taller when it carries a caption.
 [$ratioWidth, $ratioHeight] = explode('/', $ratio);
 
+// Missing on blocks saved before this field existed – those keep their
+// current full-bleed appearance.
+$fullWidth = $block->fullWidth()->isEmpty() ? true : $block->fullWidth()->toBool();
+
 // Groups all images of this block into one lightbox gallery, without
 // mixing them with other blocks on the same page.
 $gallery = 'slider-' . $block->id();
@@ -34,7 +38,7 @@ $index = 0;
 ?>
 
 <?php if ($total > 0): ?>
-    <div class="slider js-slider" style="--slider-ratio: <?= $ratio ?>; --slider-ratio-w: <?= $ratioWidth ?>; --slider-ratio-h: <?= $ratioHeight ?>">
+    <div class="slider js-slider<?= $fullWidth ? '' : ' slider--contained' ?>" style="--slider-ratio: <?= $ratio ?>; --slider-ratio-w: <?= $ratioWidth ?>; --slider-ratio-h: <?= $ratioHeight ?>">
 
         <div class="slider__viewport">
             <div class="slider__track js-slider-track" tabindex="0" role="group" aria-roledescription="Slider" aria-label="Bilderslider">

@@ -35,6 +35,13 @@
   margin-left: calc(-1 * var(--slider-bleed-left, #{"(100vw - 100%) / 2"}));
   width: var(--slider-width, 100vw);
 
+  // Opts out of the full-bleed breakout above and stays within the
+  // surrounding column instead.
+  &--contained {
+    margin-left: 0;
+    width: 100%;
+  }
+
   &__viewport {
     position: relative;
   }
