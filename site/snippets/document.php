@@ -15,12 +15,10 @@
   <script>
     document.documentElement.classList.add('js')
   </script>
-  <?php snippet([
-    'head',
-    'schemas/schema-website',
-    'schemas/schema-person',
-    'schemas/schema-organization',
-  ]) ?>
+  <?php snippet('head') ?>
+  <?php snippet('schemas/schema-website') ?>
+  <?php snippet('schemas/schema-person') ?>
+  <?php snippet('schemas/schema-organization') ?>
 </head>
 
 <body class="body">
@@ -30,11 +28,9 @@
 
   <?php else: ?>
 
-    <?php snippet([
-      'banner',
-      'navigation-main',
-      'schemas/schema-breadcrumbs',
-    ]) ?>
+    <?php snippet('banner') ?>
+    <?php snippet('navigation-main') ?>
+    <?php snippet('schemas/schema-breadcrumbs') ?>
 
     <?= $slot ?>
 
