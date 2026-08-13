@@ -15,24 +15,26 @@
   <script>
     document.documentElement.classList.add('js')
   </script>
-  <?php snippet('head') ?>
-  <?php snippet('schema-website') ?>
-  <?php snippet('schema-person') ?>
-  <?php snippet('schema-organization') ?>
+  <?php snippet([
+    'head',
+    'schemas/schema-website',
+    'schemas/schema-person',
+    'schemas/schema-organization',
+  ]) ?>
 </head>
 
 <body class="body">
-
   <?php if ($page->isHomePage()): ?>
 
     <?= $slot ?>
 
   <?php else: ?>
 
-    <?php snippet('banner') ?>
-    <?php snippet('navigation-main') ?>
-
-    <?php snippet('schema-breadcrumbs') ?>
+    <?php snippet([
+      'banner',
+      'navigation-main',
+      'schemas/schema-breadcrumbs',
+    ]) ?>
 
     <?= $slot ?>
 
@@ -49,7 +51,6 @@
   <a class="hidden" rel="me" href="https://mastodon.social/@hendrik_berends">Mastodon</a>
 
   <?= js('assets/js/script.min.js') ?>
-
 </body>
 
 </html>

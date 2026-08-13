@@ -14,27 +14,27 @@ use Kirby\Toolkit\Str;
 <?php slot() ?>
 
 <?php if ($locked === false): ?>
-    <?php snippet('schema-blogposting') ?>
+  <?php snippet('schemas/schema-blogposting') ?>
 <?php endif ?>
 
 <main class="main main--<?= $page->template() ?> __container">
-    <section class="section">
-        <h1 class="heading heading--h1" id="<?= Str::slug($page->title()) ?>">
-            <?= esc($page->title()) ?>
-        </h1>
+  <section class="section">
+    <h1 class="heading heading--h1" id="<?= Str::slug($page->title()) ?>">
+      <?= esc($page->title()) ?>
+    </h1>
 
-        <?php if ($locked): ?>
-            <?php snippet('blog/password-prompt', ['error' => $error]) ?>
-        <?php else: ?>
-            <?php snippet('prev-next', ['showDate' => true, 'showTags' => false]) ?>
+    <?php if ($locked): ?>
+      <?php snippet('blog/password-prompt', ['error' => $error]) ?>
+    <?php else: ?>
+      <?php snippet('prev-next', ['showDate' => true, 'showTags' => false]) ?>
 
-            <hr class=" line" />
+      <hr class=" line" />
 
-            <?php snippet('tags/tags') ?>
+      <?php snippet('tags/tags') ?>
 
-            <?php snippet('layouts', ['layout_src' => $page->layouts()]) ?>
-        <?php endif ?>
-    </section>
+      <?php snippet('layouts', ['layout_src' => $page->layouts()]) ?>
+    <?php endif ?>
+  </section>
 </main>
 
 <?php endslot() ?>
