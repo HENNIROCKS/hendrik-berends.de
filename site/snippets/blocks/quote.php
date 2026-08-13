@@ -1,21 +1,22 @@
 <?php
 
-/**
- * @var \Kirby\Cms\Block $block
- */
+/** @var \Kirby\Cms\Block $block */
+
+$text     = $block->text();
+$citation = $block->citation();
 
 ?>
 
-<blockquote class="quote">
+<blockquote class="border-l-4 m-0 mb-(--spacing-large) pl-4">
 
-    <span class="quote__text">
-        <?= $block->text() ?>
-    </span>
+  <span class="text-2xl">
+    <?= $text ?>
+  </span>
 
-    <?php if ($block->citation()->isNotEmpty()): ?>
-        <footer class="quote__footer">
-            <?= $block->citation() ?>
-        </footer>
-    <?php endif ?>
+  <?php if ($citation->isNotEmpty()): ?>
+    <footer class="before:content-['–'] mt-(--spacing-base)">
+      <?= $citation ?>
+    </footer>
+  <?php endif ?>
 
 </blockquote>
