@@ -3,7 +3,7 @@
 
 .quote {
   @extend %block;
-  text-align: center;
+  // text-align: center;
 
   &__text {
     font-size: 2em;
@@ -21,12 +21,12 @@
     margin-top: var(--spacing-base);
 
     &:before {
-      color: var(--color-text-lightmode-muted);
+      // color: var(--color-text-lightmode-muted);
       content: "–";
 
-      @media (prefers-color-scheme: dark) {
-        color: var(--color-text-darkmode-muted);
-      }
+      // @media (prefers-color-scheme: dark) {
+      //   color: var(--color-text-darkmode-muted);
+      // }
     }
   }
 }
