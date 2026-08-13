@@ -16,6 +16,11 @@ html {
   @extend %text;
   background-color: var(--color-background-lightmode);
   color: var(--color-text-lightmode);
+  // Safety net for the full-bleed slider block: without JS it falls back
+  // to a 100vw breakout, which overshoots by the width of a visible
+  // scrollbar. "clip" instead of "hidden" so no scroll container is
+  // created and position: sticky keeps working.
+  overflow-x: clip;
 
   @media (prefers-color-scheme: dark) {
     background-color: var(--color-background-darkmode);

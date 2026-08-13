@@ -26,6 +26,7 @@ fieldsets:
     fieldsets:
       - image
       - gallery
+      - slider
       - video
       - randomimage
   links:

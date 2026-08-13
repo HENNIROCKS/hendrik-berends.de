@@ -50,7 +50,7 @@ if ($src) {
                 <?= $imageMarkup ?>
             </a>
         <?php else: ?>
-            <a data-fslightbox href="<?= $lightboxHref ?>">
+            <a class="js-lightbox" href="<?= $lightboxHref ?>" data-gallery="image-<?= $block->id() ?>" <?= Html::attr(['data-description' => $caption->lightboxDescription()], null, ' ') ?>>
                 <?= $imageMarkup ?>
             </a>
         <?php endif ?>

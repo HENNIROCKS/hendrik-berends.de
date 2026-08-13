@@ -12,6 +12,10 @@ $ratio   = $block->ratio()->or('auto');
 
 $variant = $block->variant();
 
+// Groups all images of this block into one lightbox gallery, without
+// mixing them with other blocks on the same page.
+$gallery = 'gallery-' . $block->id();
+
 ?>
 
 <?php if ($variant == '2col-masonry'): ?>
@@ -27,7 +31,7 @@ $variant = $block->variant();
 		<?php foreach ($columns as $column): ?>
 			<div class="gallery__column">
 				<?php foreach ($column as $image): ?>
-					<a data-fslightbox href="<?= $image->url() ?>">
+					<a class="js-lightbox" href="<?= $image->url() ?>" data-gallery="<?= $gallery ?>" <?= Html::attr(['data-description' => $image->caption()->lightboxDescription()], null, ' ') ?>>
 						<?php snippet('partials/content-image', ['image' => $image, 'sizes' => '(min-width: 1280px) 640px, (min-width: 448px) 50vw, 100vw']) ?>
 					</a>
 				<?php endforeach ?>
@@ -48,7 +52,7 @@ $variant = $block->variant();
 		<?php foreach ($columns as $column): ?>
 			<div class="gallery__column">
 				<?php foreach ($column as $image): ?>
-					<a data-fslightbox href="<?= $image->url() ?>">
+					<a class="js-lightbox" href="<?= $image->url() ?>" data-gallery="<?= $gallery ?>" <?= Html::attr(['data-description' => $image->caption()->lightboxDescription()], null, ' ') ?>>
 						<?php snippet('partials/content-image', ['image' => $image, 'sizes' => '(min-width: 1280px) 426px, (min-width: 448px) 33vw, 100vw']) ?>
 					</a>
 				<?php endforeach ?>
@@ -62,7 +66,7 @@ $variant = $block->variant();
 			<i class="gallery__icon gallery__icon--arrow-left-right"></i>
 			<div class="gallery__container--inner">
 				<?php foreach ($block->images()->toFiles() as $image): ?>
-					<a data-fslightbox href="<?= $image->url() ?>">
+					<a class="js-lightbox" href="<?= $image->url() ?>" data-gallery="<?= $gallery ?>" <?= Html::attr(['data-description' => $image->caption()->lightboxDescription()], null, ' ') ?>>
 						<?php snippet('partials/content-image', ['image' => $image, 'sizes' => '(min-width: 1280px) 55vw, 100vw']) ?>
 					</a>
 				<?php endforeach ?>
@@ -78,7 +82,7 @@ $variant = $block->variant();
 <?php else: ?>
 	<div class="gallery gallery--none">
 		<?php foreach ($block->images()->toFiles() as $image): ?>
-			<a data-fslightbox href="<?= $image->url() ?>">
+			<a class="js-lightbox" href="<?= $image->url() ?>" data-gallery="<?= $gallery ?>" <?= Html::attr(['data-description' => $image->caption()->lightboxDescription()], null, ' ') ?>>
 				<?php snippet('partials/content-image', ['image' => $image, 'sizes' => '100vw']) ?>
 			</a>
 		<?php endforeach ?>

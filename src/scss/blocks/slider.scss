@@ -1,0 +1,190 @@
+@use "../mixins/icon";
+@use "../placeholders/block";
+@use "../placeholders/image";
+@use "../placeholders/link";
+
+.slider {
+  @extend %block;
+
+  --slider-slide-width: 85vw;
+  // Every fade in this block goes through this one value, so reduced
+  // motion only has to be handled once.
+  --slider-fade: 0.3s;
+
+  @media (prefers-reduced-motion: reduce) {
+    --slider-fade: 0s;
+  }
+
+  @media (min-width: 768px) {
+    --slider-slide-width: 70vw;
+  }
+
+  @media (min-width: 1280px) {
+    --slider-slide-width: min(55vw, 60rem);
+  }
+
+  // Full-bleed breakout from the (centered) layout container. JS sets
+  // "--slider-bleed-left" (distance of the surrounding column to the
+  // viewport edge) and "--slider-width" (viewport width without the
+  // scrollbar), which keeps the breakout exact in off-center columns
+  // and avoids the scrollbar overshoot of a plain 100vw. The fallbacks
+  // are the classic centered-container math for the no-JS case, where
+  // "overflow-x: clip" on ".body" catches the scrollbar overshoot.
+  // The fallback is interpolated so Sass leaves the (for it) incompatible
+  // 100vw/100% subtraction alone and passes it through to the browser.
+  margin-left: calc(-1 * var(--slider-bleed-left, #{"(100vw - 100%) / 2"}));
+  width: var(--slider-width, 100vw);
+
+  &__viewport {
+    position: relative;
+  }
+
+  &__track {
+    display: flex;
+    gap: var(--spacing-base);
+    overflow-x: auto;
+    // Without this the browser promotes the other axis to "auto" as well,
+    // and the track becomes vertically scrollable – a trackpad gesture
+    // then shifts the images up and down inside their slide.
+    overflow-y: clip;
+    // Lets the first and the last slide reach the center as well.
+    padding-inline: calc((100% - var(--slider-slide-width)) / 2);
+    position: relative;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-link);
+      outline-offset: -2px;
+    }
+  }
+
+  &__slide {
+    flex: 0 0 var(--slider-slide-width);
+    scroll-snap-align: center;
+
+    // Dimming the neighbours is tied to ".js": only then is a slide
+    // marked active, and only then does clicking a dimmed slide center
+    // it instead of opening the lightbox.
+    .js &:not(.is-active) {
+      cursor: e-resize;
+    }
+  }
+
+  &__link {
+    aspect-ratio: var(--slider-ratio, 3/2);
+    display: block;
+    height: 100%;
+    transition: opacity var(--slider-fade) ease;
+    width: 100%;
+
+    &:focus-visible {
+      outline: 2px solid var(--color-link);
+      outline-offset: 2px;
+    }
+
+    .js .slider__slide:not(.is-active) & {
+      opacity: 0.4;
+    }
+  }
+
+  &__image-wrap {
+    @extend %image-wrap;
+    height: 100%;
+  }
+
+  &__image {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+
+    // See the ".js" note on %image – the fade only runs when JS can flip
+    // ".is-loaded" back on, and only on one of picture/img so their
+    // opacities cannot compound.
+    .js & {
+      opacity: 0;
+      transition: opacity var(--slider-fade) ease;
+
+      &.is-loaded {
+        opacity: 1;
+      }
+    }
+
+    .js picture & {
+      opacity: 1;
+      transition: none;
+    }
+  }
+
+  &__button {
+    background-color: var(--color-background-lightmode);
+    border: 0;
+    color: var(--color-text-lightmode);
+    cursor: pointer;
+    height: calc(var(--text-base) + 2em);
+    line-height: 0;
+    padding: 1em;
+    position: absolute;
+    // Vertically centered on the image, not on the slide – with a caption
+    // the slide is taller and the buttons would drift downwards.
+    top: calc(
+      var(--slider-slide-width) * var(--slider-ratio-h, 2) /
+        var(--slider-ratio-w, 3) / 2
+    );
+    transform: translateY(-50%);
+    transition: opacity var(--slider-fade) ease;
+    width: calc(var(--text-base) + 2em);
+
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-background-darkmode);
+      color: var(--color-text-darkmode);
+    }
+
+    &:focus,
+    &:hover {
+      color: var(--color-link);
+    }
+
+    // Sits on the outer edge of the (centered) active slide.
+    &--prev {
+      left: calc(50% - var(--slider-slide-width) / 2);
+      @include icon.icon("chevron-left");
+    }
+
+    &--next {
+      right: calc(50% - var(--slider-slide-width) / 2);
+      @include icon.icon("chevron-right");
+    }
+
+    // Without JS the buttons do nothing, so they are not rendered as
+    // controls at all.
+    html:not(.js) & {
+      display: none;
+    }
+  }
+
+  // Sits inside the slide, so it scrolls along with its image and keeps
+  // its space in the layout – hiding it with "display: none" would make
+  // the track height jump on every slide change.
+  &__caption {
+    @extend %link;
+    margin-top: var(--spacing-small);
+    transition: opacity var(--slider-fade) ease;
+
+    // Only the active slide shows its caption. "visibility" follows once
+    // the fade has finished, otherwise links inside a caption that is
+    // invisible would still be reachable via tab.
+    .js .slider__slide:not(.is-active) & {
+      opacity: 0;
+      transition:
+        opacity var(--slider-fade) ease,
+        visibility 0s var(--slider-fade);
+      visibility: hidden;
+    }
+  }
+}

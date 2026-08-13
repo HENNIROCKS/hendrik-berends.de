@@ -13,6 +13,11 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    // Without this the column keeps its automatic minimum size and can
+    // never be narrower than its widest block. A full-bleed block (the
+    // slider) would pull the column to viewport width and stretch every
+    // sibling block along with it.
+    min-width: 0;
 
     &--3 {
       // 1/4 column

@@ -1,0 +1,39 @@
+name: Slider
+
+icon: carousel-view
+
+fields:
+  images:
+    label: Bilder
+    type: files
+    query: model.images
+    multiple: true
+    layout: cards
+    size: small
+    empty: Noch keine Bilder ausgewählt
+    uploads:
+      template: blocks/image
+    image:
+      ratio: 1/1
+
+  info:
+    label: Bildunterschriften
+    type: info
+    text: Die Bildunterschrift wird pro Bild an der Datei gepflegt und erscheint unter dem jeweiligen Slide sowie in der Lightbox.
+
+  ratio:
+    label: Seitenverhältnis
+    type: select
+    empty: false
+    default: "3/2"
+    width: 1/2
+    options:
+      1/1: "1:1"
+      16/9: "16:9"
+      21/9: "21:9"
+      7/5: "7:5"
+      4/3: "4:3"
+      5/3: "5:3"
+      3/2: "3:2"
+      3/1: "3:1"
+      2/3: "2:3 (hoch)"

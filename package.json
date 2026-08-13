@@ -17,7 +17,7 @@
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.0",
     "concurrently": "^9.2.1",
-    "fslightbox": "^3.7.4",
+    "glightbox": "^3.3.1",
     "sass": "^1.93.2",
     "tailwindcss": "^4.3.0",
     "webpack": "^5.102.1",

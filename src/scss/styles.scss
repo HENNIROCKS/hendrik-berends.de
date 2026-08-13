@@ -1,5 +1,9 @@
 @use "variables/index" as *;
 
+// Plain CSS shipped with the lightbox library, loaded straight from
+// node_modules so it stays in sync with the installed version.
+@use "../../node_modules/glightbox/dist/css/glightbox";
+
 @use "blocks/index" as *;
 @use "other/index" as *;
 @use "snippets/index" as *;

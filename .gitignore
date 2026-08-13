@@ -16,6 +16,9 @@ __*
 # ----------------------------------
 /kirby/*
 /site/plugins/*
+# Eigenes Site-Plugin, kein Vendor-Paket: muss versioniert werden,
+# sonst fehlt es im Deploy (CI installiert nur die Composer-Plugins).
+!/site/plugins/hnnrcks-site
 /vendor/*
 
 # Kirby config(s)
