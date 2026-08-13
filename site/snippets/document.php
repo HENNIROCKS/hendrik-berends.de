@@ -38,9 +38,9 @@
 
     <?= $slot ?>
 
-    <?php if ($page->intendedTemplate()->name() !== 'blog' && !isArticleLocked($page)): ?>
+    <?php /* if ($page->intendedTemplate()->name() !== 'blog' && !isArticleLocked($page)): ?>
       <?php snippet('scrolltop') ?>
-    <?php endif ?>
+    <?php endif */ ?>
 
     <?php snippet('footer') ?>
 
