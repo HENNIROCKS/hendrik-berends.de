@@ -9,8 +9,8 @@ $image = $page->images()->shuffle()->first();
 ?>
 
 <?php if ($image): ?>
-    <figure class="image">
-        <a class="image__link" href="<?= $page->url() ?>" title="Diese Seite neu laden">
+    <figure class="media mb-xl">
+        <a href="<?= $page->url() ?>" title="Diese Seite neu laden">
             <img alt="Ein zufälliges GIF" loading="lazy" src="<?= $image->url() ?>">
         </a>
     </figure>

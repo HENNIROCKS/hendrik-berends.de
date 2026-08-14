@@ -3,18 +3,6 @@
 use Kirby\Cms\App as Kirby;
 
 Kirby::plugin('hnnrcks/site', [
-    'hooks' => [
-        /**
-         * Markdown tables get the data-table utility. Only the table itself
-         * needs tagging — the utility reaches its cells by element selector,
-         * so the head, body, row and cell tags no longer carry classes of
-         * their own.
-         */
-        'kirbytext:after' => function ($text) {
-            return str_replace('<table>', '<table class="data-table">', $text);
-        }
-    ],
-
     'fieldMethods' => [
         /**
          * A caption field, prepared for GLightbox's "data-description".
