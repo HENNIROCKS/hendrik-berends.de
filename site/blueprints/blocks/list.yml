@@ -1,0 +1,20 @@
+name: field.blocks.list.name
+icon: list-bullet
+wysiwyg: true
+preview: list
+
+# 1:1-Kopie des Core-Blueprints (kirby/config/blocks/list/list.yml), ergaenzt
+# um ein explizites `nodes`. Ohne das laesst sich im Panel keine nummerierte
+# Liste speichern: der Feldtyp `list` hat fuer `nodes` den Default `null`, und
+# `null` faellt aus den Feld-Props heraus, die ans Panel gehen – die Node-Liste
+# kommt dort also nie an. Die Buttons fuer ul/ol sind trotzdem sichtbar, nur
+# `<ol>` wird beim Speichern verworfen. Verifiziert mit Kirby 5.5.3.
+#
+# Diese Datei also nicht loeschen, solange das Verhalten im Core besteht.
+fields:
+  text:
+    label: field.blocks.list.name
+    type: list
+    nodes:
+      - bulletList
+      - orderedList

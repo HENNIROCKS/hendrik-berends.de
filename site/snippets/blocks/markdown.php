@@ -6,6 +6,6 @@
 
 ?>
 
-<div class="markdown">
+<div class="prose mb-xl">
     <?= $block->text()->kt() ?>
 </div>

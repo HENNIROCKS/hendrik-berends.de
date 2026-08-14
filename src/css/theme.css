@@ -73,6 +73,11 @@
   --color-link: var(--color-salmon-700);
   --color-focus: var(--color-salmon-700);
 
+  /* Code sits on a dark surface in both modes — deliberately, it is how the
+     old code block looked. That rules out background-inverse, which flips to
+     light in dark mode and would make the block vanish against the page. */
+  --color-code-background: var(--color-stone-800);
+
   /* Fonts
      ---------------------------------------------------------------------- */
 

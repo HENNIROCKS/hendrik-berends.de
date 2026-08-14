@@ -6,6 +6,6 @@
 
 ?>
 
-<div class="text">
+<div class="prose mb-xl">
     <?= $block->text() ?>
 </div>
