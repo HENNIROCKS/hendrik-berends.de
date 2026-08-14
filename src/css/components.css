@@ -42,3 +42,235 @@
   width: var(--icon-lg);
   height: var(--icon-lg);
 }
+
+/**
+ * Prose
+ *
+ * Rich text coming out of an editor field: there is no markup to hang
+ * utilities on, so the child elements are styled by element selector. This
+ * replaces the Sass placeholders %link and %list.
+ *
+ * Every content block is rendered through the `layouts` snippet, so what used
+ * to be the `.layouts &` special case in %link — a dashed underline on links —
+ * now simply always applies.
+ *
+ * The arrow in front of a link used to be an icon font glyph set via
+ * `content`. The sprite cannot reach in here, so it became a mask instead,
+ * tinted with `currentColor` so it follows the light/dark switch. The paths
+ * are the sprite's own, including the SVG font flip; 1em matches the former
+ * glyph size exactly, since the font had 1024 units per em and the path fills
+ * the full box.
+ */
+
+@utility prose {
+  & a {
+    border-bottom: 1px dashed var(--color-foreground);
+
+    &:focus,
+    &:hover {
+      border-bottom-color: var(--color-link);
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      vertical-align: middle;
+      background-color: currentColor;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024'%3E%3Cpath transform='translate(0 960) scale(1 -1)' d='M512 405.333h-341.333v85.333h341.333v298.667l341.333-341.333-341.333-341.333v298.667z'/%3E%3C/svg%3E")
+        center / contain no-repeat;
+    }
+
+    &[target="_blank"]::before {
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024'%3E%3Cpath transform='translate(0 960) scale(1 -1)' d='M556.834 432.597l-241.359-241.361-60.34 60.339 241.359 241.361-211.19 211.188h482.72v-482.719l-211.191 211.191z'/%3E%3C/svg%3E");
+    }
+  }
+
+  /* Only the indent belongs here. Writing the margin shorthand would set
+     margin-top to 0 at specificity (0,1,1) and beat the owl selector below
+     at (0,1,0) — a list would then sit flush against the paragraph before
+     it, while a list after a heading kept its gap. Vertical rhythm is the
+     owl's job alone. */
+
+  & ol,
+  & ul {
+    margin-inline: var(--spacing-md);
+  }
+
+  /* Spacing between blocks
+     ----------------------
+     The markdown block emits whole documents, and the global reset strips
+     every default margin — without this its content collapses into one wall
+     of text. Headings bind to what follows them: more room above, less below.
+     Also affects the text block, where consecutive paragraphs had no gap
+     at all before. */
+
+  & > * + * {
+    margin-top: var(--spacing-md);
+  }
+
+  & > * + :is(h1, h2, h3, h4, h5, h6) {
+    margin-top: var(--spacing-lg);
+  }
+
+  & > :is(h1, h2, h3, h4, h5, h6) + * {
+    margin-top: var(--spacing-sm);
+  }
+
+  /* Headings
+     --------
+     Same scale as the heading block, so a markdown h2 and a heading block h2
+     are indistinguishable. Line height and letter spacing have to be spelled
+     out here — writing font-size alone would drop the paired tokens that the
+     text-* utilities apply for us. */
+
+  & :is(h1, h2, h3, h4, h5, h6) {
+    font-weight: var(--font-weight-bold);
+  }
+
+  & h1 {
+    font-size: var(--text-2xl);
+    line-height: var(--text-2xl--line-height);
+  }
+
+  & h2 {
+    font-size: var(--text-xl);
+    line-height: var(--text-xl--line-height);
+  }
+
+  & h3 {
+    font-size: var(--text-lg);
+    line-height: var(--text-lg--line-height);
+  }
+
+  /* h4 to h6 sat on body size in the old stylesheet too and were told apart
+     by their weight alone. Kept that way deliberately. */
+  & h4,
+  & h5,
+  & h6 {
+    font-size: var(--text-md);
+    line-height: var(--text-md--line-height);
+  }
+
+  /* Quote — mirrors the quote block, which already runs on utilities
+     (border-l-4 pl-4, text-2xl). border-style has to be explicit: without
+     preflight an unstyled border defaults to `none` and 4px of nothing. */
+
+  & blockquote {
+    border-left: 4px solid currentColor;
+    padding-left: var(--spacing-md);
+    font-size: var(--text-lg);
+    line-height: var(--text-lg--line-height);
+  }
+
+  /* Code
+     ----
+     The block keeps the dark surface and yellow text of the old code block.
+     Inline code does not: it stays in the running text and only gets a quiet
+     tint, which is what the old stylesheet did too (a grey pill via the %text
+     placeholder). It inherits its colour instead of setting one, and takes
+     the tint from background-muted, which follows the mode on its own — that
+     replaces the `color: initial` workaround the old rule needed because its
+     grey stayed light in dark mode. */
+
+  & pre {
+    background-color: var(--color-code-background);
+    border-radius: var(--radius-md);
+    color: var(--color-yellow-100);
+    padding: var(--spacing-md);
+    white-space: pre-wrap;
+  }
+
+  & code {
+    background-color: var(--color-background-muted);
+    border-radius: var(--radius-xs);
+    padding: 0.1em 0.3em;
+  }
+
+  & pre code {
+    background: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  /* Divider — same geometry and colour as the standalone hr */
+
+  & hr {
+    border: 0;
+    height: 2px;
+    width: var(--spacing-xl);
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--color-stone-500);
+  }
+}
+
+/**
+ * Data table
+ *
+ * Named data-table rather than table, because `table` is already Tailwind's
+ * display utility. Styles cells by element selector, so the kirbytext hook
+ * only has to tag the table itself instead of every single tag.
+ *
+ * Below xl the table collapses into stacked blocks and each cell is labelled
+ * from its data-label attribute. Markdown tables carry no such attribute —
+ * hence the [data-label] guard, which spares them the empty pseudo-element
+ * the old stylesheet produced.
+ */
+
+@utility data-table {
+  border-collapse: collapse;
+  width: 100%;
+
+  & thead th {
+    border-top: 1px solid var(--color-foreground);
+    border-bottom: 2px solid var(--color-foreground);
+    font-weight: var(--font-weight-bold);
+    text-align: left;
+  }
+
+  & th,
+  & td {
+    padding: var(--spacing-md);
+    border-bottom: 1px dashed var(--color-foreground);
+  }
+
+  /* On narrow screens the two table sources need opposite treatment, and
+     whether data-label is present is what tells them apart. */
+
+  @media (width < 80rem) {
+    /* Authored tables (downloads) carry a label per cell and can drop the
+       header row, stacking each row into a labelled block. */
+    &:has(td[data-label]) {
+      & thead {
+        display: none;
+      }
+
+      & tr {
+        border: 1px dashed var(--color-foreground);
+      }
+
+      & td {
+        display: block;
+        border-bottom: 0;
+
+        &::before {
+          content: attr(data-label);
+          display: block;
+          font-weight: var(--font-weight-bold);
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    /* Markdown tables have no labels, so stacking them would strip away
+       which column a value belongs to. They scroll sideways instead —
+       display: block turns the table itself into the scroll container, no
+       extra wrapper needed in the kirbytext hook. */
+    &:not(:has(td[data-label])) {
+      display: block;
+      overflow-x: auto;
+    }
+  }
+}

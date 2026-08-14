@@ -7,14 +7,14 @@ $citation = $block->citation();
 
 ?>
 
-<blockquote class="border-l-4 m-0 mb-(--spacing-large) pl-4">
+<blockquote class="border-l-4 mb-xl pl-4">
 
-  <span class="text-2xl">
+  <span class="text-lg">
     <?= $text ?>
   </span>
 
   <?php if ($citation->isNotEmpty()): ?>
-    <footer class="before:content-['–'] mt-(--spacing-base)">
+    <footer class="before:content-['–'] mt-md">
       <?= $citation ?>
     </footer>
   <?php endif ?>

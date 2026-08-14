@@ -15,7 +15,7 @@ if ($target = $page->redirect()->toPage()) {
 
 <main class="main main--<?= $page->template() ?> __container">
     <section class="section">
-        <h1 class="heading heading--h1"><?= $page->title() ?></h1>
+        <h1 class="mb-md text-center font-bold text-2xl"><?= $page->title() ?></h1>
     </section>
 </main>
 

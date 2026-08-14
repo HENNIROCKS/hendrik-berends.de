@@ -10,15 +10,5 @@
     &:last-of-type {
       margin-bottom: 0;
     }
-
-    code {
-      background-color: var(--color-stone-300);
-      border-radius: 3px;
-      padding: 0 3px;
-
-      @media (prefers-color-scheme: dark) {
-        color: initial;
-      }
-    }
   }
 }

@@ -76,6 +76,10 @@
 
     --color-border: var(--color-stone-700);
 
+    /* One step lighter than the page, otherwise the code block would sit
+       invisibly on the stone-800 background. */
+    --color-code-background: var(--color-stone-700);
+
     /* The bright brand tone only reaches sufficient contrast against a dark
        background — 6.67:1 here versus 2.07:1 on the light one, which is why
        light mode uses the deeper salmon-700 instead. */

@@ -4,24 +4,14 @@ use Kirby\Cms\App as Kirby;
 
 Kirby::plugin('hnnrcks/site', [
     'hooks' => [
+        /**
+         * Markdown tables get the data-table utility. Only the table itself
+         * needs tagging — the utility reaches its cells by element selector,
+         * so the head, body, row and cell tags no longer carry classes of
+         * their own.
+         */
         'kirbytext:after' => function ($text) {
-            $search = [
-                '<table>',
-                '<thead>',
-                '<th>',
-                '<tbody>',
-                '<tr>',
-                '<td>',
-            ];
-            $replace = [
-                '<table class="table">',
-                '<thead class="table__head">',
-                '<th class="table__column">',
-                '<tbody class="table__body">',
-                '<tr class="table__row">',
-                '<td class="table__column">',
-            ];
-            return str_replace($search, $replace, $text);
+            return str_replace('<table>', '<table class="data-table">', $text);
         }
     ],
 

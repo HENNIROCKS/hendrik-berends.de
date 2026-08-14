@@ -19,7 +19,7 @@ use Kirby\Toolkit\Str;
 
 <main class="main main--<?= $page->template() ?> __container">
   <section class="section">
-    <h1 class="heading heading--h1" id="<?= Str::slug($page->title()) ?>">
+    <h1 class="mb-md text-center font-bold text-2xl" id="<?= Str::slug($page->title()) ?>">
       <?= esc($page->title()) ?>
     </h1>
 
@@ -28,7 +28,7 @@ use Kirby\Toolkit\Str;
     <?php else: ?>
       <?php snippet('prev-next', ['showDate' => true, 'showTags' => false]) ?>
 
-      <hr class=" line" />
+      <hr class="mx-auto mb-xl h-0.5 w-xl border-0 bg-stone-500" />
 
       <?php snippet('tags/tags') ?>
 
