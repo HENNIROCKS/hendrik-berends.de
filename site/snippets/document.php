@@ -22,6 +22,8 @@
 </head>
 
 <body class="body">
+  <?php snippet('sprite') ?>
+
   <?php if ($page->isHomePage()): ?>
 
     <?= $slot ?>

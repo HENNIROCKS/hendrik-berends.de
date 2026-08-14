@@ -1,5 +1,17 @@
+/**
+ * Entry
+ *
+ * Preflight is still deliberately off — hence the two separate imports rather
+ * than @import "tailwindcss". It gets switched on once src/scss is empty;
+ * before that it collides with the legacy stylesheet.
+ */
+
 @import "tailwindcss/theme" layer(theme);
 @import "tailwindcss/utilities" layer(utilities);
+
+@import "./theme.css";
+@import "./base.css";
+@import "./components.css";
 
 @source "../../site/templates/**/*.php";
 @source "../../site/snippets/**/*.php";
