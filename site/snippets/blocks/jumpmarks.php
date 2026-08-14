@@ -10,18 +10,18 @@ $headings = $page->layouts()->toBlocks()->filterBy('type', 'heading');
 
 ?>
 
-<nav class="jumpmarks">
+<nav class="mb-xl" aria-label="Abschnitte dieser Seite">
 
-    <strong class="jumpmarks__heading">Direkt zu:</strong>
+    <strong class="mb-md block">Direkt zu:</strong>
 
-    <ol class="jumpmarks__list">
+    <ol class="mx-md mb-md">
         <?php foreach ($headings as $heading): ?>
             <?php
             $slug = Str::slug($heading->text());
             $text = Str::unhtml($heading->text());
             if (in_array($heading->level(), ['h2', 'h3', 'h4'])): ?>
-                <li class="jumpmarks__list-item">
-                    <a class="jumpmarks__link" href="<?= $page->url() ?>#<?= $slug ?>" title="<?= esc('Direkt zum Abschnitt "' . $text . '"') ?>">
+                <li>
+                    <a href="<?= $page->url() ?>#<?= $slug ?>" title="<?= esc('Direkt zum Abschnitt "' . $text . '"') ?>">
                         <?= $text ?>
                     </a>
                 </li>

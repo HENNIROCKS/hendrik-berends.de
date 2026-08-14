@@ -6,4 +6,4 @@
 
 ?>
 
-<pre class="code"><code class="code__language code__language--<?= $block->language()->or('text') ?>"><?= $block->code()->html(false) ?></code></pre>
+<pre class="mb-xl whitespace-pre-wrap rounded-md bg-code-background p-md text-yellow-100"><code><?= $block->code()->html(false) ?></code></pre>

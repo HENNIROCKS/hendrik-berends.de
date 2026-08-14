@@ -6,41 +6,49 @@
 
 $files = $block->files()->toFiles();
 
+// Both cells carry the same utilities, so they stay in one place instead of
+// being repeated verbatim. Tailwind still sees them: the string is a literal
+// in this file, which is all its scanner looks for.
+//
+// Below xl the table stacks and each cell is labelled from its data-label
+// attribute, so the bottom rule moves to the row that wraps the block.
+$cell = 'border-b border-foreground p-md [border-bottom-style:dashed] '
+    . 'max-xl:block max-xl:border-b-0 max-xl:before:block max-xl:before:font-bold '
+    . 'max-xl:before:uppercase max-xl:before:content-[attr(data-label)]';
+
 ?>
 
 <?php if ($files->isNotEmpty()): ?>
-    <div class="downloads">
-        <table class="table">
-            <thead class="table__head">
-                <tr class="table__row">
-                    <th class="table__column">Datei</th>
-                    <th class="table__column">Download</th>
-                </tr>
-            </thead>
-            <tbody class="table__body">
-                <?php foreach ($files->sortBy('title', 'asc', 'filename', 'asc') as $file): ?>
-                    <tr class="table__row">
-                        <td class="table__column" data-label="Datei">
-                            <strong>
-                                <?php if ($file->title()->isNotEmpty()): ?>
-                                    <?= $file->title() ?>
-                                <?php else: ?>
-                                    <?= $file->name() ?>
-                                <?php endif ?>
-                            </strong>
-
-                            <?php if ($file->caption()->isNotEmpty()): ?>
-                                <br><?= $file->caption()->inline() ?>
+    <table class="mb-xl w-full border-collapse">
+        <thead class="max-xl:hidden">
+            <tr>
+                <th class="border-t border-b-2 border-foreground p-md text-left font-bold">Datei</th>
+                <th class="border-t border-b-2 border-foreground p-md text-left font-bold">Download</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($files->sortBy('title', 'asc', 'filename', 'asc') as $file): ?>
+                <tr class="max-xl:border max-xl:border-dashed max-xl:border-foreground">
+                    <td class="<?= $cell ?>" data-label="Datei">
+                        <strong>
+                            <?php if ($file->title()->isNotEmpty()): ?>
+                                <?= $file->title() ?>
+                            <?php else: ?>
+                                <?= $file->name() ?>
                             <?php endif ?>
-                        </td>
-                        <td class="table__column" data-label="Download">
-                            <a class="button button--download" href="<?= $file->url() ?>" target="_blank" title="Datei herunterladen">
-                                <?= $file->niceSize() ?>
-                            </a>
-                        </td>
-                    </tr>
-                <?php endforeach ?>
-            </tbody>
-        </table>
-    </div>
+                        </strong>
+
+                        <?php if ($file->caption()->isNotEmpty()): ?>
+                            <br><?= $file->caption()->inline() ?>
+                        <?php endif ?>
+                    </td>
+                    <td class="<?= $cell ?>" data-label="Download">
+                        <a class="button button--download" href="<?= $file->url() ?>" target="_blank" title="Datei herunterladen">
+                            <?= $file->niceSize() ?>
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+        </tbody>
+    </table>
 <?php endif ?>

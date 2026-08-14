@@ -44,6 +44,53 @@
 }
 
 /**
+ * Media
+ *
+ * Sizing and loading behaviour for images whose markup a block does not own:
+ * the picture/img pair comes out of the imagex snippet, so there is nothing to
+ * hang utilities on. Same reasoning as `prose` below — element selectors on a
+ * wrapper instead.
+ *
+ * The `.js` scoping (set on <html> by an inline script in document.php, as
+ * early as possible) means fade and skeleton only apply when JS actually ran
+ * and can flip `.is-loaded` back on. Without JS, images are visible
+ * immediately — no fade, but never stuck invisible.
+ *
+ * The skeleton tint sits on the <picture>, not the <img>, so the two opacities
+ * cannot compound; it is dropped once loaded so transparent PNGs keep no
+ * permanent tint.
+ *
+ * The slider keeps its own variant (full height, object-fit, its own duration)
+ * and deliberately does not use this.
+ */
+
+@utility media {
+  & img {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  & picture {
+    display: block;
+    width: 100%;
+  }
+
+  .js & img {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .js & img.is-loaded {
+    opacity: 1;
+  }
+
+  .js & picture:not(.is-loaded) {
+    background-color: var(--color-background-muted);
+  }
+}
+
+/**
  * Prose
  *
  * Rich text coming out of an editor field: there is no markup to hang
@@ -194,34 +241,18 @@
     padding: 0;
   }
 
-  /* Divider — same geometry and colour as the standalone hr */
+  /* Tables
+     ------
+     Only markdown produces tables in here, and markdown cells carry no label
+     of their own — stacking them would strip away which column a value
+     belongs to. So they scroll sideways instead, with the table itself as the
+     scroll container; no wrapper element is needed. The downloads block,
+     which does have labels and does stack, carries its own utilities. */
 
-  & hr {
-    border: 0;
-    height: 2px;
-    width: var(--spacing-xl);
-    margin-left: auto;
-    margin-right: auto;
-    background-color: var(--color-stone-500);
+  & table {
+    border-collapse: collapse;
+    width: 100%;
   }
-}
-
-/**
- * Data table
- *
- * Named data-table rather than table, because `table` is already Tailwind's
- * display utility. Styles cells by element selector, so the kirbytext hook
- * only has to tag the table itself instead of every single tag.
- *
- * Below xl the table collapses into stacked blocks and each cell is labelled
- * from its data-label attribute. Markdown tables carry no such attribute —
- * hence the [data-label] guard, which spares them the empty pseudo-element
- * the old stylesheet produced.
- */
-
-@utility data-table {
-  border-collapse: collapse;
-  width: 100%;
 
   & thead th {
     border-top: 1px solid var(--color-foreground);
@@ -236,41 +267,21 @@
     border-bottom: 1px dashed var(--color-foreground);
   }
 
-  /* On narrow screens the two table sources need opposite treatment, and
-     whether data-label is present is what tells them apart. */
-
   @media (width < 80rem) {
-    /* Authored tables (downloads) carry a label per cell and can drop the
-       header row, stacking each row into a labelled block. */
-    &:has(td[data-label]) {
-      & thead {
-        display: none;
-      }
-
-      & tr {
-        border: 1px dashed var(--color-foreground);
-      }
-
-      & td {
-        display: block;
-        border-bottom: 0;
-
-        &::before {
-          content: attr(data-label);
-          display: block;
-          font-weight: var(--font-weight-bold);
-          text-transform: uppercase;
-        }
-      }
-    }
-
-    /* Markdown tables have no labels, so stacking them would strip away
-       which column a value belongs to. They scroll sideways instead —
-       display: block turns the table itself into the scroll container, no
-       extra wrapper needed in the kirbytext hook. */
-    &:not(:has(td[data-label])) {
+    & table {
       display: block;
       overflow-x: auto;
     }
+  }
+
+  /* Divider — same geometry and colour as the standalone hr */
+
+  & hr {
+    border: 0;
+    height: 2px;
+    width: var(--spacing-xl);
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--color-stone-500);
   }
 }

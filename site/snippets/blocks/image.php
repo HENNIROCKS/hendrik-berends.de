@@ -9,9 +9,7 @@ use Kirby\Toolkit\Str;
 
 $alt     = $block->alt();
 $caption = $block->caption();
-$crop    = $block->crop()->isTrue();
 $link    = $block->link();
-$ratio   = $block->ratio()->or('auto');
 $image   = null;
 $src     = null;
 
@@ -23,6 +21,12 @@ if ($block->location() == 'web') {
 }
 
 $lightboxHref = $image ? $image->url() : $src;
+
+// The image itself names the link whenever it has alt text. Only when it does
+// not does the link need a name of its own — without one it is announced as
+// its bare URL. The lightbox variant always carries a label, because "enlarge"
+// is what the link does and no alt text expresses that.
+$linkLabel = $alt->isNotEmpty() ? null : 'Verlinktes Bild';
 
 if ($src) {
     ob_start();
@@ -43,20 +47,20 @@ if ($src) {
 ?>
 
 <?php if ($src): ?>
-    <figure class="image" <?= Html::attr(['data-ratio' => $ratio, 'data-crop' => $crop], null, ' ') ?>>
+    <figure class="media mb-xl">
 
         <?php if ($link->isNotEmpty()): ?>
-            <a class="image__link" href="<?= Str::esc($link->toUrl()) ?>">
+            <a href="<?= Str::esc($link->toUrl()) ?>" <?= Html::attr(['aria-label' => $linkLabel], null, ' ') ?>>
                 <?= $imageMarkup ?>
             </a>
         <?php else: ?>
-            <a class="js-lightbox" href="<?= $lightboxHref ?>" data-gallery="image-<?= $block->id() ?>" <?= Html::attr(['data-description' => $caption->lightboxDescription()], null, ' ') ?>>
+            <a class="js-lightbox" href="<?= $lightboxHref ?>" aria-label="Bild vergrößern" data-gallery="image-<?= $block->id() ?>" <?= Html::attr(['data-description' => $caption->lightboxDescription()], null, ' ') ?>>
                 <?= $imageMarkup ?>
             </a>
         <?php endif ?>
 
         <?php if ($caption->isNotEmpty()): ?>
-            <figcaption class="image__caption">
+            <figcaption class="prose mt-sm">
                 <?= $caption ?>
             </figcaption>
         <?php endif ?>
