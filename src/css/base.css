@@ -1,0 +1,101 @@
+/**
+ * Base
+ *
+ * Global declarations that are not Tailwind tokens.
+ */
+
+/**
+ * Fonts
+ *
+ * Paths are relative to the compiled stylesheet in assets/css/, same as they
+ * were under Sass — both builds land in that directory.
+ *
+ * Signika also ships semibold (600) and bold (700). Those are deliberately
+ * unused: the design runs on 300 for copy and 400 for emphasis, so declaring
+ * them would only invite weights the type scale does not know about. The four
+ * unused files still sit in assets/fonts/ and can be deleted.
+ *
+ * remix is the icon subset; its glyph map lives in components.css.
+ */
+
+@font-face {
+  font-family: "remix";
+  src: url("../fonts/remix.eot?nfiz12");
+  src:
+    url("../fonts/remix.eot?nfiz12#iefix") format("embedded-opentype"),
+    url("../fonts/remix.ttf?nfiz12") format("truetype"),
+    url("../fonts/remix.woff?nfiz12") format("woff"),
+    url("../fonts/remix.svg?nfiz12#remix") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Signika";
+  font-style: normal;
+  font-weight: 300;
+  src:
+    url("../fonts/signika-light-webfont.woff2") format("woff2"),
+    url("../fonts/signika-light-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Signika";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url("../fonts/signika-regular-webfont.woff2") format("woff2"),
+    url("../fonts/signika-regular-webfont.woff") format("woff");
+}
+
+/**
+ * Dark mode
+ *
+ * The only place in the codebase where dark mode exists. Components consume
+ * the semantic tokens from theme.css and never learn which mode is active,
+ * so they need no dark: variant and no media query of their own.
+ *
+ * Replaces the 35 @media (prefers-color-scheme: dark) blocks spread across
+ * 23 files in src/scss — those disappear as each component is migrated.
+ *
+ * There is no manual theme switcher in the templates, so this follows the OS
+ * preference only. Adding a toggle later means declaring a @custom-variant
+ * and repeating this block for it; the tokens themselves stay untouched.
+ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--color-stone-800);
+    --color-background-muted: var(--color-stone-700);
+    --color-background-inverse: var(--color-stone-100);
+
+    --color-foreground: var(--color-stone-50);
+    --color-foreground-muted: var(--color-stone-400);
+    --color-foreground-inverse: var(--color-black);
+
+    --color-border: var(--color-stone-700);
+
+    /* The bright brand tone only reaches sufficient contrast against a dark
+       background — 6.67:1 here versus 2.07:1 on the light one, which is why
+       light mode uses the deeper salmon-700 instead. */
+    --color-link: var(--color-salmon-500);
+    --color-focus: var(--color-salmon-500);
+  }
+}
+
+/**
+ * Background patterns
+ *
+ * Ported from src/scss/variables/patterns.scss. Deliberately not @theme:
+ * these are finished background-image values, not design tokens meant to
+ * generate utilities. Consumed via var(--pattern-*).
+ *
+ * Source: https://pattern.monster/japanese-pattern-2
+ * 8-digit hex codes: https://codepen.io/poorfish/pen/VmeZVM
+ */
+
+:root {
+  --pattern-light-japanese2: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='40' height='69.282' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23e6e5e3ff'/><path d='M13.333-3.849v23.094M6.667-15.396l20 11.547M13.333-19.245l20 11.547M20 0v23.094m20-34.641l-6.667 3.849-6.666 3.849L20 0M0-11.547l6.667 3.849 6.666 3.849L20 0m0-23.094l20 11.547v23.094L20 23.094l-6.667-3.849-6.666-3.849L0 11.547v-23.094l6.667-3.849 6.666-3.849zM40-3.769L20 7.698m20-3.849l-16.253 9.384L20 15.396M6.667-7.698v23.094m6.666 50.037v23.094M6.667 53.886l20 11.547M13.333 50.037l20 11.547M20 69.282v23.094m20-34.641l-6.667 3.849-6.666 3.849L20 69.282M0 57.735l6.667 3.849 6.666 3.849L20 69.282m0-23.094l20 11.547v23.094L20 92.376l-6.667-3.849-6.666-3.849L0 80.829V57.735l6.667-3.849 6.666-3.849zm20 19.325L20 76.98m20-3.849L20 84.678M6.667 61.584v23.094m26.666-53.886v23.094m-6.666-34.641l20 11.547M33.333 15.396l20 11.547M40 34.641v23.094m20-34.641l-6.667 3.849-6.666 3.849L40 34.641M20 23.094l6.667 3.849 6.666 3.849L40 34.641m0-23.094l20 11.547v23.094L40 57.735l-6.667-3.849-6.666-3.849L20 46.188V23.094l6.667-3.849 6.666-3.849zm20 19.325L40 42.339m20-3.849L40 50.037M26.667 26.943v23.094M-6.667 30.792v23.094m-6.666-34.641l20 11.547M-6.667 15.396l20 11.547M0 34.641v23.094m20-34.641l-6.667 3.849-6.666 3.849L0 34.641m-20-11.547l6.667 3.849 6.666 3.849L0 34.641m0-23.094l20 11.547v23.094L0 57.735l-6.667-3.849-6.666-3.849L-20 46.188V23.094l6.667-3.849 6.666-3.849zm20 19.325L0 42.339m20-3.849L0 50.037m-13.333-23.094v23.094' stroke-width='1' stroke='%23fcfcfbff' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+  --pattern-dark-japanese2: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='40' height='69.282' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23282523ff'/><path d='M13.333-3.849v23.094M6.667-15.396l20 11.547M13.333-19.245l20 11.547M20 0v23.094m20-34.641l-6.667 3.849-6.666 3.849L20 0M0-11.547l6.667 3.849 6.666 3.849L20 0m0-23.094l20 11.547v23.094L20 23.094l-6.667-3.849-6.666-3.849L0 11.547v-23.094l6.667-3.849 6.666-3.849zM40-3.769L20 7.698m20-3.849l-16.253 9.384L20 15.396M6.667-7.698v23.094m6.666 50.037v23.094M6.667 53.886l20 11.547M13.333 50.037l20 11.547M20 69.282v23.094m20-34.641l-6.667 3.849-6.666 3.849L20 69.282M0 57.735l6.667 3.849 6.666 3.849L20 69.282m0-23.094l20 11.547v23.094L20 92.376l-6.667-3.849-6.666-3.849L0 80.829V57.735l6.667-3.849 6.666-3.849zm20 19.325L20 76.98m20-3.849L20 84.678M6.667 61.584v23.094m26.666-53.886v23.094m-6.666-34.641l20 11.547M33.333 15.396l20 11.547M40 34.641v23.094m20-34.641l-6.667 3.849-6.666 3.849L40 34.641M20 23.094l6.667 3.849 6.666 3.849L40 34.641m0-23.094l20 11.547v23.094L40 57.735l-6.667-3.849-6.666-3.849L20 46.188V23.094l6.667-3.849 6.666-3.849zm20 19.325L40 42.339m20-3.849L40 50.037M26.667 26.943v23.094M-6.667 30.792v23.094m-6.666-34.641l20 11.547M-6.667 15.396l20 11.547M0 34.641v23.094m20-34.641l-6.667 3.849-6.666 3.849L0 34.641m-20-11.547l6.667 3.849 6.666 3.849L0 34.641m0-23.094l20 11.547v23.094L0 57.735l-6.667-3.849-6.666-3.849L-20 46.188V23.094l6.667-3.849 6.666-3.849zm20 19.325L0 42.339m20-3.849L0 50.037m-13.333-23.094v23.094' stroke-width='1' stroke='%2379716bff' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+}

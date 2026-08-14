@@ -1,0 +1,44 @@
+/**
+ * Components
+ *
+ * Everything that cannot be expressed as a plain token, but is still shared
+ * across components.
+ */
+
+/**
+ * Icons
+ *
+ * SVG sprite, inlined once per document by the `sprite` snippet; markup
+ * references a symbol via `<use href="#icon-name">`. This replaces the icon
+ * font, which had three problems the sprite does not: its glyphs live in the
+ * Unicode private use area and get announced as garbage by some screen
+ * readers, `font-display: block` left every icon invisible until the font
+ * loaded, and the shipped formats were eot/svg/ttf/woff with no woff2.
+ *
+ * Color comes from `currentColor`, so icons follow the light/dark switch
+ * through whatever text color surrounds them — no icon color token. The two
+ * brand marks that carry their own fills (cara has a gradient) override this
+ * on their own paths, which is intended.
+ *
+ * The Sass icon() mixin stays alive until the last component is migrated; it
+ * is still used 27 times across 12 files.
+ */
+
+@theme {
+  --icon-sm: 20px;
+  --icon-lg: 32px;
+}
+
+@utility icon {
+  display: inline-block;
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  fill: currentColor;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+@utility icon--lg {
+  width: var(--icon-lg);
+  height: var(--icon-lg);
+}
