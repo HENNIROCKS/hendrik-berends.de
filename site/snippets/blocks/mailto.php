@@ -13,20 +13,20 @@ $tld     = $block->tld();
 ?>
 
 <?php if ($domain->isNotEmpty() && $name->isNotEmpty() && $text->isNotEmpty() && $tld->isNotEmpty()) : ?>
-    <div class="mailto">
+    <div class="mb-xl">
 
         <?php if ($heading->isNotEmpty()): ?>
-            <strong class="mailto__heading"><?= $heading ?></strong>
+            <strong class="mb-md block"><?= $heading ?></strong>
         <?php endif ?>
 
-        <a class="mailto__link js-mailto-link"
+        <a class="button js-mailto-link"
             data-name="<?= $name ?>"
             data-domain="<?= $domain ?>"
             data-tld="<?= $tld ?>"
             href="#"
             title="E-Mail schreiben">
 
-            <i class="mailto__icon mailto__icon--mail"></i>
+            <?php snippet('icon', ['name' => 'mail']) ?>
 
             <?= $text ?>
 

@@ -4,7 +4,10 @@
  * @var \Kirby\Cms\Site $site
  */
 
-$text = $site->footertext()->or('Made with Kirby and <i class="icon icon--heart"></i> &copy; ' . date('Y'));
+// The trailing colon is not a typo: Kirby only recognises a KirbyTag as
+// "(name: value)", so a value-less tag still needs it. The text runs through
+// kt() below, which is what expands it.
+$text = $site->footertext()->or('Made with Kirby and (heart: ) &copy; ' . date('Y'));
 
 ?>
 

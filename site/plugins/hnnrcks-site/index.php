@@ -24,9 +24,23 @@ Kirby::plugin('hnnrcks/site', [
     ],
 
     'tags' => [
+        /**
+         * The heart is the one icon that carries a colour of its own, in both
+         * modes alike — every other icon inherits it from the surrounding
+         * text. src/css/styles.css lists this file as a Tailwind source, so
+         * the class below is actually emitted.
+         */
         'heart' => [
             'html' => function ($tag) {
-                return '<i class="icon icon--heart"></i>';
+                $icon = snippet('icon', [
+                    'name' => 'heart',
+                    'class' => 'text-salmon-500',
+                ], true);
+
+                // Markdown runs after the tag and treats a line break inside
+                // the SVG as a paragraph boundary, which tears the <use> out
+                // of its <svg>. Collapsing to one line keeps it inline.
+                return preg_replace('/\s*\R\s*/', '', trim($icon));
             }
         ]
     ],

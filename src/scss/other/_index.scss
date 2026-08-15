@@ -4,9 +4,3 @@
 @use "links";
 @use "section";
 @use "sr-only";
-
-@use "../mixins/icon";
-
-.icon--heart {
-  @include icon.icon("heart");
-}
