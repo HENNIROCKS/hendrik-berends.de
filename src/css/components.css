@@ -60,8 +60,7 @@
  * cannot compound; it is dropped once loaded so transparent PNGs keep no
  * permanent tint.
  *
- * The slider keeps its own variant (full height, object-fit, its own duration)
- * and deliberately does not use this.
+ * The slider keeps its own variant — see `slider-media` below.
  */
 
 @utility media {
@@ -87,6 +86,60 @@
 
   .js & picture:not(.is-loaded) {
     background-color: var(--color-background-muted);
+  }
+}
+
+/**
+ * Slider media
+ *
+ * The slider's own variant of `media`, for the same reason: the picture/img
+ * pair comes out of the imagex snippet, and `content-image.php` builds the
+ * wrapper class as `$class . '-wrap'`, which falls apart the moment `$class`
+ * is a list of utilities.
+ *
+ * Three differences to `media`. The image fills its slide instead of setting
+ * its own height, so it is cropped to the block's aspect ratio rather than
+ * dictating it. The fade runs on `--slider-fade`, the one duration the whole
+ * block uses, which reduced motion switches off in a single place. And an
+ * <img> inside a <picture> is pinned opaque: there the skeleton on the
+ * <picture> already covers the load, and two fading elements would multiply
+ * their opacities. A bare <img> — content-image.php renders one for GIFs —
+ * fades on its own.
+ *
+ * `.js` scoping as everywhere else: without JavaScript nothing flips
+ * `.is-loaded`, so the images stay visible rather than invisible.
+ */
+
+@utility slider-media {
+  & picture {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  & img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .js & picture:not(.is-loaded) {
+    background-color: var(--color-background-muted);
+  }
+
+  .js & img {
+    opacity: 0;
+    transition: opacity var(--slider-fade) ease;
+  }
+
+  .js & img.is-loaded {
+    opacity: 1;
+  }
+
+  .js & picture img {
+    opacity: 1;
+    transition: none;
   }
 }
 

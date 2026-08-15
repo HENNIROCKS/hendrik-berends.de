@@ -14,7 +14,7 @@ function setUpSlider(slider) {
 
   // Full-bleed measurement is pointless (and its CSS variables unused) once
   // the block opts out of the breakout via the "fullWidth" block option.
-  const fullBleed = !slider.classList.contains("slider--contained");
+  const fullBleed = !slider.classList.contains("js-slider-contained");
 
   // With a single image there is nothing to loop or step through.
   const looping = originals.length > 1;
