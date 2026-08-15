@@ -91,6 +91,32 @@
 }
 
 /**
+ * Video frame
+ *
+ * The consent placeholder swaps itself for the provider's iframe on click,
+ * built from a data attribute by js/blocks/video.js — markup that appears at
+ * runtime and can carry no utilities. Same reasoning as `media` and `prose`:
+ * an element selector on the wrapper instead.
+ *
+ * The wrapper brings its own aspect ratio, so the iframe only has to fill it.
+ * `border: 0` is not redundant without preflight: an iframe has a UA border.
+ *
+ * Internally hosted videos need none of this. Their <video> comes out of
+ * Html::video(), which passes attributes through, so the block hands it
+ * utilities directly.
+ */
+
+@utility video-frame {
+  & iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+/**
  * Prose
  *
  * Rich text coming out of an editor field: there is no markup to hang

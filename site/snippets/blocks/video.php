@@ -21,22 +21,26 @@ if ($isInternal) {
         'poster'      => $block->poster()->toFile()?->url(),
         'preload'     => $block->preload()->value(),
     ]);
-    $videoHtml = Html::video($url, [], $attrs ?? []);
+    // Html::video() passes attributes straight to the tag, so the <video> can
+    // be given utilities even though this block does not write its markup.
+    // Set after array_filter, which would drop a falsy value.
+    $attrs['class'] = 'block h-auto w-full';
+    $videoHtml = Html::video($url, [], $attrs);
 } else {
     $url       = $block->url();
     $videoHtml = null;
 }
 ?>
 
-<figure class="video">
+<figure class="mb-xl">
     <?php if ($isInternal && $videoHtml): ?>
         <?= $videoHtml ?>
     <?php elseif (!$isInternal): ?>
-        <div class="video__container js-video" data-video="<?= htmlspecialchars(Html::video($url)) ?>">
-            <div class="video__placeholder">
+        <div class="video-frame js-video relative aspect-video border border-border bg-[image:var(--pattern-doodle)]" data-video="<?= htmlspecialchars(Html::video($url)) ?>">
+            <div class="absolute inset-0 m-auto h-fit text-center">
                 <p>Beim Abspielen dieses Videos können Cookies durch den Anbieter (Vimeo, YouTube etc.) gesetzt werden.</p>
-                <button class="video__button js-video-button" type="button">
-                    <i class="video__icon video__icon--check"></i>
+                <button class="button mt-md js-video-button" type="button">
+                    <?php snippet('icon', ['name' => 'check']) ?>
                     Video laden und Cookies akzeptieren
                 </button>
             </div>
@@ -44,7 +48,7 @@ if ($isInternal) {
     <?php endif ?>
 
     <?php if ($caption->isNotEmpty()): ?>
-        <figcaption class="video__caption">
+        <figcaption class="prose mt-sm">
             <?= $caption ?>
         </figcaption>
     <?php endif ?>
