@@ -91,6 +91,63 @@
 }
 
 /**
+ * Filmstrip
+ *
+ * The horizontally scrolling gallery, where `media` does not fit: there the
+ * <img> sets the size and the <picture> follows, here it is the other way
+ * round — the <picture> is an inline-block of a fixed height that the <img>
+ * fills. Element selectors again, the pair comes out of the imagex snippet.
+ *
+ * The fade covers <picture> and <img> alike because content-image.php renders
+ * a bare <img> for GIFs, with no <picture> around it. Whichever of the two is
+ * the outermost element fades; an <img> inside a <picture> is pinned opaque,
+ * otherwise the two opacities would multiply and the image would fade in
+ * twice as slowly and never quite arrive.
+ *
+ * Scoped to `.js`, set on <html> by document.php: without JavaScript nothing
+ * flips `.is-loaded`, so the images stay at their default opacity rather than
+ * invisible.
+ */
+
+@utility filmstrip {
+  & picture {
+    display: inline-block;
+    height: auto;
+    width: 100%;
+    padding: var(--spacing-md);
+  }
+
+  & img {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  @media (width >= 80rem) {
+    & picture {
+      height: 50vh;
+      width: auto;
+    }
+  }
+
+  .js & img,
+  .js & picture {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .js & img.is-loaded,
+  .js & picture.is-loaded {
+    opacity: 1;
+  }
+
+  .js & picture img {
+    opacity: 1;
+    transition: none;
+  }
+}
+
+/**
  * Video frame
  *
  * The consent placeholder swaps itself for the provider's iframe on click,
