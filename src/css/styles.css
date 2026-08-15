@@ -15,3 +15,8 @@
 
 @source "../../site/templates/**/*.php";
 @source "../../site/snippets/**/*.php";
+
+/* The site plugin builds markup of its own (the `heart` KirbyTag). Named file
+   by file rather than site/plugins/**, which would drag the vendor plugins and
+   their node_modules into the scan. */
+@source "../../site/plugins/hnnrcks-site/index.php";
