@@ -52,12 +52,9 @@
 /**
  * Dark mode
  *
- * The only place in the codebase where dark mode exists. Components consume
- * the semantic tokens from theme.css and never learn which mode is active,
- * so they need no dark: variant and no media query of their own.
- *
- * Replaces the 35 @media (prefers-color-scheme: dark) blocks spread across
- * 23 files in src/scss — those disappear as each component is migrated.
+ * Dark mode is declared here and nowhere else in src/css. Components consume
+ * the semantic tokens from theme.css and never learn which mode is active, so
+ * they need no dark: variant and no media query of their own.
  *
  * There is no manual theme switcher in the templates, so this follows the OS
  * preference only. Adding a toggle later means declaring a @custom-variant
@@ -95,21 +92,18 @@
 /**
  * Background patterns
  *
- * Ported from src/scss/variables/patterns.scss. Deliberately not @theme:
- * these are finished background-image values, not design tokens meant to
- * generate utilities. Consumed via var(--pattern-*).
+ * Deliberately not @theme: these are finished background-image values, not
+ * design tokens meant to generate utilities. Consumed via var(--pattern-*).
  *
  * doodle carries no light/dark suffix: its dark counterpart lives in the one
  * dark-mode block above, so a component names the pattern once and never
- * learns which mode is active. japanese2 still comes in a pair because
+ * learns which mode is active. japanese2 comes in a pair instead, because
  * footer.scss and home.scss consume it from Sass, where that switch does not
- * exist yet — it collapses into the same shape once those are migrated.
- *
- * doodle was never in patterns.scss at all; it sat inline in blocks/video.scss
- * and is the only one whose pattern.monster source is unrecorded.
+ * exist — it can collapse into the same shape once those are migrated.
  *
  * Source: https://pattern.monster/japanese-pattern-2
  * 8-digit hex codes: https://codepen.io/poorfish/pen/VmeZVM
+ * doodle has no recorded source.
  */
 
 :root {
