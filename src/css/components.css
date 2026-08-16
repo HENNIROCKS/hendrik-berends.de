@@ -6,6 +6,29 @@
  */
 
 /**
+ * Container
+ *
+ * Extends Tailwind's built-in `container`, which only brings the max-widths
+ * (one per breakpoint, straight from --breakpoint-*). Added here: centering
+ * and the gutter.
+ *
+ * This replaces the Sass %container placeholder. Its `width: calc(100% - 2rem)`
+ * plus `margin-inline: 1rem` below 640px was doing the same thing twice — a
+ * block element already fills whatever its margins leave, so `auto` produces
+ * the identical 1rem on each side. Above 640px the placeholder switched to
+ * `auto` explicitly; keeping `auto` throughout collapses both cases into one
+ * declaration without changing a rendered pixel.
+ *
+ * The gutter therefore survives past the breakpoint: at a 640px viewport the
+ * element is 608px wide, and the max-width only starts binding at 672px.
+ */
+
+@utility container {
+  margin-inline: auto;
+  width: calc(100% - 2 * var(--spacing-md));
+}
+
+/**
  * Icons
  *
  * SVG sprite, inlined once per document by the `sprite` snippet; markup
