@@ -130,9 +130,6 @@
   --text-2xl: clamp(1.728rem, 1.5716rem + 0.7821vw, 2.1973rem);
   --text-2xl--line-height: 1.3;
 
-  --text-3xl: clamp(2.0736rem, 1.8493rem + 1.1216vw, 2.7466rem);
-  --text-3xl--line-height: 1.25;
-
   --text-4xl: clamp(2.4883rem, 2.1734rem + 1.5748vw, 3.4332rem);
   --text-4xl--line-height: 1.2;
   --text-4xl--letter-spacing: -0.015em;
@@ -146,8 +143,17 @@
   --text-6xl--letter-spacing: -0.03em;
 
   /* md replaces Tailwind's base as the body anchor, so text-base would
-     otherwise linger as an off-system 1rem. Same for the steps above 6xl. */
+     otherwise linger as an off-system 1rem. Same for the steps above 6xl.
+
+     3xl is blocked rather than defined: nothing sizes itself with it, and
+     Tailwind ships a value of its own that would sit off-system if left
+     alone. Reopening it means writing the clamp back — md * 1.2^n, matching
+     the neighbouring steps. Its line-height needs blocking separately;
+     blocking the size alone leaves Tailwind's paired value in the output as
+     a variable no rule reads. */
   --text-base: initial;
+  --text-3xl: initial;
+  --text-3xl--line-height: initial;
   --text-7xl: initial;
   --text-8xl: initial;
   --text-9xl: initial;
