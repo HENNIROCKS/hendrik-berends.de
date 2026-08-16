@@ -1,11 +1,11 @@
 /**
  * Design tokens
  *
- * Ported from src/scss/variables/. While the SCSS still compiles alongside
- * this file, both emit custom properties. The SCSS writes an unlayered :root
- * and therefore wins over Tailwind's layered theme — that keeps the legacy
- * stylesheet authoritative until it is gone, at which point this file becomes
- * the single source of truth.
+ * src/scss compiles alongside this file and emits custom properties of its
+ * own. It writes an unlayered :root and therefore wins over Tailwind's
+ * layered theme, so where the two define the same token, the SCSS value is
+ * the one that renders. Editing a token here has no visible effect until its
+ * SCSS counterpart is gone.
  *
  * Block order follows Tailwind's own theme namespaces so this reads like the
  * documentation: colors, fonts, text, font weights, spacing, radius.
@@ -16,9 +16,9 @@
      The raw palette. Components should not reach for these directly; use the
      semantic tokens below so light and dark stay in sync.
      The stone ramp keeps a fixed hue and saturation (25.7° / 6.1%) and only
-     varies lightness. It used to be derived from a base color via
-     hsl(from … calc(l ± n)); those are resolved to literal values here, which
-     is why no @theme static is needed anymore.
+     varies lightness. Every step is written out as a literal value rather
+     than derived with hsl(from … calc(l ± n)); Tailwind can follow the var()
+     chain that way, so @theme static is not needed.
      ---------------------------------------------------------------------- */
 
   --color-black: hsl(0 0% 0%);

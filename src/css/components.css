@@ -12,15 +12,9 @@
  * (one per breakpoint, straight from --breakpoint-*). Added here: centering
  * and the gutter.
  *
- * This replaces the Sass %container placeholder. Its `width: calc(100% - 2rem)`
- * plus `margin-inline: 1rem` below 640px was doing the same thing twice — a
- * block element already fills whatever its margins leave, so `auto` produces
- * the identical 1rem on each side. Above 640px the placeholder switched to
- * `auto` explicitly; keeping `auto` throughout collapses both cases into one
- * declaration without changing a rendered pixel.
- *
- * The gutter therefore survives past the breakpoint: at a 640px viewport the
- * element is 608px wide, and the max-width only starts binding at 672px.
+ * The gutter survives past the breakpoint, because the width is a percentage
+ * and the max-width only caps it: at a 640px viewport the element is 608px
+ * wide, and the max-width does not start binding until 672px.
  */
 
 @utility container {
@@ -32,19 +26,12 @@
  * Icons
  *
  * SVG sprite, inlined once per document by the `sprite` snippet; markup
- * references a symbol via `<use href="#icon-name">`. This replaces the icon
- * font, which had three problems the sprite does not: its glyphs live in the
- * Unicode private use area and get announced as garbage by some screen
- * readers, `font-display: block` left every icon invisible until the font
- * loaded, and the shipped formats were eot/svg/ttf/woff with no woff2.
+ * references a symbol via `<use href="#icon-name">`.
  *
  * Color comes from `currentColor`, so icons follow the light/dark switch
  * through whatever text color surrounds them — no icon color token. The two
  * brand marks that carry their own fills (cara has a gradient) override this
  * on their own paths, which is intended.
- *
- * The Sass icon() mixin stays alive until the last component is migrated; it
- * is still used 27 times across 12 files.
  */
 
 @theme {
@@ -253,19 +240,17 @@
  * Prose
  *
  * Rich text coming out of an editor field: there is no markup to hang
- * utilities on, so the child elements are styled by element selector. This
- * replaces the Sass placeholders %link and %list.
+ * utilities on, so the child elements are styled by element selector.
  *
- * Every content block is rendered through the `layouts` snippet, so what used
- * to be the `.layouts &` special case in %link — a dashed underline on links —
- * now simply always applies.
+ * Links carry a dashed underline throughout. Every content block reaches the
+ * page through the `layouts` snippet, so there is no context where they do
+ * not.
  *
- * The arrow in front of a link used to be an icon font glyph set via
- * `content`. The sprite cannot reach in here, so it became a mask instead,
- * tinted with `currentColor` so it follows the light/dark switch. The paths
- * are the sprite's own, including the SVG font flip; 1em matches the former
- * glyph size exactly, since the font had 1024 units per em and the path fills
- * the full box.
+ * The arrow in front of a link is a mask rather than a sprite reference: the
+ * sprite needs an element to attach to and there is none here. It is tinted
+ * with `currentColor` so it follows the light/dark switch. The path is the
+ * sprite's own, including the SVG font flip, and it fills its box completely,
+ * which is why 1em is the right size for it.
  */
 
 @utility prose {
@@ -350,8 +335,7 @@
     line-height: var(--text-lg--line-height);
   }
 
-  /* h4 to h6 sat on body size in the old stylesheet too and were told apart
-     by their weight alone. Kept that way deliberately. */
+  /* h4 to h6 sit on body size and are told apart by their weight alone. */
   & h4,
   & h5,
   & h6 {
@@ -359,9 +343,9 @@
     line-height: var(--text-md--line-height);
   }
 
-  /* Quote — mirrors the quote block, which already runs on utilities
-     (border-l-4 pl-4, text-2xl). border-style has to be explicit: without
-     preflight an unstyled border defaults to `none` and 4px of nothing. */
+  /* Quote — mirrors the quote block (border-l-4 pl-4, text-2xl).
+     border-style has to be explicit: without preflight an unstyled border
+     defaults to `none` and 4px of nothing. */
 
   & blockquote {
     border-left: 4px solid currentColor;
@@ -372,13 +356,11 @@
 
   /* Code
      ----
-     The block keeps the dark surface and yellow text of the old code block.
-     Inline code does not: it stays in the running text and only gets a quiet
-     tint, which is what the old stylesheet did too (a grey pill via the %text
-     placeholder). It inherits its colour instead of setting one, and takes
-     the tint from background-muted, which follows the mode on its own — that
-     replaces the `color: initial` workaround the old rule needed because its
-     grey stayed light in dark mode. */
+     A code block gets the dark surface and yellow text, matching the code
+     block that runs on utilities. Inline code does not: it stays in the
+     running text and only gets a quiet tint. It inherits its colour rather
+     than setting one, and takes the tint from background-muted, so both
+     follow the mode without a dark-mode rule of their own. */
 
   & pre {
     background-color: var(--color-code-background);
