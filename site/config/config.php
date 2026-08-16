@@ -6,8 +6,6 @@ require_once __DIR__ . '/helpers.php';
 
 $config = [
 
-	'activeTheme' => 'hennirocks/hb-theme-v13',
-
 	'auth' => [
 		'debug' => true,
 		'methods' => [
