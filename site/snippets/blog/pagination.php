@@ -10,29 +10,29 @@
     ]);
     ?>
 
-    <div class="prev-next prev-next--pagination">
+    <div class="flex items-center justify-between my-2xl">
 
         <?php if ($pagination->hasPrevPage()): ?>
-            <a class="prev-next__link" href="<?= $pageURL($pagination->prevPage()) ?>" title="Vorherige Seite">
-                <i class="prev-next__icon prev-next__icon--chevron-left"></i>
+            <a href="<?= $pageURL($pagination->prevPage()) ?>" title="Vorherige Seite">
+                <?php snippet('icon', ['name' => 'chevron-left', 'class' => 'icon--lg']) ?>
                 <span class="sr-only">Vorherige Seite</span>
             </a>
         <?php else: ?>
-            <span class="prev-next__placeholder">
-                <i class="prev-next__icon prev-next__icon--chevron-left"></i>
+            <span class="cursor-not-allowed opacity-50">
+                <?php snippet('icon', ['name' => 'chevron-left', 'class' => 'icon--lg']) ?>
             </span>
         <?php endif ?>
 
         Seite <?= $pagination->page() ?> von <?= $pagination->pages() ?>
 
         <?php if ($pagination->hasNextPage()): ?>
-            <a class="prev-next__link" href="<?= $pageURL($pagination->nextPage()) ?>" title="Nächste Seite">
-                <i class="prev-next__icon prev-next__icon--chevron-right"></i>
+            <a href="<?= $pageURL($pagination->nextPage()) ?>" title="Nächste Seite">
+                <?php snippet('icon', ['name' => 'chevron-right', 'class' => 'icon--lg']) ?>
                 <span class="sr-only">Nächste Seite</span>
             </a>
         <?php else: ?>
-            <span class="prev-next__placeholder">
-                <i class="prev-next__icon prev-next__icon--chevron-right"></i>
+            <span class="cursor-not-allowed opacity-50">
+                <?php snippet('icon', ['name' => 'chevron-right', 'class' => 'icon--lg']) ?>
             </span>
         <?php endif ?>
 
