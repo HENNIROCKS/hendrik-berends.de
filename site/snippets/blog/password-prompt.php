@@ -6,23 +6,23 @@
 
 ?>
 
-<div class="password-prompt">
-    <p class="password-prompt__text">
+<div class="mx-auto my-md md:w-[50vw]">
+    <p>
         Dieser Beitrag ist privat. Bitte gib das Passwort ein, um ihn zu lesen.
     </p>
 
     <?php if ($error): ?>
-        <p class="password-prompt__error">
+        <p class="mb-md text-link">
             Falsches Passwort.
         </p>
     <?php endif ?>
 
-    <form class="password-prompt__form" method="post">
+    <form class="mt-md flex flex-wrap gap-sm" method="post">
         <input type="hidden" name="csrf" value="<?= csrf() ?>">
 
         <label class="sr-only" for="password-prompt-input">Passwort</label>
-        <input class="password-prompt__input" id="password-prompt-input" type="password" name="password" placeholder="Passwort" required autofocus>
+        <input class="flex-1 border border-foreground bg-background px-5 py-2.5 text-foreground" id="password-prompt-input" type="password" name="password" placeholder="Passwort" required autofocus>
 
-        <button class="button password-prompt__submit" type="submit">Freischalten</button>
+        <button class="button" type="submit">Freischalten</button>
     </form>
 </div>
