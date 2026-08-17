@@ -1,13 +1,13 @@
-<div class="prev-next">
+<div class="flex items-center justify-between mb-md">
 
     <?php if ($page->hasPrevListed()): ?>
-        <a class="prev-next__link" href="<?= $page->prevListed()->url() ?>" title='Zur Seite <?= esc($page->prevListed()->title()) ?>'>
-            <i class="prev-next__icon prev-next__icon--chevron-left"></i>
+        <a href="<?= $page->prevListed()->url() ?>" title='Zur Seite <?= esc($page->prevListed()->title()) ?>'>
+            <?php snippet('icon', ['name' => 'chevron-left', 'class' => 'icon--lg']) ?>
             <span class="sr-only">Vorherige Seite</span>
         </a>
     <?php else: ?>
-        <span class="prev-next__placeholder">
-            <i class="prev-next__icon prev-next__icon--chevron-left"></i>
+        <span class="cursor-not-allowed opacity-50">
+            <?php snippet('icon', ['name' => 'chevron-left', 'class' => 'icon--lg']) ?>
         </span>
     <?php endif ?>
 
@@ -18,13 +18,13 @@
     <?php endif ?>
 
     <?php if ($page->hasNextListed()): ?>
-        <a class="prev-next__link" href="<?= $page->nextListed()->url() ?>" title='Zur Seite <?= esc($page->nextListed()->title()) ?>'>
-            <i class="prev-next__icon prev-next__icon--chevron-right"></i>
+        <a href="<?= $page->nextListed()->url() ?>" title='Zur Seite <?= esc($page->nextListed()->title()) ?>'>
+            <?php snippet('icon', ['name' => 'chevron-right', 'class' => 'icon--lg']) ?>
             <span class="sr-only">Nächste Seite</span>
         </a>
     <?php else: ?>
-        <span class="prev-next__placeholder">
-            <i class="prev-next__icon prev-next__icon--chevron-right"></i>
+        <span class="cursor-not-allowed opacity-50">
+            <?php snippet('icon', ['name' => 'chevron-right', 'class' => 'icon--lg']) ?>
         </span>
     <?php endif ?>
 
