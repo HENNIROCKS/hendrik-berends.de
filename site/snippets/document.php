@@ -9,7 +9,7 @@
 ?>
 
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="de">
+<html class="motion-safe:scroll-smooth" lang="de">
 
 <head>
   <script>
@@ -21,7 +21,10 @@
   <?php snippet('schemas/schema-organization') ?>
 </head>
 
-<body class="body">
+<?php // overflow-x-clip: without JS, the full-bleed slider block falls back to
+  // a 100vw breakout that overshoots by the scrollbar width. clip avoids a
+  // new scroll container, which would break position: sticky. ?>
+<body class="font-display text-md font-normal bg-background text-foreground overflow-x-clip">
   <?php snippet('sprite') ?>
 
   <?php if ($page->isHomePage()): ?>
