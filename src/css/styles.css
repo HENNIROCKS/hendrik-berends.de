@@ -6,6 +6,11 @@
  * before that it collides with the legacy stylesheet.
  */
 
+/* Fixes the layer order up front: without this, "base" would only get
+   declared once base.css imports below, which is after "utilities" — making
+   the reset in base.css beat every spacing/color utility it should lose to. */
+@layer theme, base, utilities;
+
 @import "tailwindcss/theme" layer(theme);
 @import "tailwindcss/utilities" layer(utilities);
 

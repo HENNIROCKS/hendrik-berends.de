@@ -50,6 +50,37 @@
 }
 
 /**
+ * Reset
+ *
+ * Preflight is off until src/scss is empty (see the migration plan), so this
+ * stands in for the two pieces of it the site currently depends on: a
+ * border-box reset, and paragraph spacing for kirbytext output that renders
+ * outside the `prose` utility (templates/home.php's kt() divs are the one
+ * remaining case). Remove both once Preflight is on and home.php has prose.
+ *
+ * The universal reset stays in @layer base, same as the legacy stylesheet's
+ * version did: unlayered beats layered regardless of specificity, so an
+ * unlayered `*` selector here would zero out every Tailwind spacing utility
+ * on the page, not just the properties this is meant to seed.
+ */
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    margin-bottom: var(--spacing-md);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/**
  * Dark mode
  *
  * Dark mode is declared here and nowhere else in src/css. Components consume
