@@ -61,6 +61,8 @@ jobs:
             **/node_modules/**
             src/**
             .github/**
+            /_work/**
+            /_content-*/**
             /README.md
             /content-sync.command
             /package.json

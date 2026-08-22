@@ -15,9 +15,15 @@ $config = [
 		]
 	],
 
+	// Der Pages-Cache kennt keine Sessions: gecachtes HTML geht an alle
+	// Besucher. Private Artikel sind sessionabhängig und dürfen deshalb nie
+	// hinein – sonst landet die entsperrte Fassung im Cache. Die Fehlerseite
+	// zieht per `randomimage`-Block ein zufälliges GIF und würde einfrieren.
 	'cache' => [
 		'pages' => [
-			'active' => false
+			'active' => true,
+			'ignore' => fn ($page) =>
+				$page->private()->toBool() || $page->isErrorPage(),
 		]
 	],
 
