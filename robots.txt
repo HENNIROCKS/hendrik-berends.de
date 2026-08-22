@@ -1,0 +1,83 @@
+# robots.txt für hendrik-berends.de
+#
+# Zwei Entscheidungen liegen dieser Datei zugrunde.
+#
+# 1. Suche ja, Training nein. Die großen Anbieter betreiben dafür getrennte
+#    Agenten: OpenAI trennt GPTBot (Training) von OAI-SearchBot (Suchindex),
+#    Anthropic ClaudeBot von Claude-SearchBot, Google Google-Extended vom
+#    normalen Googlebot, Apple Applebot-Extended von Applebot. Gesperrt ist
+#    jeweils die Trainingsseite, erlaubt die Suchseite - damit llms.txt und
+#    das strukturierte Markup weiter ihren Zweck erfüllen.
+#
+# 2. Last ohne Gegenwert wird abgewiesen. Die Auswahl beruht auf 190 Tagen
+#    Zugriffslogs mit 182.294 Requests: PetalBot allein steht für 42.104
+#    davon, die Backlink-Scraper zusammen für weitere 29.600.
+#
+# Die Agentennamen der Anbieter ändern sich. Ein Blick alle paar Monate auf
+# https://github.com/ai-robots-txt/ai.robots.txt lohnt sich.
+
+# --- KI-Training und Datensatz-Sammler --------------------------------------
+
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Claude-Web
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Meta-ExternalAgent
+User-agent: meta-externalagent
+User-agent: FacebookBot
+User-agent: CCBot
+User-agent: Bytespider
+User-agent: cohere-ai
+User-agent: cohere-training-data-crawler
+User-agent: Diffbot
+User-agent: ImagesiftBot
+User-agent: img2dataset
+User-agent: omgili
+User-agent: omgilibot
+User-agent: Webzio-Extended
+User-agent: VelenPublicWebCrawler
+User-agent: TikTokSpider
+User-agent: PanguBot
+User-agent: Timpibot
+User-agent: AI2Bot
+User-agent: Ai2Bot-Dolma
+User-agent: SBIntuitionsBot
+User-agent: DeepSeekBot
+User-agent: SemrushBot-OCOB
+User-agent: SemrushBot-SWA
+Disallow: /
+
+# --- Backlink-Scraper für kostenpflichtige SEO-Werkzeuge --------------------
+
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: MJ12bot
+User-agent: DotBot
+User-agent: SERankingBacklinksBot
+User-agent: DataForSeoBot
+User-agent: dataforseo-bot
+Disallow: /
+
+# --- Hohe Last ohne Nutzen für diese Seite ---------------------------------
+# Bytespider steht oben schon bei den Trainings-Crawlern; er hält sich
+# erfahrungsgemäß ohnehin nicht an diese Datei.
+
+User-agent: PetalBot
+User-agent: wpbot
+User-agent: osentix-crawler
+Disallow: /
+
+# --- Alle übrigen -----------------------------------------------------------
+# Hier landen die klassischen Suchmaschinen (Googlebot, bingbot, Applebot,
+# DuckDuckBot) und die KI-Suche, die auf Nachfrage Antworten belegt:
+# OAI-SearchBot, Claude-SearchBot, PerplexityBot sowie die nutzergetriebenen
+# Abrufe ChatGPT-User, Claude-User und Perplexity-User. Ausgenommen ist nur
+# das Panel, das ohnehin eine Anmeldung verlangt.
+
+User-agent: *
+Disallow: /panel/
+Allow: /
+
+Sitemap: https://hendrik-berends.de/sitemap.xml
