@@ -88,6 +88,32 @@
 }
 
 /**
+ * Links
+ *
+ * A link takes the colour of its surroundings and carries no underline of its
+ * own; where one belongs, the component draws it — `prose` uses a dashed
+ * border so the descenders stay legible. Hover and focus are the one place a
+ * link speaks for itself.
+ *
+ * In @layer base for the same reason as the reset above: unlayered, this would
+ * outrank every text-colour utility on an <a>, and a link styled as a button
+ * would render its label in the inherited colour instead of the one its
+ * utilities ask for.
+ */
+
+@layer base {
+  a {
+    color: currentColor;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: var(--color-link);
+    }
+  }
+}
+
+/**
  * Background patterns
  *
  * Deliberately not @theme: these are finished background-image values, not
