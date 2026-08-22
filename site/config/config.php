@@ -15,10 +15,11 @@ $config = [
 		]
 	],
 
-	// Der Pages-Cache kennt keine Sessions: gecachtes HTML geht an alle
-	// Besucher. Private Artikel sind sessionabhängig und dürfen deshalb nie
-	// hinein – sonst landet die entsperrte Fassung im Cache. Die Fehlerseite
-	// zieht per `randomimage`-Block ein zufälliges GIF und würde einfrieren.
+	// The pages cache has no notion of sessions: whatever it stores is handed
+	// to every visitor. Private articles depend on the session, so they must
+	// never enter it - the unlocked version would be served to everyone. The
+	// error page draws a random GIF and would freeze on whichever one landed
+	// in the cache first.
 	'cache' => [
 		'pages' => [
 			'active' => true,

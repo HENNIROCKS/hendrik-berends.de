@@ -58,27 +58,33 @@ AddOutputFilterByType DEFLATE application/x-javascript
 
 # cache static assets in the browser
 #
-# CSS und JS tragen feste Dateinamen ohne Hash, ein Deploy ändert also nur den
-# Inhalt. Ein Tag begrenzt, wie lange Besucher nach einem Deploy die alte
-# Fassung sehen. Bilder und Fonts werden bei Änderung ohnehin unter neuem
-# Namen ausgeliefert und dürfen länger liegen bleiben.
+# CSS and JS keep fixed filenames without a hash, so a deploy changes their
+# content rather than their URL. A day bounds how long visitors can keep
+# seeing the previous build. Images and fonts are served under a new name
+# when they change and may sit in the cache far longer.
+#
+# The font list covers every format the icon font ships in, not just the
+# modern ones: the stylesheet still references ttf and eot alongside woff.
 <IfModule mod_expires.c>
 ExpiresActive on
 
-ExpiresByType text/css                "access plus 1 day"
-ExpiresByType text/javascript         "access plus 1 day"
-ExpiresByType application/javascript  "access plus 1 day"
+ExpiresByType text/css                     "access plus 1 day"
+ExpiresByType text/javascript              "access plus 1 day"
+ExpiresByType application/javascript       "access plus 1 day"
 
-ExpiresByType image/avif              "access plus 1 month"
-ExpiresByType image/webp              "access plus 1 month"
-ExpiresByType image/jpeg              "access plus 1 month"
-ExpiresByType image/png               "access plus 1 month"
-ExpiresByType image/gif               "access plus 1 month"
-ExpiresByType image/svg+xml           "access plus 1 month"
-ExpiresByType image/x-icon            "access plus 1 month"
+ExpiresByType image/avif                   "access plus 1 month"
+ExpiresByType image/webp                   "access plus 1 month"
+ExpiresByType image/jpeg                   "access plus 1 month"
+ExpiresByType image/png                    "access plus 1 month"
+ExpiresByType image/gif                    "access plus 1 month"
+ExpiresByType image/svg+xml                "access plus 1 month"
+ExpiresByType image/x-icon                 "access plus 1 month"
+ExpiresByType image/vnd.microsoft.icon     "access plus 1 month"
 
-ExpiresByType font/woff2              "access plus 1 month"
-ExpiresByType font/woff               "access plus 1 month"
+ExpiresByType font/woff2                   "access plus 1 month"
+ExpiresByType font/woff                    "access plus 1 month"
+ExpiresByType font/ttf                     "access plus 1 month"
+ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
 </IfModule>
 
 # set security headers in all responses
