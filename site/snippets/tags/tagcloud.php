@@ -14,7 +14,7 @@ use Kirby\Toolkit\Str;
 // text-md undoes the container's font-size: 0, which is there to swallow the
 // whitespace between the inline-block links.
 $link = 'mr-sm mb-sm inline-block border border-background-inverse '
-    . 'bg-background-inverse px-[3px] text-md text-foreground-inverse no-underline '
+    . 'bg-background-inverse px-0.75 text-md text-foreground-inverse no-underline '
     . 'hover:border-link hover:bg-link focus:border-link focus:bg-link';
 
 ?>
