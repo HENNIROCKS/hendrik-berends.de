@@ -1,12 +1,10 @@
-@use "../mixins/icon";
 @use "../placeholders/button";
 
+// `.button` and `.button--hexagon` are the last BEM survivors here: the
+// hexagon is extended by `templates/home` and `snippets/scrolltop`, which
+// are still on this stylesheet.
 .button {
   @extend %button;
-
-  &--download {
-    @include icon.icon("download");
-  }
 
   &--hexagon {
     aspect-ratio: 1 / cos(30deg);
@@ -59,15 +57,6 @@
         top: 0%;
       }
     }
-  }
-
-  &--more {
-    @include icon.icon("plus");
-    margin-top: var(--spacing-large);
-  }
-
-  &--wide {
-    width: 100%;
   }
 }
 
