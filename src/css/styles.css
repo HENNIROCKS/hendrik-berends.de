@@ -12,7 +12,11 @@
 @layer theme, base, utilities;
 
 @import "tailwindcss/theme" layer(theme);
-@import "tailwindcss/utilities" layer(utilities);
+/* source(none) turns off automatic source detection, so the @source lines
+   below are the whole list. Without it Tailwind also walks the repo and only
+   honours the repo-local .gitignore, not the global one — which is how a
+   string in an editor config produced a .text-5xl rule no element wears. */
+@import "tailwindcss/utilities" layer(utilities) source(none);
 
 @import "./theme.css";
 @import "./base.css";
@@ -23,5 +27,6 @@
 
 /* The site plugin builds markup of its own (the `heart` KirbyTag). Named file
    by file rather than site/plugins/**, which would drag the vendor plugins and
-   their node_modules into the scan. */
+   their node_modules into the scan. The other plugins that render markup
+   (kirby-mastodon, kirby-website-carbon) emit BEM only and need no scanning. */
 @source "../../site/plugins/hnnrcks-site/index.php";
