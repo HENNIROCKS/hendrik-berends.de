@@ -25,10 +25,10 @@ use Kirby\Toolkit\Str;
             <?php snippet('tags/tagcloud') ?>
 
             <?php if ($page->pinned()->isNotEmpty() && !$tag = param('tag')): ?>
-                <?php snippet('blog/articles', ['articles' => $page->pinned()->toPages(), 'class' => 'pinned']) ?>
+                <?php snippet('blog/articles', ['articles' => $page->pinned()->toPages(), 'pinned' => true]) ?>
             <?php endif ?>
 
-            <?php snippet('blog/articles', ['articles' => $articles, 'class' => 'default', 'id' => 'artikel-liste']) ?>
+            <?php snippet('blog/articles', ['articles' => $articles, 'id' => 'artikel-liste']) ?>
 
             <?php snippet('blog/pagination', ['pagination' => $pagination, 'tag' => $tag]) ?>
         </div>
