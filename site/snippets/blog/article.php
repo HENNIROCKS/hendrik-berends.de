@@ -18,20 +18,22 @@ $date         = $article->date();
 // picture/img pair, whose markup this snippet does not own.
 // `focus-within` rather than `focus`: the card itself is not focusable,
 // the overlay link inside it is.
+// `min-w-0` lets the card go narrower than the intrinsic width of what
+// it holds; a column otherwise refuses to give way.
 ?>
 
 <article class="media relative flex min-w-0 flex-col items-center justify-between rounded-md border border-foreground hover:border-link hover:text-link focus-within:border-link focus-within:text-link<?php e($short === true, " before:content-['…']") ?>">
 
-    <a class="absolute left-0 right-0 h-full w-full" href="<?= $url ?>" aria-label="<?= esc($title) ?>"></a>
+    <a class="absolute h-full w-full" href="<?= $url ?>" aria-label="<?= esc($title) ?>"></a>
 
     <?php if ($pinned ?? false): ?>
-        <span class="absolute right-[1em] top-[1em] rounded-full bg-white p-[5px] text-black">
-            <?php snippet('icon', ['name' => 'pushpin', 'class' => 'icon--lg']) ?>
+        <span class="pointer-events-none absolute right-[1em] top-[1em] rounded-full bg-white p-[5px] text-black">
+            <?php snippet('icon', ['name' => 'pushpin', 'class' => 'icon--lg', 'label' => 'Angepinnt']) ?>
         </span>
     <?php endif ?>
 
     <?php if ($private): ?>
-        <span class="absolute right-[1em] top-[1em] z-1 rounded-md bg-white px-[0.75em] py-[0.25em] font-bold text-black text-sm">🔒 Privat</span>
+        <span class="pointer-events-none absolute right-[1em] top-[1em] z-1 rounded-md bg-white px-[0.75em] py-[0.25em] font-bold text-black text-sm">🔒 Privat</span>
     <?php endif ?>
 
     <?php if ($image = $previewImage ?? $firstImage): ?>
