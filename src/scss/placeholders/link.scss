@@ -4,19 +4,6 @@
   a {
     @include icon.icon("arrow-right");
 
-    @at-root .layouts & {
-      border-bottom: 1px dashed var(--color-text-lightmode);
-
-      @media (prefers-color-scheme: dark) {
-        border-bottom-color: var(--color-text-darkmode);
-      }
-
-      &:focus,
-      &:hover {
-        border-bottom-color: var(--color-link);
-      }
-    }
-
     &[target="_blank"] {
       @include icon.icon("arrow-right-up");
     }
