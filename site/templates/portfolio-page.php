@@ -11,7 +11,7 @@ use Kirby\Toolkit\Str;
 <?php snippet('document', slots: true) ?>
 <?php slot() ?>
 
-<main class="main main--<?= $page->template() ?> __container">
+<main>
     <section class="section">
         <h1 class="mb-md text-center font-bold text-2xl" id="<?= Str::slug($page->title()) ?>">
             <?= esc($page->title()) ?>
