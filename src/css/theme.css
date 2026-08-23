@@ -91,8 +91,8 @@
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
   /* Text sizes
-     A modular scale: size = md * ratio^n, with both the anchor and the ratio
-     interpolating with the viewport. Body copy is fixed: md is exactly 16px
+     A modular scale: size = md * ratio^n, with the ratio interpolating with
+     the viewport and the anchor held still. Body copy is fixed: md is exactly 16px
      at every width, and so are the two steps below it. Only the steps above
      md grow, from ratio 1.2 (minor third) at 320px to 1.25 (major third) at
      1280px, so the hierarchy opens up on wide screens without the reading

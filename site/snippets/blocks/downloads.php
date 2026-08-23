@@ -43,7 +43,14 @@ $cell = 'border-b border-foreground p-md [border-bottom-style:dashed] '
                         <?php endif ?>
                     </td>
                     <td class="<?= $cell ?>" data-label="Download">
-                        <a class="inline-block cursor-pointer border border-background-inverse bg-background-inverse px-5 py-2.5 text-center font-display font-normal no-underline text-md text-foreground-inverse hover:border-link hover:bg-link focus:border-link focus:bg-link" href="<?= $file->url() ?>" target="_blank" title="Datei herunterladen">
+                        <?php
+                        // The label on screen is the file size alone, which reads as
+                        // "2.3 MB, 1.1 MB, 4.7 MB" down a column of links. The name
+                        // goes into aria-label, keeping the size in it so the label
+                        // on screen stays part of the accessible name (WCAG 2.5.3).
+                        $fileName = $file->title()->or($file->name());
+                        ?>
+                        <a class="inline-block cursor-pointer border border-background-inverse bg-background-inverse px-5 py-2.5 text-center font-display font-normal no-underline text-md text-foreground-inverse hover:border-link hover:bg-link focus:border-link focus:bg-link" href="<?= $file->url() ?>" target="_blank" aria-label="<?= esc($fileName) ?> herunterladen, <?= $file->niceSize() ?>" title="Datei herunterladen">
                             <?php snippet('icon', ['name' => 'download']) ?>
                             <?= $file->niceSize() ?>
                         </a>
