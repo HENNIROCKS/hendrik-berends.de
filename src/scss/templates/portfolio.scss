@@ -1,5 +1,0 @@
-@use "../mixins/articles";
-
-.main--portfolio {
-  @include articles.articles;
-}
