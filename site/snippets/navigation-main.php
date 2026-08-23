@@ -6,18 +6,19 @@
 
 ?>
 
-<nav class="navigation navigation--main">
+<nav class="container mb-xl">
 
-    <label class="navigation__label" for="toggle-nav">
-        <i class="navigation__icon navigation__icon--menu"></i>
+    <label class="block cursor-pointer text-center md:hidden" for="toggle-nav">
+        <?php snippet('icon', ['name' => 'menu']) ?>
         <span class="sr-only">Menü auf- und zuklappen</span>
     </label>
-    <input class="navigation__input" id="toggle-nav" type="checkbox" />
+    <input class="peer block appearance-none text-center md:hidden" id="toggle-nav" type="checkbox" />
 
-    <ul class="navigation__list">
+    <ul class="mt-md list-none border-0 border-y border-dashed border-foreground text-center max-md:hidden max-md:peer-checked:block md:mt-0 md:flex md:justify-evenly">
         <?php foreach (collection('pages-listed') as $page): ?>
-            <li class="navigation__list-item<?php e($page->isOpen(), ' navigation__list-item--active') ?>">
-                <a class="navigation__link<?php e($page->isOpen(), ' navigation__link--active') ?>" href="<?= $page->url() ?>">
+            <?php $isOpen = $page->isOpen() ?>
+            <li class="-my-px border-0 border-y border-foreground hover:border-solid hover:border-link <?= $isOpen ? 'border-solid' : 'border-dashed md:border-transparent' ?>">
+                <a class="block px-xl py-md uppercase<?= $isOpen ? ' font-bold' : '' ?>" href="<?= $page->url() ?>">
                     <?= esc($page->title()) ?>
                 </a>
             </li>
