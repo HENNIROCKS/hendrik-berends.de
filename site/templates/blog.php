@@ -17,7 +17,7 @@ use Kirby\Toolkit\Str;
             <?= $page->title() ?>
         </h1>
         <hr class="mx-auto mb-xl h-0.5 w-xl border-0 bg-stone-500" />
-        <div class="layouts">
+        <div class="container">
             <?php if ($page->text()->isNotEmpty()): ?>
                 <?php snippet('blocks/text', ['block' => $page]) ?>
             <?php endif ?>
