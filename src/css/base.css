@@ -123,6 +123,11 @@
  * the one dark-mode block below, so a component names the pattern once and
  * never learns which mode is active.
  *
+ * This block has to stay ABOVE that dark-mode block. Both are unlayered
+ * :root, so they are equally specific and source order alone decides; with
+ * the light values second they overwrite the dark ones unconditionally, at
+ * every viewport and in every mode.
+ *
  * Source: https://pattern.monster/japanese-pattern-2
  * 8-digit hex codes: https://codepen.io/poorfish/pen/VmeZVM
  * doodle has no recorded source.
