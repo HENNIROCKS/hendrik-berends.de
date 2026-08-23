@@ -31,7 +31,10 @@ $textButton = $page->homeTextButton();
                 <?= $textRight->kt() ?>
             </div>
         <?php else: ?>
-            <?php snippet('list-icons', ['class' => 'home']) ?>
+            <?php snippet('list-icons', [
+                'class' => 'flex flex-wrap list-none gap-md',
+                'itemClass' => 'grow shrink-0 basis-1/4 text-center',
+            ]) ?>
         <?php endif ?>
     </div>
 </main>

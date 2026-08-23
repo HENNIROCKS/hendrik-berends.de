@@ -32,11 +32,7 @@
   }
 
   &__left {
-    background-image: var(--pattern-light-japanese2);
-
-    @media (prefers-color-scheme: dark) {
-      background-image: var(--pattern-dark-japanese2);
-    }
+    background-image: var(--pattern-japanese2);
 
     p {
       background-color: var(--color-background-lightmode);
@@ -50,18 +46,6 @@
 
   &__right {
     font-size: var(--text-extralarge);
-  }
-
-  &__list {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    gap: var(--spacing-base);
-
-    &-item {
-      flex: 1 0 25%;
-      text-align: center;
-    }
   }
 
   &__button {
