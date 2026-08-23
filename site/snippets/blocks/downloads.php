@@ -43,7 +43,8 @@ $cell = 'border-b border-foreground p-md [border-bottom-style:dashed] '
                         <?php endif ?>
                     </td>
                     <td class="<?= $cell ?>" data-label="Download">
-                        <a class="button button--download" href="<?= $file->url() ?>" target="_blank" title="Datei herunterladen">
+                        <a class="inline-block cursor-pointer border border-background-inverse bg-background-inverse px-5 py-2.5 text-center font-display font-normal no-underline text-md text-foreground-inverse hover:border-link hover:bg-link focus:border-link focus:bg-link" href="<?= $file->url() ?>" target="_blank" title="Datei herunterladen">
+                            <?php snippet('icon', ['name' => 'download']) ?>
                             <?= $file->niceSize() ?>
                         </a>
                     </td>
