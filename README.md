@@ -19,14 +19,14 @@ composer start
 ## Structure
 
 - `site/` — blueprints, collections, controllers, snippets, templates, config, plugins (Composer-managed).
-- `src/` — build sources: `src/css/` (Tailwind v4: `styles.css` as the entry, plus `theme.css`, `base.css`, `components.css`), `src/scss/` (what is left of the legacy stylesheet: the design tokens and the lightbox import), `src/js/`.
+- `src/` — build sources: `src/css/` (Tailwind v4: `styles.css` as the entry, plus `theme.css`, `base.css`, `components.css`), `src/js/`.
 - `assets/` — build output (`npm run build`), not hand-edited.
 
 ## Styling
 
-Templates and snippets are styled with Tailwind v4 utilities (`npm run build:css:tailwind`), including Preflight. Markup that a component does not own — editor output, the imagex `picture`/`img` pair — is covered by the project's own `@utility` rules in `src/css/components.css`.
+Tailwind v4 is the only stylesheet (`npm run build:css`), Preflight included. Markup that a component does not own — editor output, the imagex `picture`/`img` pair, the lightbox overlay — is covered by the project's own `@utility` rules in `src/css/components.css`.
 
-`src/scss/` still compiles alongside it (`npm run build:css:legacy`) and `head.php` loads both stylesheets. All that is left in it are the design tokens and the lightbox import; it holds no element rules any more. Its `:root` declarations are unlayered and therefore still win over the equally named tokens in `src/css/theme.css` — the one place the two differ today is `--color-salmon-700`. Both files disappear once the tokens move over for good.
+Colours run through two levels: primitives (`--color-stone-400`) feed semantic tokens (`--color-foreground-muted`), and `base.css` holds the single `prefers-color-scheme` block that swaps them. A component names the semantic token and never learns which mode is active, so it needs no `dark:` variant of its own. There is no manual theme switcher.
 
 ## Deployment
 
