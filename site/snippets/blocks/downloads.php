@@ -50,7 +50,7 @@ $cell = 'border-b border-foreground p-md [border-bottom-style:dashed] '
                         // on screen stays part of the accessible name (WCAG 2.5.3).
                         $fileName = $file->title()->or($file->name());
                         ?>
-                        <a class="inline-block cursor-pointer border border-background-inverse bg-background-inverse px-5 py-2.5 text-center font-display font-normal no-underline text-md text-foreground-inverse hover:border-link hover:bg-link focus:border-link focus:bg-link" href="<?= $file->url() ?>" target="_blank" aria-label="<?= esc($fileName) ?> herunterladen, <?= $file->niceSize() ?>" title="Datei herunterladen">
+                        <a class="button" href="<?= $file->url() ?>" target="_blank" aria-label="<?= esc($fileName) ?> herunterladen, <?= $file->niceSize() ?>" title="Datei herunterladen">
                             <?php snippet('icon', ['name' => 'download']) ?>
                             <?= $file->niceSize() ?>
                         </a>

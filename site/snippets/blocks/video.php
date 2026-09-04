@@ -39,7 +39,7 @@ if ($isInternal) {
         <div class="video-frame js-video relative aspect-video border border-border bg-[image:var(--pattern-doodle)]" data-video="<?= htmlspecialchars(Html::video($url)) ?>">
             <div class="absolute inset-0 m-auto h-fit text-center">
                 <p>Beim Abspielen dieses Videos können Cookies durch den Anbieter (Vimeo, YouTube etc.) gesetzt werden.</p>
-                <button class="inline-block cursor-pointer border border-background-inverse bg-background-inverse px-5 py-2.5 text-center font-display font-normal no-underline text-md text-foreground-inverse hover:border-link hover:bg-link focus:border-link focus:bg-link mt-md js-video-button" type="button">
+                <button class="button mt-md js-video-button" type="button">
                     <?php snippet('icon', ['name' => 'check']) ?>
                     Video laden und Cookies akzeptieren
                 </button>

@@ -19,7 +19,7 @@ $tld     = $block->tld();
             <strong class="mb-md block"><?= $heading ?></strong>
         <?php endif ?>
 
-        <a class="inline-block cursor-pointer border border-background-inverse bg-background-inverse px-5 py-2.5 text-center font-display font-normal no-underline text-md text-foreground-inverse hover:border-link hover:bg-link focus:border-link focus:bg-link js-mailto-link"
+        <a class="button js-mailto-link"
             data-name="<?= $name ?>"
             data-domain="<?= $domain ?>"
             data-tld="<?= $tld ?>"

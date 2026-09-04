@@ -510,3 +510,44 @@
     transform: rotate(3600deg);
   }
 }
+
+/**
+ * Button
+ *
+ * The one filled action on the site: download links, the mailto reveal, the
+ * video consent action and the password form all share it. It is a utility
+ * rather than a copied class list because a <button> inherits no type from
+ * its surroundings — every caller has to restate the same declarations, and
+ * repeating sixteen of them at four sites hid that they were meant to be one
+ * thing.
+ *
+ * The label colour deliberately does not change on hover. Only the surface
+ * turns to the link tone, and keeping foreground-inverse on top of it holds
+ * WCAG AA in both modes (5.12:1 light, 9.21:1 dark). The legacy stylesheet
+ * reset the label to its initial colour there, which failed in both.
+ *
+ * Line height is spelled out beside the font size: writing the size alone
+ * would silently drop the paired --text-md--line-height that the text-md
+ * utility applies on its own.
+ */
+
+@utility button {
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid var(--color-background-inverse);
+  background-color: var(--color-background-inverse);
+  padding: 0.625rem 1.25rem;
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--text-md--line-height);
+  color: var(--color-foreground-inverse);
+  text-align: center;
+  text-decoration-line: none;
+
+  &:focus,
+  &:hover {
+    border-color: var(--color-link);
+    background-color: var(--color-link);
+  }
+}

@@ -54,13 +54,15 @@
  * Reset
  *
  * Preflight is off until src/scss is empty (see the migration plan), so this
- * stands in for the piece of it the site still depends on: a border-box reset.
+ * stands in for the two pieces of it the site depends on: a border-box reset,
+ * and paragraph spacing outside the `prose` utility.
  *
- * The paragraph rule below has no consumer left — every kirbytext output on
- * the site now renders inside `prose`, which spaces its children with an owl
- * selector of its own (see components.css). It stays only until Preflight
- * lands, so that turning Preflight on and dropping this happen in one step
- * rather than leaving a window where neither is in place.
+ * The paragraph rule has two real consumers: the consent sentence in
+ * blocks/video.php and the intro line in blog/password-prompt.php both take
+ * their bottom margin from here. footer.php's kirbytext also renders outside
+ * `prose`, but neutralises the rule itself with `[&>p]:mb-0`. Turning
+ * Preflight on is therefore not enough to drop this — those two paragraphs
+ * need their own `mb-md` first.
  *
  * The `:not(.prose)` is what keeps the two apart: without it both claim the
  * same gap, and only margin collapsing hides that two rules regulate it.
