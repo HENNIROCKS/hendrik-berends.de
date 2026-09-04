@@ -7,30 +7,13 @@
 /**
  * Fonts
  *
- * Paths are relative to the compiled stylesheet in assets/css/, same as they
- * were under Sass — both builds land in that directory.
+ * Paths are relative to the compiled stylesheet, which lands in assets/css/.
  *
- * Signika also ships semibold (600) and bold (700). Those are deliberately
- * unused: the design runs on 300 for copy and 400 for emphasis, so declaring
- * them would only invite weights the type scale does not know about. The four
- * unused files still sit in assets/fonts/ and can be deleted.
- *
- * remix is the icon subset; its glyph map lives in
- * src/scss/mixins/icon.scss.
+ * Signika also ships semibold (600) and bold (700). The design runs on 300
+ * for copy and 400 for emphasis, so those two are neither declared here nor
+ * kept in assets/fonts/ — declaring them would only invite weights the type
+ * scale does not know about.
  */
-
-@font-face {
-  font-family: "remix";
-  src: url("../fonts/remix.eot?nfiz12");
-  src:
-    url("../fonts/remix.eot?nfiz12#iefix") format("embedded-opentype"),
-    url("../fonts/remix.ttf?nfiz12") format("truetype"),
-    url("../fonts/remix.woff?nfiz12") format("woff"),
-    url("../fonts/remix.svg?nfiz12#remix") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
-}
 
 @font-face {
   font-family: "Signika";

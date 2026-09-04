@@ -25,6 +25,14 @@
 @import "./base.css";
 @import "./components.css";
 
+/* Plain CSS shipped with the lightbox library, straight from node_modules so
+   it stays in sync with the installed version. Unlayered: it styles an
+   overlay the library builds at runtime, and nothing here puts a utility on
+   those elements. Its rules land after ours in the output, so an
+   equal-specificity tie goes to the library — theoretical today, the two
+   selector sets do not overlap. */
+@import "glightbox/dist/css/glightbox.css";
+
 @source "../../site/templates/**/*.php";
 @source "../../site/snippets/**/*.php";
 
@@ -33,9 +41,3 @@
    their node_modules into the scan. The other plugins that render markup
    (kirby-mastodon, kirby-website-carbon) emit BEM only and need no scanning. */
 @source "../../site/plugins/hnnrcks-site/index.php";
-
-/* Plain CSS shipped with the lightbox library, imported straight from
-   node_modules so it stays in sync with the installed version. Unlayered, as
-   it was under Sass: it styles an overlay the library builds at runtime, and
-   nothing in this project has a utility on those elements to lose against. */
-@import "glightbox/dist/css/glightbox.css";
