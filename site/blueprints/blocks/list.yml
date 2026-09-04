@@ -3,14 +3,14 @@ icon: list-bullet
 wysiwyg: true
 preview: list
 
-# 1:1-Kopie des Core-Blueprints (kirby/config/blocks/list/list.yml), ergaenzt
-# um ein explizites `nodes`. Ohne das laesst sich im Panel keine nummerierte
-# Liste speichern: der Feldtyp `list` hat fuer `nodes` den Default `null`, und
-# `null` faellt aus den Feld-Props heraus, die ans Panel gehen – die Node-Liste
-# kommt dort also nie an. Die Buttons fuer ul/ol sind trotzdem sichtbar, nur
-# `<ol>` wird beim Speichern verworfen. Verifiziert mit Kirby 5.5.3.
+# A 1:1 copy of the core blueprint (kirby/config/blocks/list/list.yml) with an
+# explicit `nodes` added. Without it no ordered list can be saved from the
+# panel: the `list` field type defaults `nodes` to `null`, and `null` is
+# dropped from the field props sent to the panel, so the node list never
+# arrives there. The ul/ol buttons still show, only `<ol>` is discarded on
+# save. Verified with Kirby 5.5.3.
 #
-# Diese Datei also nicht loeschen, solange das Verhalten im Core besteht.
+# So do not delete this file while that core behaviour stands.
 fields:
   text:
     label: field.blocks.list.name
