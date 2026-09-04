@@ -17,7 +17,7 @@ $rule = 'md:before:absolute md:before:inset-x-0 md:before:mx-auto '
 
 <nav>
 
-    <ul class="relative flex list-none flex-col items-center gap-md md:flex-row md:items-baseline <?= $rule ?>">
+    <ul class="relative flex flex-col items-center gap-md md:flex-row md:items-baseline <?= $rule ?>">
         <?php foreach (collection('pages-footermenu') as $page): ?>
             <li>
                 <a class="bg-background" href="<?= $page->url() ?>">

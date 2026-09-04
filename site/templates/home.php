@@ -32,7 +32,7 @@ $textButton = $page->homeTextButton();
             </div>
         <?php else: ?>
             <?php snippet('list-icons', [
-                'class' => 'flex flex-wrap list-none gap-md',
+                'class' => 'flex flex-wrap gap-md',
                 'itemClass' => 'grow shrink-0 basis-1/4 text-center',
             ]) ?>
         <?php endif ?>

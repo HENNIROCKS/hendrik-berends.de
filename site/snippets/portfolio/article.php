@@ -22,7 +22,7 @@ $firstImage   = $article->images()->first();
         <?php snippet('partials/preview-image', ['image' => $image, 'alt' => $image->alt(), 'imgClass' => 'rounded-t-md', 'critical' => $critical ?? false]) ?>
     <?php endif ?>
 
-    <h3 class="py-md font-bold">
+    <h3 class="py-md font-bold text-lg">
         <?= esc($title) ?>
     </h3>
 

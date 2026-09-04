@@ -22,7 +22,7 @@ $text = $site->footertext()->or('Made with Kirby and (heart: ) &copy; ' . date('
         </div>
 
         <div class="flex flex-col items-center gap-md md:flex-row">
-            <?php snippet('list-icons', ['class' => 'flex list-none gap-md']) ?>
+            <?php snippet('list-icons', ['class' => 'flex gap-md']) ?>
         </div>
     </div>
 

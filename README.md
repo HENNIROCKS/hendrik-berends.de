@@ -19,12 +19,14 @@ composer start
 ## Structure
 
 - `site/` — blueprints, collections, controllers, snippets, templates, config, plugins (Composer-managed).
-- `src/` — build sources: `src/scss/` (the site's actual visual styling, ported as-is from the former `hb-theme-v13` plugin), `src/css/styles.css` (Tailwind v4 entry — utilities only, no preflight, for an incremental future migration), `src/js/`.
+- `src/` — build sources: `src/css/` (Tailwind v4: `styles.css` as the entry, plus `theme.css`, `base.css`, `components.css`), `src/scss/` (what is left of the legacy stylesheet: the design tokens and the lightbox import), `src/js/`.
 - `assets/` — build output (`npm run build`), not hand-edited.
 
 ## Styling
 
-The site's CSS currently comes from `src/scss/` (compiled via `npm run build:css:legacy`), a straight port of the old `hb-theme-v13` theme. Tailwind v4 is wired up (`npm run build:css:tailwind`) but not yet used by any template — it's there for a planned block-by-block migration to utility classes, not a parallel design system. Preflight is intentionally disabled so Tailwind's base reset doesn't collide with the legacy CSS in the meantime.
+Templates and snippets are styled with Tailwind v4 utilities (`npm run build:css:tailwind`), including Preflight. Markup that a component does not own — editor output, the imagex `picture`/`img` pair — is covered by the project's own `@utility` rules in `src/css/components.css`.
+
+`src/scss/` still compiles alongside it (`npm run build:css:legacy`) and `head.php` loads both stylesheets. All that is left in it are the design tokens and the lightbox import; it holds no element rules any more. Its `:root` declarations are unlayered and therefore still win over the equally named tokens in `src/css/theme.css` — the one place the two differ today is `--color-salmon-700`. Both files disappear once the tokens move over for good.
 
 ## Deployment
 
