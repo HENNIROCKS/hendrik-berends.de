@@ -12,7 +12,7 @@ use Kirby\Toolkit\Str;
 <?php slot() ?>
 
 <main>
-    <section class="section">
+    <section class="container mb-xl xl:mt-xl xl:max-w-[55vw]">
         <h1 class="mb-md text-center font-bold text-2xl" id="<?= Str::slug($page->title()) ?>">
             <?= esc($page->title()) ?>
         </h1>
