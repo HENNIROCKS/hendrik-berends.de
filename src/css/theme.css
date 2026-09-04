@@ -1,12 +1,6 @@
 /**
  * Design tokens
  *
- * src/scss compiles alongside this file and emits custom properties of its
- * own. It writes an unlayered :root and therefore wins over Tailwind's
- * layered theme, so where the two define the same token, the SCSS value is
- * the one that renders. Editing a token here has no visible effect until its
- * SCSS counterpart is gone.
- *
  * Block order follows Tailwind's own theme namespaces so this reads like the
  * documentation: colors, fonts, text, font weights, spacing, radius.
  */
@@ -44,9 +38,12 @@
   /* The brand tone, and the only salmon the site uses. It carries the link
      and focus colour in both modes, which is a deliberate choice against
      contrast: on the light background it reaches 2.08:1, well under the
-     4.5:1 that body-sized text needs. A darker step was tried and rejected —
-     it reads as a different colour and the brand identity outranks the ratio
-     here. Dark mode is unaffected: 6.68:1 against stone-800. */
+     4.5:1 that body-sized text needs. Dark mode is fine at 6.68:1 against
+     stone-800.
+     A darker step would pass — hsl(14 100% 40%) gives 4.79:1 — but it reads
+     as a different colour, and the brand identity outranks the ratio here.
+     That is the trade-off, not an oversight: raising the contrast means
+     changing the colour of the site. */
   --color-salmon-500: hsl(14 100% 70.6%);
 
   --color-yellow-100: hsl(47.4 96.8% 76.6%);
