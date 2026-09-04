@@ -287,6 +287,18 @@
   & ol,
   & ul {
     margin-inline: var(--spacing-md);
+
+    /* Preflight strips the markers from every list so that navigation and
+       icon rows need no reset of their own. Editor content is the one place
+       they belong, and `revert` hands the element back to the browser: a
+       numbered list stays decimal at every depth, a bulleted one steps from
+       disc through circle to square as it nests.
+
+       Beats `list-none` on the same element: `.prose ul` scores (0,1,1)
+       against the utility's (0,1,0), and both sit in the utilities layer. A
+       list inside editor content that wants no markers needs the marker
+       switched off here, not on the element. */
+    list-style-type: revert;
   }
 
   /* Spacing between blocks

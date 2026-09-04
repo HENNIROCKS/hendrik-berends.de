@@ -1,9 +1,11 @@
 /**
  * Entry
  *
- * Preflight is still deliberately off — hence the two separate imports rather
- * than @import "tailwindcss". It gets switched on once src/scss is empty;
- * before that it collides with the legacy stylesheet.
+ * The three imports are spelled out rather than pulled in as a single
+ * @import "tailwindcss", which would additionally declare a components layer
+ * this project has no use for — its own component styles are @utility rules
+ * and land in utilities. Spelling them out also puts each layer assignment
+ * next to the order declared below.
  */
 
 /* Fixes the layer order up front: without this, "base" would only get
@@ -12,6 +14,7 @@
 @layer theme, base, utilities;
 
 @import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/preflight" layer(base);
 /* source(none) turns off automatic source detection, so the @source lines
    below are the whole list. Without it Tailwind also walks the repo and only
    honours the repo-local .gitignore, not the global one — which is how a

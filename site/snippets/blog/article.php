@@ -46,7 +46,7 @@ $date         = $article->date();
         ]) ?>
     <?php endif ?>
 
-    <h3 class="py-md font-bold">
+    <h3 class="py-md font-bold text-lg">
         <?= esc($title) ?>
 
         <time class="block font-normal text-sm" datetime="<?= $date->toDate('YYYY-MM-dd') ?>">

@@ -14,7 +14,7 @@ $headings = $page->layouts()->toBlocks()->filterBy('type', 'heading');
 
     <strong class="mb-md block">Direkt zu:</strong>
 
-    <ol class="mx-md mb-md">
+    <ol class="mx-md mb-md list-decimal">
         <?php foreach ($headings as $heading): ?>
             <?php
             $slug = Str::slug($heading->text());
