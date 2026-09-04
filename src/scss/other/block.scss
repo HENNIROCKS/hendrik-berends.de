@@ -1,9 +1,0 @@
-.block {
-  + .block:not(.block__line):not(.block__mailto) {
-    margin-top: var(--spacing-base);
-
-    @at-root .block__quote#{&} {
-      margin-top: var(--spacing-large);
-    }
-  }
-}

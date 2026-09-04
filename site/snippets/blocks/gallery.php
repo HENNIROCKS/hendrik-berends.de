@@ -77,7 +77,7 @@ $column = 'grow basis-[calc((28rem_-_100%)_*_999)] text-md';
 			<span class="absolute inset-y-0 my-auto flex size-12 items-center justify-center bg-background">
 				<?php snippet('icon', ['name' => 'arrow-left-right']) ?>
 			</span>
-			<div class="filmstrip overflow-auto p-md text-[0px] whitespace-nowrap xl:max-w-[calc(55vw_-_calc(var(--spacing-md)_*_2))]">
+			<div class="filmstrip overflow-auto p-md text-[0px] whitespace-nowrap xl:max-w-[55vw]">
 				<?php foreach ($block->images()->toFiles() as $image): ?>
 					<a class="js-lightbox" href="<?= $image->url() ?>" data-gallery="<?= $gallery ?>" <?= Html::attr(['data-description' => $image->caption()->lightboxDescription()], null, ' ') ?>>
 						<?php snippet('partials/content-image', ['image' => $image, 'sizes' => '(min-width: 1280px) 55vw, 100vw']) ?>

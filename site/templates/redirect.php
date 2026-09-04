@@ -14,7 +14,7 @@ if ($target = $page->redirect()->toPage()) {
 <?php slot() ?>
 
 <main>
-    <section class="section">
+    <section class="container mb-xl xl:mt-xl xl:max-w-[55vw]">
         <h1 class="mb-md text-center font-bold text-2xl"><?= $page->title() ?></h1>
     </section>
 </main>
