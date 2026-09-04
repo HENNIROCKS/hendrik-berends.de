@@ -54,16 +54,16 @@
  * Reset
  *
  * Preflight is off until src/scss is empty (see the migration plan), so this
- * stands in for the two pieces of it the site currently depends on: a
- * border-box reset, and paragraph spacing for kirbytext output that renders
- * outside the `prose` utility. The left column of templates/home.php is the
- * only consumer: footer.php's kt() output is spaced by footer.scss, and
- * home.php's right column renders its paragraphs inline, where a vertical
- * margin does nothing. Remove both once Preflight is on and home.php has prose.
+ * stands in for the piece of it the site still depends on: a border-box reset.
  *
- * Excluding `prose` leaves the vertical rhythm in there to the owl selector
- * alone (see components.css) — otherwise two rules claim the same gap and
- * only margin collapsing hides that they disagree.
+ * The paragraph rule below has no consumer left — every kirbytext output on
+ * the site now renders inside `prose`, which spaces its children with an owl
+ * selector of its own (see components.css). It stays only until Preflight
+ * lands, so that turning Preflight on and dropping this happen in one step
+ * rather than leaving a window where neither is in place.
+ *
+ * The `:not(.prose)` is what keeps the two apart: without it both claim the
+ * same gap, and only margin collapsing hides that two rules regulate it.
  *
  * The universal reset stays in @layer base, same as the legacy stylesheet's
  * version did: unlayered beats layered regardless of specificity, so an
