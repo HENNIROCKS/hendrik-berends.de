@@ -426,3 +426,87 @@
     background-color: var(--color-stone-500);
   }
 }
+
+/**
+ * Hexagon button
+ *
+ * The oversized hexagon on the home page and above the scroll-to-top link. It
+ * carries its own type because a <button> inherits none, and its own geometry
+ * because the shape has to survive without a background image: the explicit
+ * width alongside the aspect ratio is what keeps Safari from collapsing it.
+ *
+ * Deliberately position-less. The wave below needs a positioned ancestor, but
+ * which one differs per caller — the home page lays its button over both
+ * columns with `absolute`, the scroll-to-top link sits in the flow with
+ * `relative`. Baking one in would leave the other fighting utility order.
+ *
+ * The label turns black on hover in both modes, and only there. It sits on the
+ * salmon wave then (9.15:1), where the mode's own foreground would drop to
+ * 2.1:1 in dark mode. The colour rides the same duration as the wave, so it
+ * arrives with it instead of flashing ahead of it — which is also why it lives
+ * inside the reduced-motion query.
+ */
+
+@utility hexagon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(150px * 1 / cos(30deg));
+  height: 150px;
+  aspect-ratio: 1 / cos(30deg);
+  clip-path: polygon(50% -50%, 100% 50%, 50% 150%, 0 50%);
+  overflow: hidden;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.4;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+
+  &:focus,
+  &:hover {
+    color: var(--color-black);
+  }
+
+  /* The wave: a slowly spinning blob parked below the shape, which rises to
+     cover it on hover. Its rounded-but-not-round radius is what makes the
+     edge read as liquid while it turns. */
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 110%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    border-radius: 38%;
+    background-color: var(--color-salmon-500);
+  }
+
+  &:focus::before,
+  &:hover::before {
+    top: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: color 0.35s ease;
+
+    &::before {
+      animation: hexagon-wave 30s linear infinite;
+      transition: top 0.35s ease;
+    }
+  }
+}
+
+@keyframes hexagon-wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(3600deg);
+  }
+}
