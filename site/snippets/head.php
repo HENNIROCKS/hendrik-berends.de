@@ -78,8 +78,6 @@ $aboutPage = page('page://xfzvptqdbmnlbcil');
     <meta name="twitter:image" content="<?= esc($ogImage->url()) ?>">
 <?php endif ?>
 
-<?= css('assets/css/theme.min.css') ?>
-
 <?= css('assets/css/style.min.css') ?>
 
 <link rel="shortcut icon" href="/favicon.ico">
